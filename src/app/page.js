@@ -1,95 +1,87 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./home.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <main className={styles.mainContent}>
+        {/* Section Hero */}
+        <section className={styles.hero}>
+          <h1 className={styles.heroTitle}>Bienvenue chez Cresson Tech</h1>
+          <p className={styles.heroText}>
+            Nous créons des solutions technologiques innovantes pour répondre à vos besoins en intelligence artificielle.
+          </p>
+        </section>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
+        {/* Section Services */}
+        <section className={styles.services}>
+          <h2 className={styles.sectionTitle}>Nos Services</h2>
+          <ul className={styles.servicesList}>
+            <li>
+              <h3 className={styles.serviceTitle}>Développement d'applications IA</h3>
+              <p className={styles.serviceText}>Des solutions sur mesure adaptées à vos besoins technologiques.</p>
+            </li>
+            <li>
+              <h3 className={styles.serviceTitle}>Analyse de données avancée</h3>
+              <p className={styles.serviceText}>Exploration et visualisation de données pour des décisions éclairées.</p>
+            </li>
+            <li>
+              <h3 className={styles.serviceTitle}>Automatisation et intégration</h3>
+              <p className={styles.serviceText}>Optimisation des processus pour gagner en efficacité et en performance.</p>
+            </li>
+          </ul>
+        </section>
+
+        {/* Section Pourquoi nous choisir */}
+        <section className={styles.whyChooseUs}>
+          <h2 className={styles.sectionTitle}>Pourquoi nous choisir ?</h2>
+          <div className={styles.featuresGrid}>
+            <div className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>Expertise</h3>
+              <p className={styles.featureText}>
+                Une équipe de professionnels expérimentés dans le domaine technologique.
+              </p>
+            </div>
+            <div className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>Innovation</h3>
+              <p className={styles.featureText}>
+                Des solutions modernes basées sur les dernières technologies.
+              </p>
+            </div>
+            <div className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>Résultats</h3>
+              <p className={styles.featureText}>
+                Un accompagnement garanti vers la réussite de vos projets.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      <div className={styles.ctas}>
+        <a href="/contact" className={styles.primaryCta}>
+          Nous Contacter
+        </a>
+        <a href="/about" className={styles.secondaryCta}>
+          En savoir plus
+        </a>
+      </div>
+
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className={styles.footerContent}>
+          <p>© 2024 Cresson Tech. Tous droits réservés.</p>
+          <div className={styles.socialLinks}>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
       </footer>
+      </main>
     </div>
   );
 }

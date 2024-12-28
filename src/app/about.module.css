@@ -1,0 +1,188 @@
+/* Styles globaux pour la page About */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: "Play", serif;
+  background: url("/robot_humain_main.jpg") no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  position: relative;
+}
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.87); /* Overlay sombre avec opacité ajustée */
+  z-index: 0;
+}
+.mainContent {
+  z-index: 1; /* Contenu au-dessus de l'overlay */
+  width: 100%;
+}
+
+/* Section Hero */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #00e0ff; /* Bleu clair pour un effet moderne */
+  margin-bottom: 20px;
+}
+
+.heroText {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #cccccc; /* Gris clair pour une lisibilité optimale */
+}
+
+/* Section Valeurs */
+.values {
+  text-align: center;
+  margin: 40px 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.values h2 {
+  font-size: 2.5rem;
+  color: #ffab40; /* Orange doux pour un contraste agréable */
+  margin-bottom: 20px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.valueCard {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.valueCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.valueCard h3 {
+  font-size: 1.5rem;
+  color: #00e0ff; /* Harmonisé avec le bleu clair du titre */
+  margin-bottom: 10px;
+}
+
+.valueCard p {
+  font-size: 1rem;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+/* Section Équipe */
+.team {
+  text-align: center;
+  margin: 40px 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  color: #00e0ff; /* Couleur uniforme pour les titres principaux */
+  margin-bottom: 20px;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.teamMember {
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.teamMember img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.teamMember h3 {
+  font-size: 1.3rem;
+  margin: 10px 0 5px;
+  color: #ffab40; /* Orange doux pour différencier les sous-titres */
+}
+
+.teamMember p {
+  font-size: 1rem;
+  color: #b3b3b3;
+}
+
+/* Section CTA */
+.ctas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.primaryCta {
+  background: #00e0ff;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.primaryCta:hover {
+  background: #008bb3;
+  transform: scale(1.05);
+}
+
+.secondaryCta {
+  background: transparent;
+  color: #00e0ff;
+  padding: 12px 30px;
+  border: 2px solid #00e0ff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.secondaryCta:hover {
+  background: #00e0ff;
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

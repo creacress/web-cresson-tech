@@ -1,0 +1,20 @@
+.headerNav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    font-size: 1rem;
+  }
+  
+  .headerNav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .headerNav a:hover {
+    color: #00bfff;
+  }
+  
