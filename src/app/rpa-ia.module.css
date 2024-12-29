@@ -18,7 +18,41 @@
     z-index: 1;
     width: 100%;
   }
+
+  .mainTitle {
+    font-family: "Play", serif; /* Typographie élégante */
+    font-size: 3rem; /* Taille réduite pour mobiles */
+    color: #fff; /* Couleur blanche pour contraste */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Ombre réduite */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Dégradé stylisé */
+    -webkit-background-clip: text; /* Applique le dégradé au texte */
+    -webkit-text-fill-color: transparent; /* Rend le texte transparent */
+    padding: 10px; /* Marges réduites */
+    border-left: 4px solid #fff; /* Ligne décorative */
+    position: relative; /* Position normale pour mobiles */
+    margin: 20px auto; /* Centré horizontalement */
+    text-align: center; /* Alignement centré */
+    z-index: 1; /* Assure que le texte reste au-dessus des autres éléments */
+  }
   
+  /* Pour les écrans moyens et grands */
+  @media (min-width: 768px) {
+    .mainTitle {
+      font-size: 2rem; /* Augmentation de la taille du texte */
+      padding: 15px 20px; /* Marges ajustées */
+      text-align: left; /* Alignement à gauche */
+      transform: translateY(-50%); /* Ajustement pour un vrai centrage */
+    }
+  }
+  
+  /* Pour les écrans très grands */
+  @media (min-width: 1200px) {
+    .mainTitle {
+      font-size: 3rem; /* Taille optimale pour les grands écrans */
+      padding: 20px 30px; /* Marges plus importantes */
+      margin-left: 0; /* Suppression de tout décalage horizontal */
+    }
+  }
   .section {
     border-radius: 8px;
     padding: 20px 30px;

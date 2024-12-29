@@ -6,6 +6,8 @@ export default function ServicePage() {
     return (
         <div className={styles.page}>
             <div className={styles.mainContent}>
+            <h1 className={styles.mainTitle}>RPA (Robotic Process Automation)</h1>
+
                 {/* Contexte */}
                 <section className={styles.section}>
                     <h2 className={styles.sectionTitle}>Contexte</h2>
