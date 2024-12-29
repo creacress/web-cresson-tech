@@ -1,4 +1,6 @@
 import styles from "./home.module.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import Footer from "./component/Footer/Footer";
 
 export default function Home() {
   return (
@@ -16,41 +18,79 @@ export default function Home() {
         <section className={styles.services}>
           <h2 className={styles.sectionTitle}>Nos solutions et expertises en intelligence artificielle (IA)</h2>
           <ul className={styles.servicesList}>
-            <li>
-              <h3 className={styles.serviceTitle}>Maintenance Prédictive</h3>
-              <p className={styles.serviceText}>Automatisez vos processus de contrôle avec la RPA, exploitez vos données pour prédire les maintenances, et analysez-les en temps réel grâce à l'IA pour anticiper les problèmes et éviter les pannes.</p>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-tools"></i>
+                <h3 className={styles.serviceTitle}>Maintenance Prédictive</h3>
+              </div>
+              <p className={styles.serviceText}>
+                Automatisez vos processus de contrôle avec la RPA, exploitez vos données pour prédire les maintenances, et analysez-les en temps réel grâce à l'IA pour anticiper les problèmes et éviter les pannes.
+              </p>
+              <a href="/services/maintenance-predictive" className={styles.cardButton}>En savoir plus</a>
             </li>
-            <li>
-              <h3 className={styles.serviceTitle}>RPA et IA pour l'Automatisation des Processus</h3>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-robot"></i>
+                <h3 className={styles.serviceTitle}>RPA et IA pour l'Automatisation des Processus</h3>
+              </div>
               <p className={styles.serviceText}>
                 Optimisez vos opérations grâce à l'automatisation des processus, en combinant la puissance de la RPA et de l'IA. Ces solutions s'intègrent facilement à vos outils digitaux existants ou sont personnalisées pour répondre à vos besoins spécifiques.
               </p>
+              <a href="/services/rpa-ia" className={styles.cardButton}>En savoir plus</a>
             </li>
-            <li>
-              <h3 className={styles.serviceTitle}>IA Générative</h3>
-              <p className={styles.serviceText}>Exploitez l'intelligence artificielle générative, adaptée à vos besoins métiers, avec des solutions existantes ou sur mesure pour automatiser des tâches récurrentes comme la génération de documents, de contenus, de visuels, de textes ou encore la saisie de données.</p>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-magic"></i>
+                <h3 className={styles.serviceTitle}>IA Générative</h3>
+              </div>
+              <p className={styles.serviceText}>
+                Exploitez l'intelligence artificielle générative, adaptée à vos besoins métiers, avec des solutions existantes ou sur mesure pour automatiser des tâches récurrentes comme la génération de documents, de contenus, de visuels, de textes ou encore la saisie de données.
+              </p>
+              <a href="/ia-generative" className={styles.cardButton}>En savoir plus</a>
             </li>
-            <li>
-              <h3 className={styles.serviceTitle}>IA de traitement d'iamges</h3>
-              <p className={styles.serviceText}>Qu'il s'agisse d'améliorer la qualité d'un visuel, de modifier automatiquement son format ou d'automatiser des tâches chronophages liées aux images, l'IA de traitement d'image offre un large éventail de possibilités pour optimiser vos usages métiers.</p>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-image"></i>
+                <h3 className={styles.serviceTitle}>IA de traitement d'images</h3>
+              </div>
+              <p className={styles.serviceText}>
+                Qu'il s'agisse d'améliorer la qualité d'un visuel, de modifier automatiquement son format ou d'automatiser des tâches chronophages liées aux images, l'IA de traitement d'image offre un large éventail de possibilités pour optimiser vos usages métiers.
+              </p>
+              <a href="/ia-traitement-images" className={styles.cardButton}>En savoir plus</a>
             </li>
-            <li>
-              <h3 className={styles.serviceTitle}>IA sur mesure</h3>
-              <p className={styles.serviceText}>Nous vous accompagnons dans tous vos projets d’IA, quels qu’ils soient. Notre expertise couvre une large gamme de technologies et de solutions pour répondre à vos besoins spécifiques.</p>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-cogs"></i>
+                <h3 className={styles.serviceTitle}>IA sur mesure</h3>
+              </div>
+              <p className={styles.serviceText}>
+                Nous vous accompagnons dans tous vos projets d’IA, quels qu’ils soient. Notre expertise couvre une large gamme de technologies et de solutions pour répondre à vos besoins spécifiques.
+              </p>
+              <a href="/ia-sur-mesure" className={styles.cardButton}>En savoir plus</a>
             </li>
-            <li>
-              <h3 className={styles.serviceTitle}>IA Administrative (OCR)</h3>
-              <p className={styles.serviceText}>L'IA révolutionne le domaine administratif : classement intelligent, présaisie et saisie automatique, contrôle documentaire, et automatisation des processus. Grâce à l'OCR et à l'intelligence artificielle, tout devient possible pour optimiser vos tâches administratives.</p>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-file-alt"></i>
+                <h3 className={styles.serviceTitle}>IA Administrative (OCR)</h3>
+              </div>
+              <p className={styles.serviceText}>
+                L'IA révolutionne le domaine administratif : classement intelligent, présaisie et saisie automatique, contrôle documentaire, et automatisation des processus. Grâce à l'OCR et à l'intelligence artificielle, tout devient possible pour optimiser vos tâches administratives.
+              </p>
+              <a href="/ia-administrative" className={styles.cardButton}>En savoir plus</a>
             </li>
-            <li>
-              <h3 className={styles.serviceTitle}>Pricing Dynamique et Analyse Avancée</h3>
+            <li className={styles.serviceCard}>
+              <div className={styles.serviceHeader}>
+                <i className="fas fa-chart-line"></i>
+                <h3 className={styles.serviceTitle}>Pricing Dynamique et Analyse Avancée</h3>
+              </div>
               <p className={styles.serviceText}>
                 Exploitez la puissance de l’intelligence artificielle pour analyser de vastes volumes de données et obtenir des insights stratégiques. Intégrez ces résultats directement dans vos processus et outils métiers. Nos solutions incluent l'IA d’analyse concurrentielle (pricing dynamique) et l'IA d’analyse sectorielle pour des domaines tels que les RH, les achats ou la comptabilité.
               </p>
+              <a href="/pricing-analyse-avancee" className={styles.cardButton}>En savoir plus</a>
             </li>
-
           </ul>
         </section>
+
         <section className={styles.hero}>
           <h1 className={styles.heroTitle}>Un projet de développement d'intelligence artificielle ?</h1>
           <p className={styles.heroText}>
@@ -118,60 +158,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <footer className={styles.footer}>
-          <div className={styles.footerContent}>
-            <div className={styles.footerTop}>
-              <div className={styles.footerSection}>
-                <h3>WebCressonTech</h3>
-                <p>Experte en IA</p>
-                <p>
-                  Nous sommes concepteurs et développeurs d’intelligences artificielles sur mesure.
-                </p>
-              </div>
-              <div className={styles.footerSection}>
-                <h3>La seul limite est c'elle que vous franchisez pas ! </h3>
-                <p>Nous vous accompagnons dans vos projets.</p>
-                <div className={styles.ctaLinks}>
-                  <a href="/contact" className={styles.primaryCta}>
-                    Contacter un expert
-                  </a>
-                  <a href="https://www.malt.fr" target="_blank" rel="noopener noreferrer" className={styles.secondaryCta}>
-                    Malt
-                  </a>
-                </div>
-              </div>
-              <div className={styles.footerSection}>
-                <p>
-                  5, Rte de Marienthal - 67500 Haguenau
-                  <br />
-                  03 68 03 45 84
-                  <br />
-                  <a href="mailto:contact@digitalia.fr" className={styles.mailLink}>
-                    contact@digitalia.fr
-                  </a>
-                </p>
-                <p>
-                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className={styles.footerBottom}>
-              <div className={styles.footerLinks}>
-                <a href="/about">Accueil</a>
-                <a href="/services">L’agence IA</a>
-                <a href="/blog">Blog</a>
-                <a href="/contact">Contact</a>
-                <a href="/terms">Conditions de ventes</a>
-                <a href="/privacy">Mentions légales</a>
-              </div>
-              <p>© 2024 Digitalia. Tous droits réservés.</p>
-            </div>
-          </div>
-        </footer>
-
+      <Footer />
       </main>
     </div>
   );

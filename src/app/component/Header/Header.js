@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         <header>
           <nav className="headerNav">
             <Link href="/">Accueil</Link>
-            <Link href="/service">Service</Link>
+            <Link href="/services">Service</Link>
             <Link href="/about">À propos</Link>
             <Link href="/contact">Contact</Link>
           </nav>

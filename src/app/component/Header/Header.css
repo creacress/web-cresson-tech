@@ -1,20 +1,41 @@
 .headerNav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: #1a1a1a;
-    color: #f5f5f5;
-    font-size: 1rem;
+  display: flex;
+  flex-direction: column; /* Par défaut, les liens sont empilés verticalement pour mobile */
+  align-items: center;
+  gap: 10px; /* Réduit l'espacement sur mobile */
+  padding: 10px; /* Moins de padding sur mobile */
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  font-size: 1rem;
+  box-shadow: 0px 4px 8px rgba(221, 153, 5, 0.884); /* Ombre claire subtile */
+  position: sticky; /* Fixe le header en haut */
+  top: 0;
+  z-index: 1000; /* Assure que le header reste au-dessus des autres éléments */
+}
+
+.headerNav a {
+  font-size: 1.2rem; /* Taille plus petite sur mobile */
+  color: #f5f5f5;
+  text-decoration: none;
+  margin: 10px 0; /* Espacement vertical sur mobile */
+  transition: color 0.2s ease;
+}
+
+.headerNav a:hover {
+  color: #00bfff;
+}
+
+/* Styles pour les écrans plus larges */
+@media (min-width: 768px) {
+  .headerNav {
+    flex-direction: row; /* Passe à un affichage horizontal sur tablette et plus */
+    justify-content: center; /* Centre les liens */
+    gap: 20px; /* Augmente l'espacement entre les liens */
+    padding: 20px; /* Augmente le padding */
   }
-  
+
   .headerNav a {
-    color: #f5f5f5;
-    text-decoration: none;
-    transition: color 0.2s ease;
+    font-size: 1.5rem; /* Taille plus grande pour les écrans plus larges */
+    margin: 0 15px; /* Espacement horizontal sur tablette et plus */
   }
-  
-  .headerNav a:hover {
-    color: #00bfff;
-  }
-  
+}
