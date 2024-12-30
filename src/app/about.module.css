@@ -6,7 +6,7 @@
   min-height: 100vh;
   padding: 40px 20px;
   font-family: "Roboto", sans-serif;
-  background: url("/robot_humain_main.jpg") no-repeat center center;
+  background: url("/robot_humain_main.webp") no-repeat center center;
   background-size: cover;
   color: #ffffff;
   position: relative;
@@ -24,7 +24,6 @@
 .mainContent {
   z-index: 1;
   width: 100%;
-  max-width: 1200px;
   margin: auto;
 }
 
@@ -60,7 +59,7 @@
 
 .values h2 {
   font-size: 2.8rem;
-  color: #ffab40;
+  color: #00e0ff;
   margin-bottom: 40px;
 }
 

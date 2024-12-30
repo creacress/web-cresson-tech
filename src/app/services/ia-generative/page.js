@@ -6,7 +6,7 @@ export default function ServicePage() {
     return (
         <div className={styles.page}>
             <div className={styles.mainContent}>
-            <h1 class={styles.mainTitle}>IA Générative</h1>
+            <h1 className={styles.mainTitle}>IA Générative</h1>
                 {/* Contexte */}
                 <section className={styles.section}>
                     <h2 className={styles.sectionTitle}>Contexte</h2>

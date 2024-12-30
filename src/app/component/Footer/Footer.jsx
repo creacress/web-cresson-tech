@@ -8,7 +8,7 @@ export default function Footer() {
             <div className={styles.footerTop}>
               <div className={styles.footerSection}>
                 <h3>WebCressonTech</h3>
-                <p>Experte en IA</p>
+                <p>Expert en IA</p>
                 <p>
                   Nous sommes concepteurs et développeurs d’intelligences artificielles sur mesure.
                 </p>
@@ -43,7 +43,6 @@ export default function Footer() {
               <div className={styles.footerLinks}>
                 <a href="/about">Accueil</a>
                 <a href="/services">L’agence IA</a>
-                <a href="/blog">Blog</a>
                 <a href="/contact">Contact</a>
                 <a href="/terms">Conditions de ventes</a>
                 <a href="/privacy">Mentions légales</a>

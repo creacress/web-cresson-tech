@@ -1,3 +1,4 @@
+/* Conteneur principal */
 .services {
   text-align: center;
   margin: 50px 0;
@@ -8,7 +9,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.servicesTitle {
+.sectionTitle {
   font-size: 2.8rem;
   font-weight: bold;
   margin-bottom: 20px;
@@ -19,74 +20,103 @@
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-.servicesText {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  color: #d1d1d1;
-  line-height: 1.6;
-}
-
 .servicesList {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1200px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
-.serviceItem {
-  font-size: 1rem;
-  position: relative;
-  padding: 10px 15px;
+.serviceCard {
   background: #333;
-  border-radius: 8px;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column; /* Pour aligner les boutons */
+  justify-content: space-between;
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.serviceHeader {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
 }
 
-.serviceItem:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.serviceItem::before {
-  content: "✔";
-  font-size: 1.2rem;
+/* Styles pour les icônes */
+.serviceHeader i {
+  font-size: 3rem; /* Taille augmentée */
   margin-right: 10px;
-  color: #e53935;
+  color: #00e0ff;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.highlight {
-  color: #e53935;
-  background: rgba(255, 0, 0, 0.1);
-  padding: 5px;
-  border-radius: 5px;
+/* Titre du service */
+.serviceTitle {
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #f5f5f5;
 }
 
-.ctaButton {
+.serviceText {
+  font-size: 1rem;
+  margin: 15px 0;
+  color: #d1d1d1;
+  line-height: 1.6;
+  flex-grow: 1; /* Permet aux boutons de rester alignés */
+}
+
+.cardButton {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 25px;
+  margin-top: auto; /* Bouton aligné en bas */
+  padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  background-color: #e53935;
+  background-color: #00e0ff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   text-transform: uppercase;
+  text-align: center;
 }
 
-.ctaButton:hover {
+.cardButton:hover {
   background-color: #d32f2f;
   transform: scale(1.05);
 }
 
-.ctaButton:active {
+.cardButton:active {
   transform: scale(0.98);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .services {
+    padding: 20px 10px;
+  }
+
+  .servicesList {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceHeader i {
+    font-size: 2.5rem; /* Taille légèrement réduite pour mobile */
+  }
 }

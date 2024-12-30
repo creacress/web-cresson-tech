@@ -5,7 +5,7 @@
   min-height: 100vh;
   padding: 40px 20px;
   font-family: "Play", serif;
-  background: url("/robot_humain_main.jpg") no-repeat center center;
+  background: url("/robot_humain_main.webp") no-repeat center center;
   background-size: cover;
   color: #ffffff;
   position: relative;
@@ -112,7 +112,7 @@
 }
 
 .highlight {
-  color: #e53935;
+  color: #00e0ff;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.6rem;
@@ -125,7 +125,7 @@
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  background-color: #e53935;
+  background-color: #00e0ff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -362,7 +362,6 @@
   justify-content: space-between;
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
 }
 
 .footerSection {
@@ -402,11 +401,11 @@
 }
 
 .primaryCta {
-  background: rgba(231, 76, 60, 0.9);
+  background: #00e0ff;
 }
 
 .primaryCta:hover {
-  background: rgba(231, 76, 60, 1);
+  background: #00e1ffc0;
   transform: scale(1.05);
 }
 
@@ -473,13 +472,13 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 25px;
   transition: all 0.3s ease;
-  background: rgba(231, 76, 60, 0.9);
+  background: #00e0ff;
 }
 
 .enhancedLink:hover {
   background: rgba(0, 123, 255, 0.2);
-  color: #e54300;
-  border-color: #e54300;
+  color: #00e0ff;
+  border-color: #00e0ff;
   transform: scale(1.1);
   box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
 }

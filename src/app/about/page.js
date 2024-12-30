@@ -1,5 +1,34 @@
 import styles from "../about.module.css";
 import { FaLightbulb, FaHandshake, FaAward, FaUsers, FaLeaf } from "react-icons/fa";
+import Footer from "../component/Footer/Footer";
+
+export const metadata = {
+  title: "À propos de Cresson Tech - Innovation technologique",
+  description:
+    "Découvrez Cresson Tech, une entreprise passionnée par l'innovation technologique. Nous aidons nos clients à exploiter l'intelligence artificielle pour transformer leurs entreprises.",
+  openGraph: {
+    title: "À propos de Cresson Tech",
+    description:
+      "Chez Cresson Tech, nous sommes passionnés par l'innovation technologique et aidons nos clients à tirer le meilleur parti de l'IA.",
+    url: "https://cressontech.com/about",
+    images: [
+      {
+        url: "/default-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Image représentant l'innovation chez Cresson Tech",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "À propos de Cresson Tech",
+    description:
+      "Chez Cresson Tech, nous transformons les entreprises grâce à l'innovation technologique.",
+    images: ["/default-og-image.jpg"],
+  },
+};
 
 export default function About() {
   return (
@@ -57,14 +86,8 @@ export default function About() {
         </section>
 
         {/* Section CTA */}
-        <section className={styles.ctas}>
-          <a href="/contact" className={styles.primaryCta}>
-            Nous contacter
-          </a>
-          <a href="/" className={styles.secondaryCta}>
-            Retour à l'accueil
-          </a>
-        </section>
+        
+      <Footer/>
       </main>
     </div>
   );

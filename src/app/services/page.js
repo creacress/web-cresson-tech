@@ -1,82 +1,107 @@
+import Footer from "../component/Footer/Footer";
 import styles from "../ServicePage.module.css";
 
+export const metadata = {
+  title: "Services - Expertise en Intelligence Artificielle | Cresson Tech",
+  description:
+    "Découvrez les solutions innovantes de Cresson Tech en intelligence artificielle. Nos expertises couvrent le traitement des données, la création de modèles d'IA et leur intégration pour transformer vos projets.",
+  openGraph: {
+    title: "Nos Services - Expertise en IA",
+    description:
+      "Cresson Tech propose des solutions et expertises avancées en intelligence artificielle, incluant le traitement des données et l'intégration des modèles d'IA.",
+    url: "https://cressontech.com/services",
+    images: [
+      {
+        url: "/default-services-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Services proposés par Cresson Tech",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services - Expertise en IA | Cresson Tech",
+    description:
+      "Découvrez comment Cresson Tech transforme vos projets grâce à des solutions en intelligence artificielle adaptées à vos besoins.",
+    images: ["/default-services-image.jpg"],
+  },
+};
 
 export default function Service() {
-    return (
+  return (
     <section className={styles.services}>
-        <h2 className={styles.sectionTitle}>Nos solutions et expertises en intelligence artificielle (IA)</h2>
-        <ul className={styles.servicesList}>
-          <li className={styles.serviceCard}>
+      <h2 className={styles.sectionTitle}>
+        Nos solutions et expertises en intelligence artificielle (IA)
+      </h2>
+      <ul className={styles.servicesList}>
+        {servicesData.map((service, index) => (
+          <li className={styles.serviceCard} key={index}>
             <div className={styles.serviceHeader}>
-              <i className="fas fa-tools"></i>
-              <h3 className={styles.serviceTitle}>Maintenance Prédictive</h3>
+              <i className={`fas ${service.icon}`}></i>
+              <h3 className={styles.serviceTitle}>{service.title}</h3>
             </div>
-            <p className={styles.serviceText}>
-              Automatisez vos processus de contrôle avec la RPA, exploitez vos données pour prédire les maintenances, et analysez-les en temps réel grâce à l'IA pour anticiper les problèmes et éviter les pannes.
-            </p>
-            <a href="/services/maintenance-predictive" className={styles.cardButton}>En savoir plus</a>
+            <p className={styles.serviceText}>{service.text}</p>
+            <a href={service.link} className={styles.cardButton}>
+              En savoir plus
+            </a>
           </li>
-          <li className={styles.serviceCard}>
-            <div className={styles.serviceHeader}>
-              <i className="fas fa-robot"></i>
-              <h3 className={styles.serviceTitle}>RPA et IA pour l'Automatisation des Processus</h3>
-            </div>
-            <p className={styles.serviceText}>
-              Optimisez vos opérations grâce à l'automatisation des processus, en combinant la puissance de la RPA et de l'IA. Ces solutions s'intègrent facilement à vos outils digitaux existants ou sont personnalisées pour répondre à vos besoins spécifiques.
-            </p>
-            <a href="/services/rpa-ia" className={styles.cardButton}>En savoir plus</a>
-          </li>
-          <li className={styles.serviceCard}>
-            <div className={styles.serviceHeader}>
-              <i className="fas fa-magic"></i>
-              <h3 className={styles.serviceTitle}>IA Générative</h3>
-            </div>
-            <p className={styles.serviceText}>
-              Exploitez l'intelligence artificielle générative, adaptée à vos besoins métiers, avec des solutions existantes ou sur mesure pour automatiser des tâches récurrentes comme la génération de documents, de contenus, de visuels, de textes ou encore la saisie de données.
-            </p>
-            <a href="/services/ia-generative" className={styles.cardButton}>En savoir plus</a>
-          </li>
-          <li className={styles.serviceCard}>
-            <div className={styles.serviceHeader}>
-              <i className="fas fa-image"></i>
-              <h3 className={styles.serviceTitle}>IA de traitement d'images</h3>
-            </div>
-            <p className={styles.serviceText}>
-              Qu'il s'agisse d'améliorer la qualité d'un visuel, de modifier automatiquement son format ou d'automatiser des tâches chronophages liées aux images, l'IA de traitement d'image offre un large éventail de possibilités pour optimiser vos usages métiers.
-            </p>
-            <a href="/ia-traitement-images" className={styles.cardButton}>En savoir plus</a>
-          </li>
-          <li className={styles.serviceCard}>
-            <div className={styles.serviceHeader}>
-              <i className="fas fa-cogs"></i>
-              <h3 className={styles.serviceTitle}>IA sur mesure</h3>
-            </div>
-            <p className={styles.serviceText}>
-              Nous vous accompagnons dans tous vos projets d’IA, quels qu’ils soient. Notre expertise couvre une large gamme de technologies et de solutions pour répondre à vos besoins spécifiques.
-            </p>
-            <a href="/ia-sur-mesure" className={styles.cardButton}>En savoir plus</a>
-          </li>
-          <li className={styles.serviceCard}>
-            <div className={styles.serviceHeader}>
-              <i className="fas fa-file-alt"></i>
-              <h3 className={styles.serviceTitle}>IA Administrative (OCR)</h3>
-            </div>
-            <p className={styles.serviceText}>
-              L'IA révolutionne le domaine administratif : classement intelligent, présaisie et saisie automatique, contrôle documentaire, et automatisation des processus. Grâce à l'OCR et à l'intelligence artificielle, tout devient possible pour optimiser vos tâches administratives.
-            </p>
-            <a href="/ia-administrative" className={styles.cardButton}>En savoir plus</a>
-          </li>
-          <li className={styles.serviceCard}>
-            <div className={styles.serviceHeader}>
-              <i className="fas fa-chart-line"></i>
-              <h3 className={styles.serviceTitle}>Pricing Dynamique et Analyse Avancée</h3>
-            </div>
-            <p className={styles.serviceText}>
-              Exploitez la puissance de l’intelligence artificielle pour analyser de vastes volumes de données et obtenir des insights stratégiques. Intégrez ces résultats directement dans vos processus et outils métiers. Nos solutions incluent l'IA d’analyse concurrentielle (pricing dynamique) et l'IA d’analyse sectorielle pour des domaines tels que les RH, les achats ou la comptabilité.
-            </p>
-            <a href="/pricing-analyse-avancee" className={styles.cardButton}>En savoir plus</a>
-          </li>
-        </ul>
-      </section>
-      )
+        ))}
+      </ul>
+      <Footer />
+    </section>
+  );
 }
+
+const servicesData = [
+  {
+    icon: "fa-tools",
+    title: "Maintenance Prédictive",
+    text: "Automatisez vos processus de contrôle avec la RPA, exploitez vos données pour prédire les maintenances, et analysez-les en temps réel grâce à l'IA pour anticiper les problèmes et éviter les pannes.",
+    link: "/services/maintenance-predictive",
+  },
+  {
+    icon: "fa-robot",
+    title: "RPA et IA pour l'Automatisation des Processus",
+    text: "Optimisez vos opérations grâce à l'automatisation des processus, en combinant la puissance de la RPA et de l'IA. Ces solutions s'intègrent facilement à vos outils digitaux existants ou sont personnalisées pour répondre à vos besoins spécifiques.",
+    link: "/services/rpa-ia",
+  },
+  {
+    icon: "fa-magic",
+    title: "IA Générative",
+    text: "Exploitez l'intelligence artificielle générative, adaptée à vos besoins métiers, avec des solutions existantes ou sur mesure pour automatiser des tâches récurrentes comme la génération de documents, de contenus, de visuels, de textes ou encore la saisie de données.",
+    link: "/services/ia-generative",
+  },
+  {
+    icon: "fas fa-compass",
+    title: "IA pour l'Archéologie",
+    text: "Utilisez l’intelligence artificielle pour analyser des données géospatiales et identifier des zones d’intérêt archéologique. Nos solutions permettent de traiter de grands volumes de données LiDAR ou géographiques pour détecter des structures cachées, modéliser des sites en 3D et optimiser les explorations. Intégrez ces outils dans vos projets pour des résultats innovants.",
+    link: "/services/ia-archeologie",
+  },
+  {
+    icon: "fa-image",
+    title: "IA de traitement d'images",
+    text: "Qu'il s'agisse d'améliorer la qualité d'un visuel, de modifier automatiquement son format ou d'automatiser des tâches chronophages liées aux images, l'IA de traitement d'image offre un large éventail de possibilités pour optimiser vos usages métiers.",
+    link: "/services/ia-traitement-images",
+  },
+  {
+    icon: "fa-cogs",
+    title: "IA sur mesure",
+    text: "Nous vous accompagnons dans tous vos projets d’IA, quels qu’ils soient. Notre expertise couvre une large gamme de technologies et de solutions pour répondre à vos besoins spécifiques.",
+    link: "/services/ia-sur-mesure",
+  },
+  {
+    icon: "fa-file-alt",
+    title: "IA Administrative (OCR)",
+    text: "L'IA révolutionne le domaine administratif : classement intelligent, présaisie et saisie automatique, contrôle documentaire, et automatisation des processus. Grâce à l'OCR et à l'intelligence artificielle, tout devient possible pour optimiser vos tâches administratives.",
+    link: "/services/ia-administrative",
+  },
+  {
+    icon: "fa-chart-line",
+    title: "Pricing Dynamique et Analyse Avancée",
+    text: "Exploitez la puissance de l’intelligence artificielle pour analyser de vastes volumes de données et obtenir des insights stratégiques. Intégrez ces résultats directement dans vos processus et outils métiers. Nos solutions incluent l'IA d’analyse concurrentielle (pricing dynamique) et l'IA d’analyse sectorielle pour des domaines tels que les RH, les achats ou la comptabilité.",
+    link: "/services/pricing-analyse-avancee",
+  },
+  
+];
