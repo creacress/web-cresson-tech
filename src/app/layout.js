@@ -1,4 +1,3 @@
-// layout.js
 import Header from "./component/Header/Header";
 import "./globals.css";
 
@@ -11,7 +10,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body>
+        {/* Header commun à toutes les pages */}
         <Header />
+        {/* Contenu de la page */}
         {children}
       </body>
     </html>

@@ -5,7 +5,7 @@
   min-height: 100vh;
   padding: 40px 20px;
   font-family: "Play", serif;
-  background: url("/robot_humain_main.jpg") no-repeat center center;
+  background: url("/robot_humain_main.webp") no-repeat center center;
   background-size: cover;
   color: #ffffff;
   position: relative;
@@ -46,6 +46,8 @@
 }
 
 .heroTitle {
+  border-top: 1px solid rgba(223, 156, 11, 0.76);
+  margin-top: 2rem;
   font-size: 3rem;
   font-weight: bold;
   color: #f5f5f5;
@@ -54,7 +56,8 @@
 }
 
 .heroText {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   color: #d1d1d1;
 }
@@ -62,47 +65,106 @@
 /* Services */
 .services {
   text-align: center;
-  margin: 40px 0;
+  margin: 20px 0;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #1a1a1a, #222222);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.services h2 {
-  font-size: 2.5rem;
+.servicesTitle {
+  font-size: 1.8rem; /* Mobile-first */
+  font-weight: bold;
+  margin-bottom: 15px;
   color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.servicesText {
+  font-size: 1rem;
   margin-bottom: 20px;
+  color: #d1d1d1;
+  line-height: 1.5;
 }
 
 .servicesList {
   list-style: none;
   padding: 0;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column; /* Mobile-first: Liste verticale */
+  gap: 10px;
 }
 
-.servicesList li {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.serviceItem {
+  font-size: 1rem;
+  background: #333;
+  padding: 10px 15px;
   border-radius: 8px;
-  padding: 20px;
-  width: 300px;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.servicesList li:hover {
+.serviceItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.highlight {
+  color: #00e0ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #00e0ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.ctaButton:hover {
+  background-color: #d32f2f;
   transform: scale(1.05);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-.servicesList h3 {
-  color: #ffffff;
-  margin-bottom: 10px;
+/* Media Queries pour écrans plus grands */
+@media (min-width: 768px) {
+  .servicesList {
+    flex-direction: row; /* Passer à une liste horizontale */
+    flex-wrap: wrap; /* Permettre le retour à la ligne */
+    gap: 20px;
+  }
+
+  .serviceItem {
+    flex: 1 1 calc(50% - 20px); /* Deux colonnes */
+  }
 }
 
-.servicesList p {
-  color: #d1d1d1;
+@media (min-width: 1024px) {
+  .servicesTitle {
+    font-size: 2.5rem; /* Agrandir les titres */
+  }
+
+  .servicesText {
+    font-size: 1.6rem;
+  }
+
+  .serviceItem {
+    padding: 5rem;
+    flex: 1 1 calc(33.33% - 20px); /* Trois colonnes */
+  }
 }
+
 
 /* Pourquoi nous choisir */
 .whyChooseUs {
@@ -148,6 +210,95 @@
   color: #d1d1d1;
 }
 
+/* Styles de base pour Mobile First */
+.threeColumns {
+  display: flex;
+  flex-direction: column; /* Les éléments s'empilent verticalement par défaut */
+  gap: 20px; /* Espacement entre les colonnes */
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.column {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.columnImage {
+  width: 100%;
+  max-width: 100%; /* S'assure que l'image ne dépasse pas la largeur de l'écran */
+  height: auto; /* Garde le ratio de l'image */
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.columnTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f39c12;
+  margin: 10px 0;
+}
+
+.columnText {
+  font-size: 1rem;
+  color: #d1d1d1;
+}
+
+/* Styles pour écrans plus larges (Desktop) */
+@media (min-width: 768px) {
+  .threeColumns {
+    flex-direction: row; /* Les éléments s'alignent horizontalement */
+    justify-content: center;
+  }
+
+  .column {
+    flex: 1; /* Chaque colonne prend un espace égal */
+    max-width: 300px; /* Largeur maximale pour chaque colonne */
+  }
+}
+
+.gradientText {
+  font-size: 3rem; /* Ajustez la taille selon vos besoins */
+  font-weight: bold;
+  background: linear-gradient(45deg, hsla(0, 0%, 3%, 1) 0%, hsla(53, 95%, 50%, 1) 68%);
+  -webkit-background-clip: text; /* Applique le fond au texte uniquement */
+  -webkit-text-fill-color: transparent; /* Rend le texte transparent pour montrer le fond */
+  text-align: center;
+}
+
+.columnText {
+  font-size: 1rem;
+  color: #d1d1d1;
+  padding: 0 15px 15px;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(231, 76, 60, 0.8);
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+
 /* Appels à l'action */
 .ctas {
   display: flex;
@@ -192,10 +343,9 @@
 
 /* Footer */
 .footer {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 20px 0;
-  text-align: center;
-  margin-top: 40px;
+  background: #000; /* Couleur de fond noir */
+  color: #fff;
+  padding: 40px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -203,27 +353,141 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
-.footer p {
-  font-size: 1rem;
-  color: #d1d1d1;
-  margin: 0;
-}
-
-.socialLinks {
+.footerTop {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
 }
 
-.socialLinks a {
-  color: #ffffff;
+.footerSection {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.footerSection h3 {
   font-size: 1.5rem;
-  transition: color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 10px;
+  color: #f5f5f5;
 }
 
-.socialLinks a:hover {
-  color: rgba(0, 123, 255, 1);
-  transform: scale(1.2);
+.footerSection p {
+  font-size: 1rem;
+  margin: 0 0 10px;
+  color: #d1d1d1;
+}
+
+.ctaLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.primaryCta,
+.secondaryCta {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.primaryCta {
+  background: #00e0ff;
+}
+
+.primaryCta:hover {
+  background: #00e1ffc0;
+  transform: scale(1.05);
+}
+
+.secondaryCta:hover {
+  color: #f5f5f5;
+  border-color: #f5f5f5;
+  transform: scale(1.05);
+}
+.maltButton {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+  background: #ff4a00; /* Couleur officielle de Malt */
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.maltButton:hover {
+  background: #e54300; /* Couleur légèrement plus foncée au hover */
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.footerLinks a {
+  text-decoration: none;
+  color: #d1d1d1;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #fff;
+}
+
+.enhancedLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background: #00e0ff;
+}
+
+.enhancedLink:hover {
+  background: rgba(0, 123, 255, 0.2);
+  color: #00e0ff;
+  border-color: #00e0ff;
+  transform: scale(1.1);
+  box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.enhancedLink i {
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.enhancedLink:hover i {
+  transform: rotate(15deg);
 }

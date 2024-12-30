@@ -1,24 +1,42 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import "./Header.css";
 
-export const metadata = {
-  title: "Cresson Tech",
-  description: "Solutions technologiques innovantes",
-};
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-export default function RootLayout({ children }) {
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <html lang="fr">
-      <body>
-        <header>
-          <nav className="headerNav">
-            <Link href="/">Accueil</Link>
-            <Link href="/about">À propos</Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
-        </header>
-        {children}
-      </body>
-    </html>
+    <header>
+      <nav className="headerNav">
+        {/* Hamburger menu for mobile */}
+        <div className="hamburger" onClick={toggleMenu}>
+          <span className={`line ${menuOpen ? "open" : ""}`}></span>
+          <span className={`line ${menuOpen ? "open" : ""}`}></span>
+          <span className={`line ${menuOpen ? "open" : ""}`}></span>
+        </div>
+
+        {/* Navigation menu */}
+        <div className={`menu ${menuOpen ? "menuOpen" : ""}`}>
+          <Link href="/" onClick={() => setMenuOpen(false)}>
+            Accueil
+          </Link>
+          <Link href="/services" onClick={() => setMenuOpen(false)}>
+            Service
+          </Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}>
+            À propos
+          </Link>
+          <Link href="/contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </Link>
+        </div>
+      </nav>
+    </header>
   );
 }
