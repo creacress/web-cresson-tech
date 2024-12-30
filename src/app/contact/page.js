@@ -1,61 +1,93 @@
-'use client';
+"use client";
 
-import { useState } from "react";
-import styles from "../contact.module.css";
+import React, { useState } from 'react';
+import styles from '../contact.module.css';
 
-export default function Contact() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const ContactForm = () => {
+  const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(null); // null = pas encore vérifié
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Logique pour gérer l'envoi du formulaire (par exemple, API call)
-    setIsSubmitted(true); // Affiche le message après l'envoi
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
 
-    // Réinitialiser le formulaire
-    event.target.reset();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValidEmail(emailRegex.test(value) || value === ''); // Pas d'erreur si le champ est vide
+  };
 
-    // Réinitialiser le message après 5 secondes
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+  const handleEmailBlur = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValidEmail(emailRegex.test(email));
   };
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        {/* Section Header */}
-        <section className={styles.hero}>
-          <h1>Contactez-nous</h1>
-          <p className={styles.heroText}>
-            Nous serions ravis de discuter de vos projets et de répondre à vos questions. 
-            Remplissez le formulaire ci-dessous ou contactez-nous directement via nos coordonnées.
-          </p>
-        </section>
+    <div className={styles.contactFormSection}>
+      <h2>Contactez-nous</h2>
+      <p className={styles.contactText}>
+        Remplissez le formulaire ci-dessous pour nous envoyer votre demande ou pour toute question.
+      </p>
+      <form className={styles.contactForm}>
+        {/* Champ Email */}
+        <div
+          className={`${styles.formGroup} ${
+            isValidEmail === false ? styles.error : isValidEmail === true ? styles.valid : ''
+          }`}
+        >
+          <label htmlFor="email">Mail*</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Votre email"
+            value={email}
+            onChange={handleEmailChange}
+            onBlur={handleEmailBlur}
+            required
+          />
+        </div>
 
-        {/* Formulaire de contact */}
-        <section className={styles.contactFormSection}>
-          <h2>Formulaire de Contact</h2>
-          {isSubmitted ? (
-            <p className={styles.successMessage}>Merci ! Votre message a été envoyé.</p>
-          ) : (
-            <form className={styles.contactForm} onSubmit={handleSubmit}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name">Nom</label>
-                <input type="text" id="name" name="name" required placeholder="Votre nom" />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Votre email" />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="message">Message</label>
-                <textarea id="message" name="message" required placeholder="Votre message"></textarea>
-              </div>
-              <button type="submit" className={styles.submitButton}>Envoyer</button>
-            </form>
-          )}
-        </section>
-      </main>
+        {/* Champ Nom */}
+        <div className={styles.formGroup}>
+          <label htmlFor="name">Nom Prénom*</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom et prénom" required />
+        </div>
+
+        {/* Champ Téléphone */}
+        <div className={styles.formGroup}>
+          <label htmlFor="phone">Téléphone*</label>
+          <input type="tel" id="phone" name="phone" placeholder="Votre numéro de téléphone" required />
+        </div>
+
+        {/* Sélection Entreprise */}
+        <div className={styles.formGroup}>
+          <label htmlFor="company">Entreprise*</label>
+          <select id="company" name="company" required>
+            <option value="">Sélectionnez une option</option>
+            <option value="PME">PME</option>
+            <option value="TPE">TPE</option>
+            <option value="ETI">ETI</option>
+            <option value="GE">GE</option>
+          </select>
+        </div>
+
+        {/* Champ Commentaires / Sujet */}
+        <div className={styles.formGroup}>
+          <label htmlFor="comments">Commentaires / Sujet</label>
+          <textarea
+            id="comments"
+            name="comments"
+            placeholder="Écrivez votre message ou sujet ici..."
+            rows="5"
+          ></textarea>
+        </div>
+
+        {/* Bouton d'envoi */}
+        <button type="submit" className={styles.submitButton}>
+          ENVOYER LA DEMANDE
+        </button>
+      </form>
     </div>
   );
-}
+};
+
+export default ContactForm;

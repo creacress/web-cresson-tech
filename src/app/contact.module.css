@@ -1,91 +1,161 @@
 /* Section du formulaire */
 .contactFormSection {
-    text-align: center;
-    margin: 40px 0;
-    animation: fadeIn 1.5s ease-in-out;
+  text-align: center;
+  margin: 40px 0;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.contactFormSection h2 {
+  font-size: 2.5rem;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+.contactText {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Formulaire */
+.contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8); /* Fond sombre */
+  color: #ffffff;
+  margin-top: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Validation de l'email (valide) */
+.formGroup.valid input {
+  border-color: #4caf50; /* Bordure verte */
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5); /* Lumière verte */
+}
+
+/* Erreur sur l'email (invalide) */
+.formGroup.error input {
+  border-color: #f44336; /* Bordure rouge */
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.5); /* Lumière rouge */
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Champ Commentaires / Sujet */
+.formGroup textarea {
+  resize: none; /* Empêche le redimensionnement */
+  height: auto; /* Hauteur flexible */
+  line-height: 1.5; /* Espacement du texte */
+}
+
+/* Focus sur les champs */
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #ffc107;
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+}
+
+/* Bouton d'envoi */
+.submitButton {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  background: #00bcd4;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #008ba3;
+  transform: scale(1.05);
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation de vibration pour les erreurs */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Media Queries pour rendre le formulaire responsive */
+@media (max-width: 768px) {
   .contactFormSection h2 {
-    font-size: 2.5rem;
-    color: #00bcd4;
-    margin-bottom: 20px;
+    font-size: 2rem;
   }
-  
+
   .contactText {
-    font-size: 1.2rem;
-    color: #ffffff;
-    margin-bottom: 30px;
+    font-size: 1rem;
   }
-  
-  /* Formulaire */
+
   .contactForm {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 90%;
   }
-  
-  .formGroup {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .contactFormSection h2 {
+    font-size: 1.8rem;
   }
-  
-  .formGroup label {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffffff;
+
+  .contactText {
+    font-size: 0.9rem;
   }
-  
-  .formGroup input,
-  .formGroup textarea {
-    width: 100%;
-    padding: 12px 15px;
-    font-size: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .formGroup input:focus,
-  .formGroup textarea:focus {
-    outline: none;
-    border-color: #00bcd4;
-    box-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
-  }
-  
-  .formGroup textarea {
-    resize: none;
-    height: 150px;
-  }
-  
-  /* Bouton d'envoi */
+
   .submitButton {
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 25px;
-    background: #00bcd4;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px 25px;
+    font-size: 0.9rem;
   }
-  
-  .submitButton:hover {
-    background-color: #008ba3;
-    transform: scale(1.05);
-  }
-  
-  /* Confirmation de formulaire */
-  .successMessage {
-    font-size: 1.2rem;
-    color: #4caf50;
-    margin-top: 20px;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
+}

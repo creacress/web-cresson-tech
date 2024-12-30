@@ -20,7 +20,7 @@ export default function Footer() {
                   <a href="/contact" className={styles.primaryCta}>
                     Contacter un expert
                   </a>
-                  <a href="https://www.malt.fr" target="_blank" rel="noopener noreferrer" className={styles.maltButton}>
+                  <a href="https://www.malt.fr/profile/alexiscresson" target="_blank" rel="noopener noreferrer" className={styles.maltButton}>
                     Malt
                   </a>
                 </div>
@@ -32,7 +32,7 @@ export default function Footer() {
                   </a>
                 </p>
                 <p>
-                  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.enhancedLink}>
+                  <a href="https://www.linkedin.com/in/alexis-cresson/" target="_blank" rel="noopener noreferrer" className={styles.enhancedLink}>
                     <i className="fab fa-linkedin"></i> LinkedIn
                   </a>
                 </p>

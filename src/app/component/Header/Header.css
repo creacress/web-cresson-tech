@@ -1,41 +1,96 @@
+/* Conteneur principal */
 .headerNav {
   display: flex;
-  flex-direction: column; /* Par défaut, les liens sont empilés verticalement pour mobile */
+  justify-content: space-between;
   align-items: center;
-  gap: 10px; /* Réduit l'espacement sur mobile */
-  padding: 10px; /* Moins de padding sur mobile */
+  padding: 10px 20px;
   background-color: #1a1a1a;
   color: #f5f5f5;
-  font-size: 1rem;
-  box-shadow: 0px 4px 8px rgba(221, 153, 5, 0.884); /* Ombre claire subtile */
-  position: sticky; /* Fixe le header en haut */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Assure que le header reste au-dessus des autres éléments */
+  z-index: 1000;
 }
 
-.headerNav a {
-  font-size: 1.2rem; /* Taille plus petite sur mobile */
+/* Hamburger icon */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+/* Animation pour le menu ouvert */
+.line.open:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.line.open:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Menu déroulant */
+.menu {
+  display: none; /* Masqué par défaut */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 999;
+}
+
+.menu a {
+  padding: 15px 0;
+  font-size: 1.2rem;
   color: #f5f5f5;
   text-decoration: none;
-  margin: 10px 0; /* Espacement vertical sur mobile */
-  transition: color 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease;
 }
 
-.headerNav a:hover {
-  color: #00bfff;
+.menu a:hover {
+  background-color: #333;
 }
 
-/* Styles pour les écrans plus larges */
+/* Menu visible lorsque ouvert */
+.menuOpen {
+  display: flex; /* Passe en flex lorsqu'il est ouvert */
+}
+
+/* Media query pour les écrans larges */
 @media (min-width: 768px) {
-  .headerNav {
-    flex-direction: row; /* Passe à un affichage horizontal sur tablette et plus */
-    justify-content: center; /* Centre les liens */
-    gap: 20px; /* Augmente l'espacement entre les liens */
-    padding: 20px; /* Augmente le padding */
+  .hamburger {
+    display: none; /* Cacher le hamburger sur grand écran */
   }
 
-  .headerNav a {
-    font-size: 1.5rem; /* Taille plus grande pour les écrans plus larges */
-    margin: 0 15px; /* Espacement horizontal sur tablette et plus */
+  .menu {
+    display: flex;
+    flex-direction: row;
+    position: static; /* Menu horizontal classique */
+    width: auto;
+    box-shadow: none;
+  }
+
+  .menu a {
+    padding: 0;
+    margin: 0 15px;
+    border: none;
+    font-size: 1.5rem;
   }
 }

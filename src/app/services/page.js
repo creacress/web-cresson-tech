@@ -1,4 +1,4 @@
-import styles from "./home.module.css";
+import styles from "../ServicePage.module.css";
 
 
 export default function Service() {
