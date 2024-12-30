@@ -101,6 +101,27 @@
   background-color: #008ba3;
   transform: scale(1.05);
 }
+/* Messages dynamiques */
+.successMessage {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #4caf50; /* Vert */
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.errorMessage {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f44336; /* Rouge */
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
 
 /* Animation d'apparition */
 @keyframes fadeIn {
