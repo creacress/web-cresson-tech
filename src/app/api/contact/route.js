@@ -60,8 +60,8 @@ export async function POST(req) {
     };
 
     // Envoyer les deux e-mails
-    await transporter.sendMail(adminMailOptions); // E-mail à l'administrateur
-    await transporter.sendMail(userMailOptions); // E-mail de confirmation à l'utilisateur
+    await transporter.sendMail(adminMailOptions);
+    await transporter.sendMail(userMailOptions);
 
     return NextResponse.json({ message: "Emails envoyés avec succès !" }, { status: 200 });
   } catch (error) {
