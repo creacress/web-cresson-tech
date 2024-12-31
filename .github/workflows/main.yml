@@ -1,0 +1,40 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main # Remplacez par la branche que vous voulez déployer
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Vérifiez le code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Configurer SSH pour se connecter au VPS
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    # 3. Supprimer l'ancien contenu et copier le nouveau code
+    - name: Deploy Project to VPS
+      run: |
+        ssh root@194.164.72.129<< 'EOF'
+          rm -rf /var/www/nextjs-app
+          mkdir -p /var/www/nextjs-app
+        EOF
+        rsync -avz --exclude='.git' --exclude='node_modules' ./ root@194.164.72.129:/var/www/nextjs-app/
+
+    # 4. Installer les dépendances et démarrer l'application
+    - name: Install Dependencies and Start App
+      run: |
+        ssh root@<IP-du-VPS> << 'EOF'
+          cd /var/www/nextjs-app
+          npm install
+          npm run build
+          pm2 restart nextjs-app || pm2 start npm --name "nextjs-app" -- start
+        EOF
