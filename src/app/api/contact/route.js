@@ -1,40 +1,44 @@
-export async function POST(req) {
-  try {
-    // Extraire les données de la requête
-    const { email, name, phone, company, comments } = await req.json();
+import nodemailer from "nodemailer";
 
-    // Validation des champs
-    if (!email || !name || !phone || !company) {
-      return new Response(
-        JSON.stringify({ message: "Tous les champs obligatoires doivent être remplis." }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    const { email, name, phone, company, comments } = req.body;
+
+    // Configurez le transporteur Nodemailer avec les détails SMTP de Hostinger
+    const transporter = nodemailer.createTransport({
+      host: "smtp.hostinger.com", // Serveur SMTP de Hostinger
+      port: 465, // Port sécurisé (ou 587 pour TLS)
+      secure: true, // Utilisez true pour le port 465, false pour 587
+      auth: {
+        user: process.env.EMAIL_USER, // Adresse email créée sur Hostinger
+        pass: process.env.EMAIL_PASS, // Mot de passe de l'email
+      },
+    });
+
+    // Détails de l'e-mail
+    const mailOptions = {
+      from: process.env.EMAIL_USER, // Adresse expéditeur
+      to: process.env.EMAIL_RECIPIENT, // Adresse destinataire
+      subject: `Nouvelle soumission de formulaire de ${name}`,
+      text: `
+        Détails de la soumission :
+        - Nom : ${name}
+        - Email : ${email}
+        - Téléphone : ${phone}
+        - Entreprise : ${company}
+        - Commentaires : ${comments}
+      `,
+    };
+
+    try {
+      // Envoyer l'e-mail
+      await transporter.sendMail(mailOptions);
+      res.status(200).json({ message: "Email envoyé avec succès !" });
+    } catch (error) {
+      console.error("Erreur d'envoi de l'email :", error);
+      res.status(500).json({ error: "Erreur d'envoi de l'email." });
     }
-
-    // Traitement des données (exemple : affichage dans la console)
-    console.log("Données reçues :", { email, name, phone, company, comments });
-
-    // Réponse de succès
-    return new Response(
-      JSON.stringify({ message: "Formulaire soumis avec succès !" }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-  } catch (error) {
-    console.error("Erreur côté serveur :", error);
-
-    // Réponse en cas d'erreur
-    return new Response(
-      JSON.stringify({ message: "Erreur interne du serveur." }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+  } else {
+    res.status(405).json({ error: "Méthode non autorisée." });
   }
 }
