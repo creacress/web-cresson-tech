@@ -3,6 +3,7 @@
   text-align: center;
   margin: 40px 0;
   animation: fadeIn 1.5s ease-in-out;
+  background: linear-gradient(135deg, #1a1a1a, #222222);
 }
 
 .contactFormSection h2 {
