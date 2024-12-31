@@ -1,44 +1,48 @@
-import nodemailer from "nodemailer";
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { email, name, phone, company, comments } = req.body;
 
-    // Configurez le transporteur Nodemailer avec les détails SMTP de Hostinger
-    const transporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com", // Serveur SMTP de Hostinger
-      port: 465, // Port sécurisé (ou 587 pour TLS)
-      secure: true, // Utilisez true pour le port 465, false pour 587
-      auth: {
-        user: process.env.EMAIL_USER, // Adresse email créée sur Hostinger
-        pass: process.env.EMAIL_PASS, // Mot de passe de l'email
-      },
-    });
-
-    // Détails de l'e-mail
-    const mailOptions = {
-      from: process.env.EMAIL_USER, // Adresse expéditeur
-      to: process.env.EMAIL_RECIPIENT, // Adresse destinataire
-      subject: `Nouvelle soumission de formulaire de ${name}`,
-      text: `
-        Détails de la soumission :
-        - Nom : ${name}
-        - Email : ${email}
-        - Téléphone : ${phone}
-        - Entreprise : ${company}
-        - Commentaires : ${comments}
-      `,
-    };
-
     try {
-      // Envoyer l'e-mail
+      // Vérifiez les champs obligatoires
+      if (!email || !name || !phone || !company) {
+        return res.status(400).json({ error: "Tous les champs obligatoires doivent être remplis." });
+      }
+
+      // Configurez le transporteur Nodemailer
+      const transporter = nodemailer.createTransport({
+        host: "smtp.hostinger.com",
+        port: 465,
+        secure: true,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_RECIPIENT,
+        subject: `Nouvelle soumission de formulaire de ${name}`,
+        text: `
+          Détails de la soumission :
+          - Nom : ${name}
+          - Email : ${email}
+          - Téléphone : ${phone}
+          - Entreprise : ${company}
+          - Commentaires : ${comments}
+        `,
+      };
+
+      // Envoi de l'email
       await transporter.sendMail(mailOptions);
-      res.status(200).json({ message: "Email envoyé avec succès !" });
+      return res.status(200).json({ message: "Email envoyé avec succès !" });
     } catch (error) {
-      console.error("Erreur d'envoi de l'email :", error);
-      res.status(500).json({ error: "Erreur d'envoi de l'email." });
+      console.error("Erreur lors de l'envoi de l'email :", error);
+      return res.status(500).json({ error: "Erreur interne du serveur." });
     }
   } else {
-    res.status(405).json({ error: "Méthode non autorisée." });
+    // Si la méthode n'est pas POST
+    res.setHeader("Allow", ["POST"]);
+    return res.status(405).json({ error: "Méthode non autorisée." });
   }
 }
