@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main
+      - main # Branche surveillée pour déploiement
 
 jobs:
   deploy:
@@ -23,10 +23,17 @@ jobs:
     # 3. Supprimer l'ancien contenu et copier le nouveau code
     - name: Deploy Project to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no root@194.164.72.129 "rm -rf /var/www/nextjs-app && mkdir -p /var/www/nextjs-app"
+        ssh -o StrictHostKeyChecking=no root@194.164.72.129 << 'EOF'
+          apt update && apt install -y curl
+          curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+          apt install -y nodejs
+          npm install -g pm2
+          rm -rf /var/www/nextjs-app
+          mkdir -p /var/www/nextjs-app
+        EOF
         rsync -avz --exclude='.git' --exclude='node_modules' ./ root@194.164.72.129:/var/www/nextjs-app/
 
-    # 4. Installer les dépendances, construire et démarrer l'application
+    # 4. Installer les dépendances et démarrer l'application
     - name: Install Dependencies and Start App
       run: |
         ssh -o StrictHostKeyChecking=no root@194.164.72.129 << 'EOF'
