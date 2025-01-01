@@ -19,6 +19,8 @@ export async function POST(req) {
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
+        debug: true, // Logs détaillés
+        logger: true, // Active le logger
       },
     });
 
