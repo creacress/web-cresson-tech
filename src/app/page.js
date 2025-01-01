@@ -1,8 +1,37 @@
+"use client";
 // Import styles
 import styles from "./home.module.css";
 import Footer from "./component/Footer/Footer";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation"; // Assurez-vous d'importer useRouter depuis next/navigation
+import CookieModal from "./component/CookieModal/CookieModal";
 
 export default function Home() {
+  const router = useRouter();
+  // Initialisation de Google Analytics
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-H206EG4TH7"); // Remplacez par votre ID de suivi
+    }
+  }, []);
+
+  // Gestion des clics pour les événements
+  const handleClickEvent = (label) => {
+    if (typeof window !== "undefined") {
+      window.gtag("event", "button_click", {
+        event_category: "User Interaction",
+        event_label: label,
+      });
+    }
+    // Redirection vers la page Services
+    router.push("/services");
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.mainContent}>
@@ -10,15 +39,20 @@ export default function Home() {
         <section className={styles.hero}>
           <h1 className={styles.heroTitle}>Agence experte en Intelligence Artificielle</h1>
           <p className={styles.heroText}>
-            Nous aidons les entreprises à relever les défis de l'intelligence artificielle, de la gestion des données aux infrastructures, en passant par des solutions IA existantes ou entièrement sur mesure.
+            Nous aidons les entreprises à relever les défis de l'intelligence
+            artificielle, de la gestion des données aux infrastructures, en passant
+            par des solutions IA existantes ou entièrement sur mesure.
           </p>
         </section>
 
         {/* Section Services */}
         <section className={styles.services}>
-          <h2 className={styles.servicesTitle}>Conception et développement d’Intelligence Artificielle.</h2>
+          <h2 className={styles.servicesTitle}>
+            Conception et développement d’Intelligence Artificielle.
+          </h2>
           <p className={styles.servicesText}>
-            La transformation numérique est un sujet au cœur des préoccupations des entreprises. Digitalia vous accompagne sur les challenges IA.
+            La transformation numérique est un sujet au cœur des préoccupations des
+            entreprises. Digitalia vous accompagne sur les challenges IA.
           </p>
           <ul className={styles.servicesList}>
             <li className={styles.serviceItem}>
@@ -40,14 +74,25 @@ export default function Home() {
               <span className={styles.highlight}>Maintenance et évolution sur IA existantes</span>
             </li>
           </ul>
-          <button className={styles.ctaButton}>Nos études de cas</button>
+          <button
+            className={styles.ctaButton}
+            onClick={() => handleClickEvent("CTA Button - Nos études de cas")}
+          >
+            Nos services
+          </button>
         </section>
 
         {/* Other Sections */}
         <section className={styles.hero}>
-          <h1 className={styles.heroTitle}>Un projet de développement d'intelligence artificielle ?</h1>
+          <h2 className={styles.heroTitle}>
+            Un projet de développement d'intelligence artificielle ?
+          </h2>
           <p className={styles.heroText}>
-            Notre agence IA maîtrise les différents outils de l’intelligence artificielle : Machine learning, Deep learning, Computer vision, Traitement de langage, Automatisation de tâches… Nous vous accompagnons dans votre projet d’IA pour vous préparer à l’avenir et anticiper les impacts de l’intelligence artificielle au sein de votre organisation.
+            Notre agence IA maîtrise les différents outils de l’intelligence
+            artificielle : Machine learning, Deep learning, Computer vision,
+            Traitement de langage, Automatisation de tâches… Nous vous accompagnons
+            dans votre projet d’IA pour vous préparer à l’avenir et anticiper les
+            impacts de l’intelligence artificielle au sein de votre organisation.
           </p>
           <div className={styles.threeColumns}>
             <div className={styles.column}>
@@ -56,9 +101,12 @@ export default function Home() {
                 alt="Discussion sur le projet IA"
                 className={styles.columnImage}
               />
-              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>Discussion</h3>
+              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
+                Discussion
+              </h3>
               <p className={styles.columnText}>
-                Nous échangeons sur votre projet IA et vous conseillons pour trouver une solution adaptable ou sur mesure.
+                Nous échangeons sur votre projet IA et vous conseillons pour trouver
+                une solution adaptable ou sur mesure.
               </p>
             </div>
             <div className={styles.column}>
@@ -67,9 +115,12 @@ export default function Home() {
                 alt="Création d'une solution IA personnalisée"
                 className={styles.columnImage}
               />
-              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>Création</h3>
+              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
+                Création
+              </h3>
               <p className={styles.columnText}>
-                Nous traitons toutes vos données et développons une intelligence artificielle sur mesure. Données fiables et exploitables requises.
+                Nous traitons toutes vos données et développons une intelligence
+                artificielle sur mesure. Données fiables et exploitables requises.
               </p>
             </div>
             <div className={styles.column}>
@@ -78,9 +129,12 @@ export default function Home() {
                 alt="Transmission et formation sur une solution IA"
                 className={styles.columnImage}
               />
-              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>Transmission</h3>
+              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
+                Transmission
+              </h3>
               <p className={styles.columnText}>
-                Nous vous partageons la solution IA tout en assurant une bonne prise en main de votre côté. IA as a Service (AIaaS) possible.
+                Nous vous partageons la solution IA tout en assurant une bonne prise
+                en main de votre côté. IA as a Service (AIaaS) possible.
               </p>
             </div>
           </div>
@@ -93,7 +147,8 @@ export default function Home() {
             <div className={styles.featureCard}>
               <h3 className={styles.featureTitle}>Expertise</h3>
               <p className={styles.featureText}>
-                Une équipe de professionnels expérimentés dans le domaine technologique.
+                Une équipe de professionnels expérimentés dans le domaine
+                technologique.
               </p>
             </div>
             <div className={styles.featureCard}>
@@ -109,6 +164,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <CookieModal />
         </section>
         <Footer />
       </main>

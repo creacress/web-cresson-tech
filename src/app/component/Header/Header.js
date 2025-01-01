@@ -11,28 +11,49 @@ export default function Header() {
     setMenuOpen(!menuOpen);
   };
 
-  return (
-    <header>
-      <nav className="headerNav">
-        {/* Hamburger menu for mobile */}
-        <div className="hamburger" onClick={toggleMenu}>
-          <span className={`line ${menuOpen ? "open" : ""}`}></span>
-          <span className={`line ${menuOpen ? "open" : ""}`}></span>
-          <span className={`line ${menuOpen ? "open" : ""}`}></span>
-        </div>
+  // Fonction pour suivre les clics sur les liens
+  const handleLinkClick = (label) => {
+    if (typeof window !== "undefined") {
+      window.gtag("event", "header_link_click", {
+        event_category: "Navigation",
+        event_label: label,
+      });
+    }
+    setMenuOpen(false); // Fermer le menu après un clic
+  };
 
-        {/* Navigation menu */}
-        <div className={`menu ${menuOpen ? "menuOpen" : ""}`}>
-          <Link href="/" onClick={() => setMenuOpen(false)}>
+  return (
+    <header aria-label="En-tête du site WebCressonTech">
+      <nav className="headerNav">
+        {/* Menu hamburger pour mobile */}
+        <button
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={menuOpen}
+          aria-controls="navigationMenu"
+        >
+          <span className={`line ${menuOpen ? "open" : ""}`}></span>
+          <span className={`line ${menuOpen ? "open" : ""}`}></span>
+          <span className={`line ${menuOpen ? "open" : ""}`}></span>
+        </button>
+
+        {/* Menu de navigation */}
+        <div
+          id="navigationMenu"
+          className={`menu ${menuOpen ? "menuOpen" : ""}`}
+          aria-hidden={!menuOpen}
+        >
+          <Link href="/" onClick={() => handleLinkClick("Accueil")}>
             Accueil
           </Link>
-          <Link href="/services" onClick={() => setMenuOpen(false)}>
-            Service
+          <Link href="/services" onClick={() => handleLinkClick("Services")}>
+            Services
           </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
+          <Link href="/about" onClick={() => handleLinkClick("À propos")}>
             À propos
           </Link>
-          <Link href="/contact" onClick={() => setMenuOpen(false)}>
+          <Link href="/contact" onClick={() => handleLinkClick("Contact")}>
             Contact
           </Link>
         </div>

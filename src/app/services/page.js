@@ -1,56 +1,71 @@
+"use client"; // Activer l'interactivité côté client
+
 import Footer from "../component/Footer/Footer";
 import styles from "../ServicePage.module.css";
-
-export const metadata = {
-  title: "Services - Expertise en Intelligence Artificielle | Cresson Tech",
-  description:
-    "Découvrez les solutions innovantes de Cresson Tech en intelligence artificielle. Nos expertises couvrent le traitement des données, la création de modèles d'IA et leur intégration pour transformer vos projets.",
-  openGraph: {
-    title: "Nos Services - Expertise en IA",
-    description:
-      "Cresson Tech propose des solutions et expertises avancées en intelligence artificielle, incluant le traitement des données et l'intégration des modèles d'IA.",
-    url: "https://cressontech.com/services",
-    images: [
-      {
-        url: "/default-services-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Services proposés par Cresson Tech",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Services - Expertise en IA | Cresson Tech",
-    description:
-      "Découvrez comment Cresson Tech transforme vos projets grâce à des solutions en intelligence artificielle adaptées à vos besoins.",
-    images: ["/default-services-image.jpg"],
-  },
-};
+import Head from "next/head"; // Import pour les métadonnées
 
 export default function Service() {
+  // Fonction pour suivre les clics sur les liens des services
+  const handleLinkClick = (serviceTitle) => {
+    if (typeof window !== "undefined") {
+      window.gtag("event", "service_link_click", {
+        event_category: "Navigation",
+        event_label: serviceTitle,
+      });
+    }
+  };
+
   return (
-    <section className={styles.services}>
-      <h2 className={styles.sectionTitle}>
-        Nos solutions et expertises en intelligence artificielle (IA)
-      </h2>
-      <ul className={styles.servicesList}>
-        {servicesData.map((service, index) => (
-          <li className={styles.serviceCard} key={index}>
-            <div className={styles.serviceHeader}>
-              <i className={`fas ${service.icon}`}></i>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-            </div>
-            <p className={styles.serviceText}>{service.text}</p>
-            <a href={service.link} className={styles.cardButton}>
-              En savoir plus
-            </a>
-          </li>
-        ))}
-      </ul>
-      <Footer />
-    </section>
+    <>
+      {/* SEO avec next/head */}
+      <Head>
+        <title>Services - Expertise en Intelligence Artificielle | Cresson Tech</title>
+        <meta
+          name="description"
+          content="Découvrez les solutions innovantes de Cresson Tech en intelligence artificielle. Nos expertises couvrent le traitement des données, la création de modèles d'IA et leur intégration pour transformer vos projets."
+        />
+        <meta property="og:title" content="Nos Services - Expertise en IA" />
+        <meta
+          property="og:description"
+          content="Cresson Tech propose des solutions et expertises avancées en intelligence artificielle, incluant le traitement des données et l'intégration des modèles d'IA."
+        />
+        <meta property="og:url" content="https://cressontech.com/services" />
+        <meta property="og:image" content="/default-services-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Services - Expertise en IA | Cresson Tech" />
+        <meta
+          name="twitter:description"
+          content="Découvrez comment Cresson Tech transforme vos projets grâce à des solutions en intelligence artificielle adaptées à vos besoins."
+        />
+        <meta name="twitter:image" content="/default-services-image.jpg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+
+      <section className={styles.services}>
+        <h2 className={styles.sectionTitle}>
+          Nos solutions et expertises en intelligence artificielle (IA)
+        </h2>
+        <ul className={styles.servicesList}>
+          {servicesData.map((service, index) => (
+            <li className={styles.serviceCard} key={index}>
+              <div className={styles.serviceHeader}>
+                <i className={`fas ${service.icon}`}></i>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+              </div>
+              <p className={styles.serviceText}>{service.text}</p>
+              <a
+                href={service.link}
+                className={styles.cardButton}
+                onClick={() => handleLinkClick(service.title)}
+              >
+                En savoir plus
+              </a>
+            </li>
+          ))}
+        </ul>
+        <Footer />
+      </section>
+    </>
   );
 }
 
@@ -103,5 +118,4 @@ const servicesData = [
     text: "Exploitez la puissance de l’intelligence artificielle pour analyser de vastes volumes de données et obtenir des insights stratégiques. Intégrez ces résultats directement dans vos processus et outils métiers. Nos solutions incluent l'IA d’analyse concurrentielle (pricing dynamique) et l'IA d’analyse sectorielle pour des domaines tels que les RH, les achats ou la comptabilité.",
     link: "/services/pricing-analyse-avancee",
   },
-  
 ];
