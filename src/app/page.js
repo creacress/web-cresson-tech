@@ -1,13 +1,15 @@
-"use client";
-// Import styles
+"use client"; // Indique que ce composant est rendu côté client
+
 import styles from "./home.module.css";
 import Footer from "./component/Footer/Footer";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation"; // Assurez-vous d'importer useRouter depuis next/navigation
 import CookieModal from "./component/CookieModal/CookieModal";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image"; // Pour optimiser les images
 
 export default function Home() {
   const router = useRouter();
+
   // Initialisation de Google Analytics
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -16,7 +18,7 @@ export default function Home() {
         window.dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-H206EG4TH7"); // Remplacez par votre ID de suivi
+      gtag("config", "G-H206EG4TH7"); // Remplacez par votre propre ID Google Analytics
     }
   }, []);
 
@@ -37,7 +39,9 @@ export default function Home() {
       <main className={styles.mainContent}>
         {/* Section Hero */}
         <section className={styles.hero}>
-          <h1 className={styles.heroTitle_h1}>Agence experte en Intelligence Artificielle</h1>
+          <h1 className={styles.heroTitle_h1}>
+            Agence experte en Intelligence Artificielle
+          </h1>
           <p className={styles.heroText}>
             Nous aidons les entreprises à relever les défis de l'intelligence
             artificielle, de la gestion des données aux infrastructures, en passant
@@ -56,10 +60,14 @@ export default function Home() {
           </p>
           <ul className={styles.servicesList}>
             <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Développement sur solutions IA existantes</span>
+              <span className={styles.highlight}>
+                Développement sur solutions IA existantes
+              </span>
             </li>
             <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Développement intelligence artificielle sur-mesure</span>
+              <span className={styles.highlight}>
+                Développement intelligence artificielle sur-mesure
+              </span>
             </li>
             <li className={styles.serviceItem}>
               <span className={styles.highlight}>Conseil et diagnostic IA</span>
@@ -68,10 +76,14 @@ export default function Home() {
               <span className={styles.highlight}>Machine et Deep Learning</span>
             </li>
             <li className={styles.serviceItem}>
-              <span className={styles.highlight}>SAAS et Intelligence Artificielle intégrées</span>
+              <span className={styles.highlight}>
+                SAAS et Intelligence Artificielle intégrées
+              </span>
             </li>
             <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Maintenance et évolution sur IA existantes</span>
+              <span className={styles.highlight}>
+                Maintenance et évolution sur IA existantes
+              </span>
             </li>
           </ul>
           <button
@@ -82,7 +94,7 @@ export default function Home() {
           </button>
         </section>
 
-        {/* Other Sections */}
+        {/* Section Projet IA */}
         <section className={styles.hero}>
           <h2 className={styles.heroTitle}>
             Un projet de développement d'intelligence artificielle ?
@@ -96,24 +108,28 @@ export default function Home() {
           </p>
           <div className={styles.threeColumns}>
             <div className={styles.column}>
-              <img
-                src="pexels-fauxels-3183150.jpg"
+              <Image
+                src="/pexels-fauxels-3183150.jpg"
                 alt="Discussion sur le projet IA"
                 className={styles.columnImage}
+                width={300}
+                height={200}
               />
               <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
                 Discussion
               </h3>
               <p className={styles.columnText}>
-                Nous échangeons sur votre projet IA et vous conseillons pour trouver
-                une solution adaptable ou sur mesure.
+                Nous échangeons sur votre projet IA et vous conseillons pour
+                trouver une solution adaptable ou sur mesure.
               </p>
             </div>
             <div className={styles.column}>
-              <img
-                src="pexels-kevin-ku-92347-577585.jpg"
+              <Image
+                src="/pexels-kevin-ku-92347-577585.jpg"
                 alt="Création d'une solution IA personnalisée"
                 className={styles.columnImage}
+                width={300}
+                height={200}
               />
               <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
                 Création
@@ -124,17 +140,19 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.column}>
-              <img
-                src="google-deepmind-tikhtH3QRSQ-unsplash.jpg"
+              <Image
+                src="/google-deepmind-tikhtH3QRSQ-unsplash.jpg"
                 alt="Transmission et formation sur une solution IA"
                 className={styles.columnImage}
+                width={300}
+                height={200}
               />
               <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
                 Transmission
               </h3>
               <p className={styles.columnText}>
-                Nous vous partageons la solution IA tout en assurant une bonne prise
-                en main de votre côté. IA as a Service (AIaaS) possible.
+                Nous vous partageons la solution IA tout en assurant une bonne
+                prise en main de votre côté. IA as a Service (AIaaS) possible.
               </p>
             </div>
           </div>
