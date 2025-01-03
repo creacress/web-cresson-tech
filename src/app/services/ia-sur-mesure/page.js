@@ -1,10 +1,16 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../rpa-ia.module.css";
+import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour les métadonnées
 
 export default function IASurMesurePage() {
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
     // Fonction pour suivre les clics sur le CTA
     const handleCtaClick = () => {
         if (typeof window !== "undefined") {
@@ -24,7 +30,10 @@ export default function IASurMesurePage() {
                     name="description"
                     content="Découvrez nos solutions d'IA sur mesure, conçues pour répondre à vos défis spécifiques et optimiser vos processus métiers."
                 />
-                <meta property="og:title" content="IA Sur Mesure - Des solutions adaptées à vos besoins" />
+                <meta
+                    property="og:title"
+                    content="IA Sur Mesure - Des solutions adaptées à vos besoins"
+                />
                 <meta
                     property="og:description"
                     content="Transformez vos données en opportunités avec nos solutions d'IA sur mesure. Automatisation, analyse prédictive et visualisation personnalisée."
@@ -32,7 +41,10 @@ export default function IASurMesurePage() {
                 <meta property="og:url" content="https://cressontech.com/rpa-ia/sur-mesure" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="IA Sur Mesure - Des solutions adaptées à vos besoins" />
+                <meta
+                    name="twitter:title"
+                    content="IA Sur Mesure - Des solutions adaptées à vos besoins"
+                />
                 <meta
                     name="twitter:description"
                     content="Explorez comment l'IA sur mesure peut révolutionner vos processus et améliorer vos performances métier."
@@ -51,7 +63,7 @@ export default function IASurMesurePage() {
                         <p className={styles.sectionText}>
                             Chaque entreprise est unique et nécessite des solutions adaptées à ses besoins spécifiques. L’intelligence artificielle sur mesure offre une approche personnalisée, capable de répondre à des problématiques complexes tout en s’intégrant harmonieusement à vos processus existants.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Nos solutions d'IA sur mesure visent à résoudre des défis tels que :
                         </p>
                         <ul className={styles.sectionList}>
@@ -111,6 +123,15 @@ export default function IASurMesurePage() {
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+                    {/* Boutons supplémentaires */}
+                    <div className={styles.extraActions}>
+                        <button className={styles.scrollToTop} onClick={scrollToTop}>
+                            Remonter en haut
+                        </button>
+                        <a href="/services" className={styles.otherServices}>
+                            Voir d'autres services
+                        </a>
+                    </div>
                     <Footer />
                 </div>
             </div>

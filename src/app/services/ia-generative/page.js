@@ -1,10 +1,16 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../rpa-ia.module.css";
+import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour la gestion des métadonnées
 
-export default function ServicePage() {
+export default function IAGenerative() {
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
     // Fonction pour suivre les clics sur le CTA
     const handleCtaClick = (label) => {
         if (typeof window !== "undefined") {
@@ -24,7 +30,10 @@ export default function ServicePage() {
                     name="description"
                     content="Découvrez comment l'IA Générative peut transformer vos processus de création en générant automatiquement des contenus adaptés à vos besoins."
                 />
-                <meta property="og:title" content="IA Générative - Boostez votre créativité et votre productivité" />
+                <meta
+                    property="og:title"
+                    content="IA Générative - Boostez votre créativité et votre productivité"
+                />
                 <meta
                     property="og:description"
                     content="L’IA Générative révolutionne la création de contenus : textes, images, vidéos, et plus. Découvrez nos solutions innovantes pour votre entreprise."
@@ -32,7 +41,10 @@ export default function ServicePage() {
                 <meta property="og:url" content="https://cressontech.com/rpa-ia/generative" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="IA Générative - Boostez votre créativité et votre productivité" />
+                <meta
+                    name="twitter:title"
+                    content="IA Générative - Boostez votre créativité et votre productivité"
+                />
                 <meta
                     name="twitter:description"
                     content="Nos solutions d'IA Générative vous permettent de créer automatiquement des contenus personnalisés, tout en respectant votre identité de marque."
@@ -51,7 +63,7 @@ export default function ServicePage() {
                         <p className={styles.sectionText}>
                             L’IA Générative révolutionne la création de contenus en permettant aux entreprises de générer automatiquement des textes, des images, des vidéos et bien plus encore. Ces solutions basées sur des modèles d’apprentissage profond sont idéales pour répondre aux besoins créatifs à grande échelle tout en maintenant une qualité exceptionnelle.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Cependant, l’intégration de l’IA Générative pose plusieurs défis majeurs :
                         </p>
                         <ul className={styles.sectionList}>
@@ -117,6 +129,15 @@ export default function ServicePage() {
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+                    {/* Boutons supplémentaires */}
+                    <div className={styles.extraActions}>
+                        <button className={styles.scrollToTop} onClick={scrollToTop}>
+                            Remonter en haut
+                        </button>
+                        <a href="/services" className={styles.otherServices}>
+                            Voir d'autres services
+                        </a>
+                    </div>
                     <Footer />
                 </div>
             </div>

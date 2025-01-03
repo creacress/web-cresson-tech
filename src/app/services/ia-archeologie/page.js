@@ -1,10 +1,16 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../archeologie-ia.module.css";
+import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour les métadonnées
 
 export default function ArcheologiePage() {
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
     // Fonction pour suivre les clics sur le CTA
     const handleCtaClick = () => {
         if (typeof window !== "undefined") {
@@ -24,7 +30,10 @@ export default function ArcheologiePage() {
                     name="description"
                     content="Découvrez comment l'IA et les données LiDAR transforment l'archéologie moderne. Accélérez vos découvertes et améliorez l'analyse géospatiale."
                 />
-                <meta property="og:title" content="IA pour l'Archéologie - Révolutionnez l'exploration historique" />
+                <meta
+                    property="og:title"
+                    content="IA pour l'Archéologie - Révolutionnez l'exploration historique"
+                />
                 <meta
                     property="og:description"
                     content="L'intelligence artificielle optimise les données géospatiales pour l'archéologie. Découvrez comment nos solutions accélèrent vos projets."
@@ -32,7 +41,10 @@ export default function ArcheologiePage() {
                 <meta property="og:url" content="https://cressontech.com/archeologie-ia" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="IA pour l'Archéologie - Révolutionnez l'exploration historique" />
+                <meta
+                    name="twitter:title"
+                    content="IA pour l'Archéologie - Révolutionnez l'exploration historique"
+                />
                 <meta
                     name="twitter:description"
                     content="Nos solutions IA pour l'archéologie transforment les données brutes en découvertes exploitables."
@@ -51,7 +63,7 @@ export default function ArcheologiePage() {
                         <p className={styles.sectionText}>
                             L’archéologie moderne fait face à des défis majeurs avec des données volumineuses issues de technologies comme le LiDAR et les relevés géographiques. L’intelligence artificielle permet de transformer ces données en informations exploitables pour accélérer les découvertes et optimiser les recherches.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Avant l'intégration de l’IA, les processus d’analyse géospatiale étaient limités par :
                         </p>
                         <ul className={styles.sectionList}>
@@ -103,10 +115,23 @@ export default function ArcheologiePage() {
                         <p className={styles.sectionText}>
                             L’IA révolutionne l’archéologie en transformant des données brutes en découvertes. Rejoignez-nous pour intégrer ces technologies à vos projets et accélérer l’exploration de notre passé.
                         </p>
-                        <a href="/contact" className={styles.contextCTA} onClick={handleCtaClick}>
+                        <a
+                            href="/contact"
+                            className={styles.contextCTA}
+                            onClick={handleCtaClick}
+                        >
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+                    {/* Boutons supplémentaires */}
+                    <div className={styles.extraActions}>
+                        <button className={styles.scrollToTop} onClick={scrollToTop}>
+                            Remonter en haut
+                        </button>
+                        <a href="/services" className={styles.otherServices}>
+                            Voir d'autres services
+                        </a>
+                    </div>
                     <Footer />
                 </div>
             </div>

@@ -1,16 +1,23 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../rpa-ia.module.css";
+import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour la gestion des métadonnées
 
 export default function IAAdministrativePage() {
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
     // Fonction pour suivre les clics sur le CTA
-    const handleCtaClick = () => {
+    const handleCtaClick = (label) => {
         if (typeof window !== "undefined") {
             window.gtag("event", "cta_click", {
                 event_category: "Interaction",
-                event_label: "Contactez-nous IA Administrative",
+                event_label: label,
             });
         }
     };
@@ -19,12 +26,16 @@ export default function IAAdministrativePage() {
         <>
             {/* SEO avec next/head */}
             <Head>
+                
                 <title>IA Administrative (OCR) - Simplifiez vos processus documentaires</title>
                 <meta
                     name="description"
                     content="Découvrez nos solutions IA et OCR pour automatiser vos processus administratifs. Réduisez les erreurs, gagnez du temps et respectez les normes réglementaires."
                 />
-                <meta property="og:title" content="IA Administrative (OCR) - Simplifiez vos processus documentaires" />
+                <meta
+                    property="og:title"
+                    content="IA Administrative (OCR) - Simplifiez vos processus documentaires"
+                />
                 <meta
                     property="og:description"
                     content="Découvrez comment nos technologies IA et OCR transforment la gestion documentaire en automatisant les tâches administratives complexes."
@@ -32,7 +43,10 @@ export default function IAAdministrativePage() {
                 <meta property="og:url" content="https://cressontech.com/rpa-ia/administrative" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="IA Administrative (OCR) - Simplifiez vos processus documentaires" />
+                <meta
+                    name="twitter:title"
+                    content="IA Administrative (OCR) - Simplifiez vos processus documentaires"
+                />
                 <meta
                     name="twitter:description"
                     content="Automatisez vos tâches administratives avec nos solutions IA et OCR : extraction de données, classification, conformité, et plus."
@@ -51,7 +65,7 @@ export default function IAAdministrativePage() {
                         <p className={styles.sectionText}>
                             Les entreprises sont confrontées à une gestion administrative complexe et chronophage. L’intelligence artificielle, combinée à la reconnaissance optique de caractères (OCR), permet d’automatiser les tâches liées à la gestion documentaire et à la saisie de données. Ces technologies modernisent les processus administratifs en réduisant les erreurs et en accélérant le traitement des informations.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Voici les défis rencontrés dans la gestion administrative traditionnelle :
                         </p>
                         <ul className={styles.sectionList}>
@@ -103,10 +117,24 @@ export default function IAAdministrativePage() {
                         <p className={styles.sectionText}>
                             Avec nos solutions d’IA et d’OCR, modernisez vos processus administratifs et gagnez en efficacité. Découvrez comment nos technologies peuvent transformer la gestion documentaire et offrir un avantage stratégique à votre entreprise.
                         </p>
-                        <a href="/contact" className={styles.contextCTA} onClick={handleCtaClick}>
+                        <a
+                            href="/contact"
+                            className={styles.contextCTA}
+                            onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui")}
+                        >
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+
+                    {/* Boutons supplémentaires */}
+                    <div className={styles.extraActions}>
+                        <button className={styles.scrollToTop} onClick={scrollToTop}>
+                            Remonter en haut
+                        </button>
+                        <a href="/services" className={styles.otherServices}>
+                            Voir d'autres services
+                        </a>
+                    </div>
                     <Footer />
                 </div>
             </div>

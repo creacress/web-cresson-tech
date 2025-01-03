@@ -1,7 +1,7 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../rpa-ia.module.css";
+import styles from "../../maitenance-pre.module.css";
 import Head from "next/head"; // Import pour les métadonnées
 
 export default function PricingAnalyseAvanceePage() {
@@ -51,7 +51,7 @@ export default function PricingAnalyseAvanceePage() {
                         <p className={styles.sectionText}>
                             Dans un monde où les conditions du marché changent rapidement, l’optimisation des prix et l’analyse avancée des données sont des leviers essentiels pour maintenir un avantage concurrentiel. Grâce à l’intelligence artificielle, les entreprises peuvent ajuster leurs prix en temps réel et analyser des volumes de données massifs pour prendre des décisions stratégiques.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Voici quelques défis majeurs rencontrés dans la gestion traditionnelle des prix :
                         </p>
                         <ul className={styles.sectionList}>

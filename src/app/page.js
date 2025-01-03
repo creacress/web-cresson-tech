@@ -37,7 +37,7 @@ export default function Home() {
       <main className={styles.mainContent}>
         {/* Section Hero */}
         <section className={styles.hero}>
-          <h1 className={styles.heroTitle}>Agence experte en Intelligence Artificielle</h1>
+          <h1 className={styles.heroTitle_h1}>Agence experte en Intelligence Artificielle</h1>
           <p className={styles.heroText}>
             Nous aidons les entreprises à relever les défis de l'intelligence
             artificielle, de la gestion des données aux infrastructures, en passant
@@ -52,7 +52,7 @@ export default function Home() {
           </h2>
           <p className={styles.servicesText}>
             La transformation numérique est un sujet au cœur des préoccupations des
-            entreprises. Digitalia vous accompagne sur les challenges IA.
+            entreprises. WebCressonTech vous accompagne sur les challenges IA.
           </p>
           <ul className={styles.servicesList}>
             <li className={styles.serviceItem}>

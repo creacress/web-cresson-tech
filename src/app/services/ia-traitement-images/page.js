@@ -1,10 +1,16 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../rpa-ia.module.css";
+import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour les métadonnées
 
 export default function IATraitementImagePage() {
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
     // Fonction pour suivre les clics sur le CTA
     const handleCtaClick = () => {
         if (typeof window !== "undefined") {
@@ -24,7 +30,10 @@ export default function IATraitementImagePage() {
                     name="description"
                     content="Découvrez nos solutions de traitement d'images par intelligence artificielle pour automatiser, analyser et exploiter vos données visuelles efficacement."
                 />
-                <meta property="og:title" content="IA pour le Traitement d'Images - Transformez vos visuels en opportunités" />
+                <meta
+                    property="og:title"
+                    content="IA pour le Traitement d'Images - Transformez vos visuels en opportunités"
+                />
                 <meta
                     property="og:description"
                     content="L'IA révolutionne le traitement d'images grâce à des algorithmes avancés pour la reconnaissance, l'amélioration et l'analyse des visuels."
@@ -32,7 +41,10 @@ export default function IATraitementImagePage() {
                 <meta property="og:url" content="https://cressontech.com/rpa-ia/traitement-images" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="IA pour le Traitement d'Images - Transformez vos visuels en opportunités" />
+                <meta
+                    name="twitter:title"
+                    content="IA pour le Traitement d'Images - Transformez vos visuels en opportunités"
+                />
                 <meta
                     name="twitter:description"
                     content="Automatisez vos processus et analysez vos images ou vidéos avec précision grâce à nos solutions IA spécialisées."
@@ -51,7 +63,7 @@ export default function IATraitementImagePage() {
                         <p className={styles.sectionText}>
                             Le traitement d'images par intelligence artificielle révolutionne de nombreux secteurs tels que la santé, la sécurité, le commerce et bien d'autres. En combinant l'analyse visuelle et l'apprentissage profond, nos solutions transforment vos images en informations exploitables et automatisent des tâches complexes.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Voici quelques-unes des applications concrètes du traitement d'images par IA :
                         </p>
                         <ul className={styles.sectionList}>
@@ -112,6 +124,15 @@ export default function IATraitementImagePage() {
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+                    {/* Boutons supplémentaires */}
+                    <div className={styles.extraActions}>
+                        <button className={styles.scrollToTop} onClick={scrollToTop}>
+                            Remonter en haut
+                        </button>
+                        <a href="/services" className={styles.otherServices}>
+                            Voir d'autres services
+                        </a>
+                    </div>
                     <Footer />
                 </div>
             </div>

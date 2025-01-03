@@ -1,10 +1,10 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../rpa-ia.module.css";
+import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour les métadonnées
 
-export default function ServicePage() {
+export default function RPAPages() {
     // Fonction pour suivre les clics sur le CTA
     const handleCtaClick = (label) => {
         if (typeof window !== "undefined") {
@@ -49,9 +49,9 @@ export default function ServicePage() {
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>Contexte</h2>
                         <p className={styles.sectionText}>
-                            À La Poste, nous avons mis en place une solution innovante basée sur la RPA (Robotic Process Automation) pour optimiser la qualité des données internes. Cette solution a permis d’automatiser et de rationaliser le traitement d’un flux de données moyen de <strong>20 000 données par cycle</strong>, en améliorant significativement la précision et la rapidité des opérations.
+                            Avec l'entreprise La Poste, nous avons mis en place une solution innovante basée sur la RPA (Robotic Process Automation) pour optimiser la qualité des données internes. Cette solution a permis d’automatiser et de rationaliser le traitement d’un flux de données moyen de <strong>20 000 données par cycle</strong>, en améliorant significativement la précision et la rapidité des opérations.
                         </p>
-                        <p className={`${styles.sectionText} ${styles.contextHighlight}`}>
+                        <p className={styles.sectionText}>
                             Avant l’implémentation de la RPA, les processus internes rencontraient plusieurs défis majeurs :
                         </p>
                         <ul className={styles.sectionList}>
@@ -62,13 +62,6 @@ export default function ServicePage() {
                         <p className={styles.sectionText}>
                             Grâce à cette automatisation, nous avons non seulement amélioré la qualité des données internes, mais également libéré les équipes pour des tâches à plus forte valeur ajoutée. Cette solution représente un levier clé pour moderniser et renforcer l’efficacité opérationnelle dans un environnement exigeant.
                         </p>
-                        <a
-                            href="/contact"
-                            className={styles.contextCTA}
-                            onClick={() => handleCtaClick("Contactez-nous pour en savoir plus")}
-                        >
-                            Contactez-nous pour en savoir plus
-                        </a>
                     </section>
 
                     {/* Défis */}
