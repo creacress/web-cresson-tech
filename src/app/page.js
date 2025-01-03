@@ -109,7 +109,7 @@ export default function Home() {
           <div className={styles.threeColumns}>
             <div className={styles.column}>
               <Image
-                src="/pexels-fauxels-3183150.jpg"
+                src="/pexels-fauxels-3183150.webp"
                 alt="Discussion sur le projet IA"
                 className={styles.columnImage}
                 width={300}
@@ -125,7 +125,7 @@ export default function Home() {
             </div>
             <div className={styles.column}>
               <Image
-                src="/pexels-kevin-ku-92347-577585.jpg"
+                src="/pexels-kevin-ku-92347-577585.webp"
                 alt="Création d'une solution IA personnalisée"
                 className={styles.columnImage}
                 width={300}
@@ -141,7 +141,7 @@ export default function Home() {
             </div>
             <div className={styles.column}>
               <Image
-                src="/google-deepmind-tikhtH3QRSQ-unsplash.jpg"
+                src="/google-deepmind-tikhtH3QRSQ-unsplash.webp"
                 alt="Transmission et formation sur une solution IA"
                 className={styles.columnImage}
                 width={300}

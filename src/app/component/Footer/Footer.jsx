@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Footer() {
+
+  const currentYear = new Date().getFullYear();
+
   const router = useRouter();
 
   // Fonction pour suivre les clics sur les liens
@@ -94,7 +97,7 @@ export default function Footer() {
             <a href="/TermsOfSale" onClick={() => handleLinkClick("Conditions de ventes", "/TermsOfSale")}>Conditions de ventes</a>
             <a href="/LegalMentions" onClick={() => handleLinkClick("Mentions légales", "/LegalMentions")}>Mentions légales</a>
           </nav>
-          <p>© 2024 WebCressonTech. Tous droits réservés.</p>
+          <p>© {currentYear} WebCressonTech. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

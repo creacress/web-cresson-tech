@@ -42,14 +42,19 @@ export default function Service() {
       </Head>
 
       <section className={styles.services}>
-        <h2 className={styles.sectionTitle}>
+        <h1 className={styles.pageTitle}>
           Nos solutions et expertises en intelligence artificielle (IA)
-        </h2>
+        </h1>
+        <p className={styles.pageDescription}>
+          Chez Cresson Tech, nous proposons une large gamme de solutions basées sur l'IA,
+          adaptées à vos besoins métiers et secteurs spécifiques.
+        </p>
         <ul className={styles.servicesList}>
           {servicesData.map((service, index) => (
             <li className={styles.serviceCard} key={index}>
               <div className={styles.serviceHeader}>
-                <i className={`fas ${service.icon}`}></i>
+                {/* Utilisation de Font Awesome pour les icônes */}
+                <i className={`fas ${service.icon} ${styles.serviceIcon}`}></i>
                 <h3 className={styles.serviceTitle}>{service.title}</h3>
               </div>
               <p className={styles.serviceText}>{service.text}</p>
@@ -89,7 +94,7 @@ const servicesData = [
     link: "/services/ia-generative",
   },
   {
-    icon: "fas fa-compass",
+    icon: "fa-compass",
     title: "IA pour l'Archéologie",
     text: "Utilisez l’intelligence artificielle pour analyser des données géospatiales et identifier des zones d’intérêt archéologique. Nos solutions permettent de traiter de grands volumes de données LiDAR ou géographiques pour détecter des structures cachées, modéliser des sites en 3D et optimiser les explorations. Intégrez ces outils dans vos projets pour des résultats innovants.",
     link: "/services/ia-archeologie",

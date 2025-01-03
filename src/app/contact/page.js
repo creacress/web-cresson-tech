@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "../contact.module.css";
-import Head from "next/head"; // Importer le composant Head
+import Head from "next/head"; // Import de Head pour les métadonnées dynamiques
 
-const ContactForm = () => {
+export default function ContactForm() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -13,7 +13,7 @@ const ContactForm = () => {
   const [isValidEmail, setIsValidEmail] = useState(null);
   const [status, setStatus] = useState(null); // "success", "error", or null
 
-  // Google Analytics initialisation
+  // Initialisation de Google Analytics
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
@@ -47,7 +47,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus("success");
-        // Reset fields
+        // Réinitialiser les champs
         setEmail('');
         setName('');
         setPhone('');
@@ -81,7 +81,7 @@ const ContactForm = () => {
       </Head>
 
       <div className={styles.contactFormSection}>
-        <h2>Contactez-nous</h2>
+        <h1 className={styles.pageTitle}>Contactez-nous</h1>
         <p className={styles.contactText}>
           Remplissez le formulaire ci-dessous pour nous envoyer votre demande ou pour toute question.
         </p>
@@ -106,6 +106,9 @@ const ContactForm = () => {
               onChange={handleEmailChange}
               required
             />
+            {isValidEmail === false && (
+              <small className={styles.errorText}>Email invalide</small>
+            )}
           </div>
 
           {/* Champ Nom */}
@@ -197,5 +200,3 @@ const ContactForm = () => {
     </>
   );
 };
-
-export default ContactForm;

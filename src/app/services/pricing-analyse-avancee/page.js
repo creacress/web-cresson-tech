@@ -1,8 +1,8 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../maitenance-pre.module.css";
-import Head from "next/head"; // Import pour les métadonnées
+import styles from "../../maitenance-pre.module.css"; // Import des styles centralisés
+import Head from "next/head"; // Gestion des métadonnées
 
 export default function PricingAnalyseAvanceePage() {
     // Fonction pour suivre les clics sur le CTA
@@ -12,6 +12,13 @@ export default function PricingAnalyseAvanceePage() {
                 event_category: "Interaction",
                 event_label: "Contactez-nous Pricing Dynamique",
             });
+        }
+    };
+
+    // Fonction pour remonter en haut de la page
+    const scrollToTop = () => {
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
 
@@ -111,6 +118,16 @@ export default function PricingAnalyseAvanceePage() {
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+
+                    {/* Boutons supplémentaires */}
+                    <div className={styles.extraActions}>
+                        <button className={styles.scrollToTop} onClick={scrollToTop}>
+                            Remonter en haut
+                        </button>
+                        <a href="/services" className={styles.otherServices}>
+                            Voir d'autres services
+                        </a>
+                    </div>
                     <Footer />
                 </div>
             </div>

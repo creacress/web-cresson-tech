@@ -21,7 +21,7 @@ export default function CookieModal() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 10000); // 10 secondes
+    }, 3000); // 3 seconde 
 
     // Nettoyage du timer si le composant est démonté ou si "J'accepte" est cliqué
     return () => clearTimeout(timer);

@@ -1,8 +1,8 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../maitenance-pre.module.css";
-import Head from "next/head"; // Pour la gestion des métadonnées
+import styles from "../../maitenance-pre.module.css"; // Import des styles centralisés
+import Head from "next/head"; // Gestion des métadonnées
 
 export default function MaintenancePredictive() {
     // Fonction pour suivre les clics sur le CTA

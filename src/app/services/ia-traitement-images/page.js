@@ -124,6 +124,7 @@ export default function IATraitementImagePage() {
                             Contactez-nous dès aujourd'hui !
                         </a>
                     </section>
+
                     {/* Boutons supplémentaires */}
                     <div className={styles.extraActions}>
                         <button className={styles.scrollToTop} onClick={scrollToTop}>
