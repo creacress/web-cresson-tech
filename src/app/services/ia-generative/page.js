@@ -3,6 +3,7 @@
 import Footer from "@/app/component/Footer/Footer";
 import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour la gestion des métadonnées
+import Script from "next/script"; // Pour les données structurées JSON-LD
 
 export default function IAGenerative() {
   // Fonction pour remonter en haut de la page
@@ -39,7 +40,7 @@ export default function IAGenerative() {
           property="og:description"
           content="L’IA Générative révolutionne la création de contenus : textes, images, vidéos, et plus. Découvrez nos solutions innovantes pour votre entreprise."
         />
-        <meta property="og:url" content="https://cressontech.com/rpa-ia/generative" />
+        <meta property="og:url" content="https://webcresson.com/services/ia-generative" />
         <meta property="og:image" content="/default-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -53,6 +54,39 @@ export default function IAGenerative() {
         <meta name="twitter:image" content="/default-og-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+
+      {/* Données structurées JSON-LD */}
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "IA Générative",
+            "description": "Découvrez comment l'IA Générative peut transformer vos processus de création en générant automatiquement des contenus adaptés à vos besoins.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Cresson Tech",
+              "url": "https://webcresson.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://webcresson.com/Logo_webcressontech.webp",
+                "width": 250,
+                "height": 100
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33-7-66-02-96-32",
+                "contactType": "Customer Service",
+                "email": "contact@webcresson.com",
+                "availableLanguage": ["French", "English"]
+              }
+            },
+            "category": "Création de contenu avec Intelligence Artificielle",
+            "areaServed": "Global",
+            "url": "https://webcresson.com/services/ia-generative"
+          }
+        `}
+      </Script>
 
       <div className={styles.page}>
         <div className={styles.mainContent}>

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../contact.module.css";
 import Head from "next/head"; // Import de Head pour les métadonnées dynamiques
+import Script from "next/script"; // Pour les données structurées JSON-LD
 
 export default function ContactForm() {
   const [email, setEmail] = useState('');
@@ -78,7 +79,52 @@ export default function ContactForm() {
         />
         <meta name="author" content="Cresson Tech" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Contactez-nous | Cresson Tech" />
+        <meta
+          property="og:description"
+          content="Contactez Cresson Tech pour toute demande sur nos services technologiques et solutions IA."
+        />
+        <meta property="og:url" content="https://webcresson.com/contact" />
+        <meta property="og:image" content="/default-og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contactez-nous | Cresson Tech" />
+        <meta
+          name="twitter:description"
+          content="Contactez Cresson Tech pour toute demande sur nos services technologiques et solutions IA."
+        />
+        <meta name="twitter:image" content="/default-og-image.jpg" />
       </Head>
+
+      {/* Données structurées JSON-LD */}
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contactez-nous | Cresson Tech",
+            "description": "Contactez Cresson Tech pour toute demande sur nos solutions d'intelligence artificielle et services technologiques.",
+            "url": "https://webcresson.com/contact",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Cresson Tech",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://webcresson.com/Logo_webcressontech.webp",
+                "width": 250,
+                "height": 100
+              }
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+33-7-66-02-96-32",
+              "contactType": "Customer Service",
+              "email": "contact@webcresson.com",
+              "areaServed": "FR",
+              "availableLanguage": ["French", "English"]
+            }
+          }
+        `}
+      </Script>
 
       <div className={styles.contactFormSection}>
         <h1 className={styles.pageTitle}>Contactez-nous</h1>
@@ -199,4 +245,4 @@ export default function ContactForm() {
       </div>
     </>
   );
-};
+}

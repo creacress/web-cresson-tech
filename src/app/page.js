@@ -5,6 +5,7 @@ import Footer from "./component/Footer/Footer";
 import CookieModal from "./component/CookieModal/CookieModal";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Script from "next/script"; // Pour les balises JSON-LD
 import Image from "next/image"; // Pour optimiser les images
 
 export default function Home() {
@@ -36,6 +37,28 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      {/* Données structurées JSON-LD pour la page Home */}
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Accueil - WebCressonTech",
+            "description": "WebCressonTech aide les entreprises à relever les défis de l'intelligence artificielle avec des solutions sur mesure : gestion des données, infrastructures modernes et outils IA.",
+            "url": "https://www.webcresson.com",
+            "publisher": {
+              "@type": "Organization",
+              "name": "WebCressonTech",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.webcresson.com/Logo_webcressontech.webp"
+              }
+            },
+            "inLanguage": "fr"
+          }
+        `}
+      </Script>
+
       <main className={styles.mainContent}>
         {/* Section Hero */}
         <section className={styles.hero}>

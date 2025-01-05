@@ -3,6 +3,7 @@
 import Footer from "@/app/component/Footer/Footer";
 import styles from "../../maitenance-pre.module.css"; // Import des styles centralisés
 import Head from "next/head"; // Gestion des métadonnées
+import Script from "next/script"; // Gestion des données structurées JSON-LD
 
 export default function MaintenancePredictive() {
     // Fonction pour suivre les clics sur le CTA
@@ -39,7 +40,7 @@ export default function MaintenancePredictive() {
                     property="og:description"
                     content="Avec l'intelligence artificielle, la maintenance prédictive permet de réduire les coûts et d'améliorer la productivité. Contactez-nous dès maintenant."
                 />
-                <meta property="og:url" content="https://cressontech.com/maintenance-predictive" />
+                <meta property="og:url" content="https://webcresson.com/services/maintenance-predictive" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
@@ -53,6 +54,39 @@ export default function MaintenancePredictive() {
                 <meta name="twitter:image" content="/default-og-image.jpg" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
+
+            {/* Données structurées JSON-LD */}
+            <Script type="application/ld+json" strategy="afterInteractive">
+                {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Maintenance Prédictive",
+                        "description": "Découvrez comment nos solutions de maintenance prédictive basées sur l'intelligence artificielle peuvent anticiper les pannes et optimiser vos opérations.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Cresson Tech",
+                            "url": "https://webcresson.com",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://webcresson.com/Logo_webcressontech.webp",
+                                "width": 250,
+                                "height": 100
+                            },
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+33-7-66-02-96-32",
+                                "contactType": "Customer Service",
+                                "email": "contact@webcresson.com",
+                                "availableLanguage": ["French", "English"]
+                            }
+                        },
+                        "category": "Solutions de maintenance prédictive par IA",
+                        "areaServed": "Global",
+                        "url": "https://webcresson.com/services/maintenance-predictive"
+                    }
+                `}
+            </Script>
 
             <div className={styles.page}>
                 <div className={styles.mainContent}>

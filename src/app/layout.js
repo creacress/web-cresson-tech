@@ -21,6 +21,23 @@ export default function RootLayout({ children }) {
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Données structurées JSON-LD pour l'organisation */}
+        <Script type="application/ld+json" strategy="afterInteractive">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "WebCressonTech",
+              "url": "https://www.webcresson.com",
+              "logo": "https://www.webcresson.com/Logo_webcressontech.webp",
+              "description": "Découvrez les solutions d'intelligence artificielle, de machine learning et de deep learning proposées par WebCressonTech. Accélérez votre transformation digitale avec des outils IA adaptés.",
+              "sameAs": [
+                "https://www.linkedin.com/in/alexis-cresson/"
+              ]
+            }
+          `}
+        </Script>
       </head>
       <body>
         {/* Script Google Analytics */}

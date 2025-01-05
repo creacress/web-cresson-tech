@@ -4,6 +4,7 @@ import styles from "../about.module.css";
 import { FaLightbulb, FaHandshake, FaAward, FaUsers, FaLeaf } from "react-icons/fa";
 import Footer from "../component/Footer/Footer";
 import Head from "next/head"; // Import de Head pour les métadonnées dynamiques
+import Script from "next/script"; // Pour ajouter des données structurées JSON-LD
 
 export default function About() {
   return (
@@ -20,7 +21,7 @@ export default function About() {
           property="og:description"
           content="Chez WebCressonTech, nous sommes passionnés par l'innovation technologique et aidons nos clients à tirer le meilleur parti de l'IA."
         />
-        <meta property="og:url" content="https://cressontech.com/about" />
+        <meta property="og:url" content="https://webcresson.com/about" />
         <meta property="og:image" content="/default-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="À propos de WebCressonTech" />
@@ -31,6 +32,41 @@ export default function About() {
         <meta name="twitter:image" content="/default-og-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+
+      {/* Données structurées JSON-LD */}
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "À propos de WebCressonTech",
+            "description": "Découvrez WebCressonTech, une entreprise passionnée par l'innovation technologique et l'intelligence artificielle.",
+            "url": "https://webcresson.com/about",
+            "publisher": {
+              "@type": "Organization",
+              "name": "WebCressonTech",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.webcresson.com/Logo_webcressontech.webp",
+                "width": 250,
+                "height": 100
+              }
+            },
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "WebCressonTech",
+              "description": "Nous aidons nos clients à exploiter l'intelligence artificielle pour transformer leurs entreprises.",
+              "foundingDate": "2020-01-01",
+              "founders": [
+                { "@type": "Person", "name": "CRESSON ALEXIS" }
+              ],
+              "sameAs": [
+                "https://www.linkedin.com/in/alexis-cresson/"
+              ]
+            }
+          }
+        `}
+      </Script>
 
       <div className={styles.page}>
         <main className={styles.mainContent}>

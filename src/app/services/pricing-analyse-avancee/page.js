@@ -3,6 +3,7 @@
 import Footer from "@/app/component/Footer/Footer";
 import styles from "../../maitenance-pre.module.css"; // Import des styles centralisés
 import Head from "next/head"; // Gestion des métadonnées
+import Script from "next/script"; // Gestion des données structurées JSON-LD
 
 export default function PricingAnalyseAvanceePage() {
     // Fonction pour suivre les clics sur le CTA
@@ -31,12 +32,15 @@ export default function PricingAnalyseAvanceePage() {
                     name="description"
                     content="Découvrez nos solutions d'IA pour optimiser vos prix en temps réel et analyser les données pour prendre des décisions stratégiques éclairées."
                 />
-                <meta property="og:title" content="Pricing Dynamique et Analyse Avancée - Maximisez vos revenus" />
+                <meta
+                    property="og:title"
+                    content="Pricing Dynamique et Analyse Avancée - Maximisez vos revenus"
+                />
                 <meta
                     property="og:description"
                     content="L'intelligence artificielle révolutionne le pricing dynamique et l'analyse avancée des données. Maximisez vos performances commerciales avec nos solutions."
                 />
-                <meta property="og:url" content="https://cressontech.com/pricing-analyse-avancee" />
+                <meta property="og:url" content="https://webcresson.com/services/pricing-analyse-avancee" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Pricing Dynamique et Analyse Avancée - Maximisez vos revenus" />
@@ -47,6 +51,39 @@ export default function PricingAnalyseAvanceePage() {
                 <meta name="twitter:image" content="/default-og-image.jpg" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
+
+            {/* Données structurées JSON-LD */}
+            <Script type="application/ld+json" strategy="afterInteractive">
+                {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Pricing Dynamique et Analyse Avancée",
+                        "description": "Découvrez nos solutions d'IA pour optimiser vos prix en temps réel et analyser les données pour prendre des décisions stratégiques éclairées.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Cresson Tech",
+                            "url": "https://webcresson.com",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://webcresson.com/Logo_webcressontech.webp",
+                                "width": 250,
+                                "height": 100
+                            },
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+33-7-66-02-96-32",
+                                "contactType": "Customer Service",
+                                "email": "contact@webcresson.com",
+                                "availableLanguage": ["French", "English"]
+                            }
+                        },
+                        "category": "Pricing Dynamique et Analyse de Données",
+                        "areaServed": "Global",
+                        "url": "https://webcresson.com/services/pricing-analyse-avancee"
+                    }
+                `}
+            </Script>
 
             <div className={styles.page}>
                 <div className={styles.mainContent}>

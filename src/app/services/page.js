@@ -3,6 +3,7 @@
 import Footer from "../component/Footer/Footer";
 import styles from "../ServicePage.module.css";
 import Head from "next/head"; // Import pour les métadonnées
+import Script from "next/script"; // Import pour les données structurées JSON-LD
 
 export default function Service() {
   // Fonction pour suivre les clics sur les liens des services
@@ -29,7 +30,7 @@ export default function Service() {
           property="og:description"
           content="Cresson Tech propose des solutions et expertises avancées en intelligence artificielle, incluant le traitement des données et l'intégration des modèles d'IA."
         />
-        <meta property="og:url" content="https://cressontech.com/services" />
+        <meta property="og:url" content="https://webcresson.com/services" />
         <meta property="og:image" content="/default-services-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Services - Expertise en IA | Cresson Tech" />
@@ -40,6 +41,25 @@ export default function Service() {
         <meta name="twitter:image" content="/default-services-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+
+      {/* Données structurées JSON-LD */}
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Services en Intelligence Artificielle",
+          "description":
+            "Cresson Tech propose une large gamme de services en intelligence artificielle pour optimiser vos processus métiers et développer des solutions sur mesure.",
+          "url": "https://webcresson.com/services",
+          "itemListElement": servicesData.map((service, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": service.title,
+            "description": service.text,
+            "url": `https://webcresson.com/services${service.link}`,
+          })),
+        })}
+      </Script>
 
       <section className={styles.services}>
         <h1 className={styles.pageTitle}>
@@ -53,7 +73,6 @@ export default function Service() {
           {servicesData.map((service, index) => (
             <li className={styles.serviceCard} key={index}>
               <div className={styles.serviceHeader}>
-                {/* Utilisation de Font Awesome pour les icônes */}
                 <i className={`fas ${service.icon} ${styles.serviceIcon}`}></i>
                 <h3 className={styles.serviceTitle}>{service.title}</h3>
               </div>

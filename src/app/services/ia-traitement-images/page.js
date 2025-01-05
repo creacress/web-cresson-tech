@@ -3,6 +3,7 @@
 import Footer from "@/app/component/Footer/Footer";
 import styles from "../../maitenance-pre.module.css"; // Import du CSS centralisé
 import Head from "next/head"; // Import pour les métadonnées
+import Script from "next/script"; // Import pour les données structurées JSON-LD
 
 export default function IATraitementImagePage() {
     // Fonction pour remonter en haut de la page
@@ -11,6 +12,7 @@ export default function IATraitementImagePage() {
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
+
     // Fonction pour suivre les clics sur le CTA
     const handleCtaClick = () => {
         if (typeof window !== "undefined") {
@@ -38,7 +40,7 @@ export default function IATraitementImagePage() {
                     property="og:description"
                     content="L'IA révolutionne le traitement d'images grâce à des algorithmes avancés pour la reconnaissance, l'amélioration et l'analyse des visuels."
                 />
-                <meta property="og:url" content="https://cressontech.com/rpa-ia/traitement-images" />
+                <meta property="og:url" content="https://webcresson.com/services/ia-traitement-images" />
                 <meta property="og:image" content="/default-og-image.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
@@ -52,6 +54,39 @@ export default function IATraitementImagePage() {
                 <meta name="twitter:image" content="/default-og-image.jpg" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
+
+            {/* Données structurées JSON-LD */}
+            <Script type="application/ld+json" strategy="afterInteractive">
+                {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "IA pour le Traitement d'Images",
+                        "description": "Découvrez nos solutions de traitement d'images par intelligence artificielle pour automatiser, analyser et exploiter vos données visuelles efficacement.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Cresson Tech",
+                            "url": "https://webcresson.com",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://webcresson.com/Logo_webcressontech.webp",
+                                "width": 250,
+                                "height": 100
+                            },
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "telephone": "+33-7-66-02-96-32",
+                                "contactType": "Customer Service",
+                                "email": "contact@webcresson.com",
+                                "availableLanguage": ["French", "English"]
+                            }
+                        },
+                        "category": "Traitement d'Images par Intelligence Artificielle",
+                        "areaServed": "Global",
+                        "url": "https://webcresson.com/services/ia-traitement-images"
+                    }
+                `}
+            </Script>
 
             <div className={styles.page}>
                 <div className={styles.mainContent}>
