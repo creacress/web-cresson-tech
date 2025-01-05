@@ -13,6 +13,8 @@ export async function GET() {
     "/services/ia-sur-mesure",
     "/services/ia-archeologie",
     "/services/pricing-analyse-avancee",
+    "/TermsOfSale",
+    "/LegalMentions"
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
