@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <head>
         {/* Meta SEO */}
+        <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content="intelligence artificielle, machine learning, deep learning, solutions IA, WebCressonTech" />
         <meta name="author" content="WebCressonTech" />
