@@ -1,6 +1,7 @@
 import Header from "./component/Header/Header";
 import "./globals.css";
 import Script from "next/script"; // Import du composant Script de Next.js
+import Head from "next/head";
 
 export const metadata = {
   title: "WebCressonTech - Solutions technologiques innovantes en IA",
@@ -11,10 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <head>
+      <Head>
         {/* Meta SEO */}
-        <meta name="title" content={metadata.title} />
-        <meta name="description" content={metadata.description} />
+        <title>WebCressonTech - Solutions technologiques innovantes en IA</title>
+        <meta name="description" content="Découvrez les solutions d'intelligence artificielle, de machine learning et de deep learning proposées par WebCressonTech. Accélérez votre transformation digitale avec des outils IA adaptés." />
         <meta name="keywords" content="intelligence artificielle, machine learning, deep learning, solutions IA, WebCressonTech" />
         <meta name="author" content="WebCressonTech" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +40,7 @@ export default function RootLayout({ children }) {
             }
           `}
         </Script>
-      </head>
+      </Head>
       <body>
         {/* Script Google Analytics */}
         <Script
