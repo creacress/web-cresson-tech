@@ -30,20 +30,24 @@
 /* Section Hero */
 .hero {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   animation: fadeIn 1.5s ease-in-out;
+  padding: 0 10px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: 2rem; /* Uniformisé pour mobile */
   color: #00e0ff;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  word-wrap: break-word;
 }
 
 .heroText {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Harmonisé avec le reste des paragraphes */
   line-height: 1.8;
   color: #dcdcdc;
   max-width: 800px;
@@ -58,9 +62,9 @@
 }
 
 .values h2 {
-  font-size: 2.8rem;
+  font-size: 2.4rem; /* Cohérence avec les autres titres */
   color: #00e0ff;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .valuesGrid {
@@ -86,7 +90,7 @@
 }
 
 .valueCard h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #00e0ff;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -106,9 +110,9 @@
 }
 
 .team h2 {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   color: #00e0ff;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .teamGrid {
@@ -129,39 +133,40 @@
 }
 
 .teamMember img {
-  width: 120px;
-  height: 120px;
+  width: 100px; /* Réduit légèrement pour cohérence mobile */
+  height: 100px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .teamMember h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* Harmonisé avec les sous-titres */
   margin: 10px 0 5px;
   color: #ffab40;
 }
 
 .teamMember p {
-  font-size: 1rem;
+  font-size: 0.9rem; /* Cohérence avec les paragraphes */
   color: #b3b3b3;
 }
 
 /* Section CTA */
 .ctas {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 60px;
+  flex-direction: column; /* Empile pour mobile */
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
 }
 
 .primaryCta {
   background: linear-gradient(90deg, #00e0ff, #008bb3);
   color: #ffffff;
-  padding: 14px 35px;
+  padding: 12px 25px; /* Taille adaptée pour mobile */
   border-radius: 25px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -174,11 +179,11 @@
 .secondaryCta {
   background: transparent;
   color: #00e0ff;
-  padding: 14px 35px;
+  padding: 12px 25px;
   border: 2px solid #00e0ff;
   border-radius: 25px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s ease;
 }
@@ -186,6 +191,34 @@
 .secondaryCta:hover {
   background: #00e0ff;
   color: #ffffff;
+}
+
+/* Media queries pour les écrans plus larges */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  .values h2,
+  .team h2 {
+    font-size: 2.8rem;
+  }
+
+  .teamMember img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .ctas {
+    flex-direction: row;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    padding: 14px 35px;
+    font-size: 1.1rem;
+  }
 }
 
 /* Animations */

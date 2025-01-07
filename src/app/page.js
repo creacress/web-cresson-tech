@@ -5,13 +5,12 @@ import Footer from "./component/Footer/Footer";
 import CookieModal from "./component/CookieModal/CookieModal";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Script from "next/script"; // Pour les balises JSON-LD
-import Image from "next/image"; // Pour optimiser les images
+import Script from "next/script";
+import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
 
-  // Initialisation de Google Analytics
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
@@ -23,7 +22,6 @@ export default function Home() {
     }
   }, []);
 
-  // Gestion des clics pour les événements
   const handleClickEvent = (label) => {
     if (typeof window !== "undefined") {
       window.gtag("event", "button_click", {
@@ -31,13 +29,11 @@ export default function Home() {
         event_label: label,
       });
     }
-    // Redirection vers la page Services
     router.push("/services");
   };
 
   return (
     <div className={styles.page}>
-      {/* Données structurées JSON-LD pour la page Home */}
       <Script type="application/ld+json" strategy="afterInteractive">
         {`
           {
@@ -63,23 +59,23 @@ export default function Home() {
         {/* Section Hero */}
         <section className={styles.hero}>
           <h1 className={styles.heroTitle_h1}>
-            Agence experte en Intelligence Artificielle
+            Votre expert en intelligence artificielle
           </h1>
           <p className={styles.heroText}>
-            Nous aidons les entreprises à relever les défis de l'intelligence
-            artificielle, de la gestion des données aux infrastructures, en passant
-            par des solutions IA existantes ou entièrement sur mesure.
+            WebCressonTech vous accompagne dans vos projets IA en offrant une
+            expertise complète : gestion de données, infrastructures modernes
+            et solutions sur mesure adaptées à vos besoins.
           </p>
         </section>
 
         {/* Section Services */}
         <section className={styles.services}>
-          <h2 className={styles.servicesTitle}>
-            Conception et développement d’Intelligence Artificielle.
-          </h2>
+          <h2 className={styles.servicesTitle}>Nos services IA</h2>
           <p className={styles.servicesText}>
-            La transformation numérique est un sujet au cœur des préoccupations des
-            entreprises. WebCressonTech vous accompagne sur les challenges IA.
+            Conception et développement de solutions IA avancées. La
+            transformation numérique est essentielle pour les entreprises
+            modernes. Notre équipe vous aide à intégrer des solutions IA qui
+            transforment vos défis en opportunités.
           </p>
           <ul className={styles.servicesList}>
             <li className={styles.serviceItem}>
@@ -89,45 +85,42 @@ export default function Home() {
             </li>
             <li className={styles.serviceItem}>
               <span className={styles.highlight}>
-                Développement intelligence artificielle sur-mesure
+                Création d’intelligence artificielle sur mesure
               </span>
             </li>
             <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Conseil et diagnostic IA</span>
+              <span className={styles.highlight}>Audit et conseil en stratégie IA</span>
             </li>
             <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Machine et Deep Learning</span>
+              <span className={styles.highlight}>Machine Learning et Deep Learning</span>
+            </li>
+            <li className={styles.serviceItem}>
+              <span className={styles.highlight}>Intégration SAAS avec IA</span>
             </li>
             <li className={styles.serviceItem}>
               <span className={styles.highlight}>
-                SAAS et Intelligence Artificielle intégrées
-              </span>
-            </li>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>
-                Maintenance et évolution sur IA existantes
+                Maintenance et évolution des solutions IA
               </span>
             </li>
           </ul>
           <button
             className={styles.ctaButton}
-            onClick={() => handleClickEvent("CTA Button - Nos études de cas")}
+            onClick={() => handleClickEvent("CTA Button - Nos services")}
           >
-            Nos services
+            Découvrir nos services
           </button>
         </section>
 
         {/* Section Projet IA */}
         <section className={styles.hero}>
           <h2 className={styles.heroTitle}>
-            Un projet de développement d'intelligence artificielle ?
+            Un projet d’intelligence artificielle ?
           </h2>
           <p className={styles.heroText}>
-            Notre agence IA maîtrise les différents outils de l’intelligence
-            artificielle : Machine learning, Deep learning, Computer vision,
-            Traitement de langage, Automatisation de tâches… Nous vous accompagnons
-            dans votre projet d’IA pour vous préparer à l’avenir et anticiper les
-            impacts de l’intelligence artificielle au sein de votre organisation.
+            Nous maîtrisons les outils et technologies de l’intelligence
+            artificielle : Machine Learning, Deep Learning, Vision par
+            Ordinateur, Traitement de Langage Naturel (NLP), Automatisation des
+            Processus...
           </p>
           <div className={styles.threeColumns}>
             <div className={styles.column}>
@@ -139,11 +132,11 @@ export default function Home() {
                 height={200}
               />
               <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
-                Discussion
+                Analyse & Discussion
               </h3>
               <p className={styles.columnText}>
-                Nous échangeons sur votre projet IA et vous conseillons pour
-                trouver une solution adaptable ou sur mesure.
+                Identifions ensemble vos besoins pour concevoir une solution
+                adaptée.
               </p>
             </div>
             <div className={styles.column}>
@@ -155,11 +148,11 @@ export default function Home() {
                 height={200}
               />
               <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
-                Création
+                Création & Développement
               </h3>
               <p className={styles.columnText}>
-                Nous traitons toutes vos données et développons une intelligence
-                artificielle sur mesure. Données fiables et exploitables requises.
+                Exploitez vos données avec des solutions IA personnalisées et
+                fiables.
               </p>
             </div>
             <div className={styles.column}>
@@ -171,11 +164,11 @@ export default function Home() {
                 height={200}
               />
               <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
-                Transmission
+                Formation & Transmission
               </h3>
               <p className={styles.columnText}>
-                Nous vous partageons la solution IA tout en assurant une bonne
-                prise en main de votre côté. IA as a Service (AIaaS) possible.
+                Adoptez facilement la solution grâce à nos conseils et
+                formations.
               </p>
             </div>
           </div>
@@ -183,30 +176,30 @@ export default function Home() {
 
         {/* Section Pourquoi nous choisir */}
         <section className={styles.whyChooseUs}>
-          <h2 className={styles.sectionTitle}>Pourquoi nous choisir ?</h2>
+          <h2 className={styles.sectionTitle}>Pourquoi choisir WebCressonTech ?</h2>
           <div className={styles.featuresGrid}>
             <div className={styles.featureCard}>
-              <h3 className={styles.featureTitle}>Expertise</h3>
+              <h3 className={styles.featureTitle}>Expertise certifiée</h3>
               <p className={styles.featureText}>
-                Une équipe de professionnels expérimentés dans le domaine
-                technologique.
+                Une équipe expérimentée en IA et nouvelles technologies.
               </p>
             </div>
             <div className={styles.featureCard}>
-              <h3 className={styles.featureTitle}>Innovation</h3>
+              <h3 className={styles.featureTitle}>Solutions innovantes</h3>
               <p className={styles.featureText}>
-                Des solutions modernes basées sur les dernières technologies.
+                Utilisation des technologies les plus avancées.
               </p>
             </div>
             <div className={styles.featureCard}>
-              <h3 className={styles.featureTitle}>Résultats</h3>
+              <h3 className={styles.featureTitle}>Résultats concrets</h3>
               <p className={styles.featureText}>
-                Un accompagnement garanti vers la réussite de vos projets.
+                Un accompagnement jusqu’à la réussite de vos projets.
               </p>
             </div>
           </div>
           <CookieModal />
         </section>
+
         <Footer />
       </main>
     </div>

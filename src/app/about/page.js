@@ -72,7 +72,7 @@ export default function About() {
         <main className={styles.mainContent}>
           {/* Section Introduction */}
           <section className={styles.hero}>
-            <h1 className={styles.heroTitle}>À propos de WebCressonTech</h1>
+            <h1 className={styles.heroTitle}>À propos de l'entreprise</h1>
             <p className={styles.heroText}>
               Chez WebCressonTech, nous sommes passionnés par l'innovation technologique. 
               Notre mission est d'aider nos clients à tirer le meilleur parti de l'intelligence artificielle 
@@ -129,6 +129,16 @@ export default function About() {
               Une équipe multidisciplinaire, composée d'experts en développement, data science et automatisation, 
               prête à relever vos défis technologiques.
             </p>
+          </section>
+
+          {/* Section Call-to-Action */}
+          <section className={styles.ctas}>
+            <a href="/contact" className={styles.primaryCta}>
+              Contactez-nous
+            </a>
+            <a href="/services" className={styles.secondaryCta}>
+              Nos services
+            </a>
           </section>
 
           <Footer />
