@@ -5,7 +5,7 @@ import styles from "../../styles/maitenance-pre.module.css"; // Import du CSS ce
 import Head from "next/head"; // Import pour la gestion des métadonnées
 import Script from "next/script"; // Pour les données structurées JSON-LD
 
-export default function IAGenerative() {
+export default function AuditIAPage() {
   // Fonction pour remonter en haut de la page
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
@@ -27,29 +27,29 @@ export default function IAGenerative() {
     <>
       {/* SEO avec next/head */}
       <Head>
-        <title>IA Générative - Boostez votre créativité et votre productivité</title>
+        <title>Audit IA - Optimisez vos stratégies d'intelligence artificielle</title>
         <meta
           name="description"
-          content="Découvrez comment l'IA Générative peut transformer vos processus de création en générant automatiquement des contenus adaptés à vos besoins."
+          content="Découvrez nos services d'audit en IA pour évaluer et optimiser vos stratégies technologiques. Identifiez vos forces et vos axes d'amélioration."
         />
         <meta
           property="og:title"
-          content="IA Générative - Boostez votre créativité et votre productivité"
+          content="Audit IA - Optimisez vos stratégies d'intelligence artificielle"
         />
         <meta
           property="og:description"
-          content="L’IA Générative révolutionne la création de contenus : textes, images, vidéos, et plus. Découvrez nos solutions innovantes pour votre entreprise."
+          content="Avec notre service d'audit en IA, identifiez les opportunités et améliorez l'efficacité de vos initiatives d'intelligence artificielle."
         />
-        <meta property="og:url" content="https://webcresson.com/services/ia-generative" />
+        <meta property="og:url" content="https://webcresson.com/services/audit-ia" />
         <meta property="og:image" content="/default-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="IA Générative - Boostez votre créativité et votre productivité"
+          content="Audit IA - Optimisez vos stratégies d'intelligence artificielle"
         />
         <meta
           name="twitter:description"
-          content="Nos solutions d'IA Générative vous permettent de créer automatiquement des contenus personnalisés, tout en respectant votre identité de marque."
+          content="Identifiez vos opportunités technologiques avec notre expertise en audit d'intelligence artificielle."
         />
         <meta name="twitter:image" content="/default-og-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,8 +61,8 @@ export default function IAGenerative() {
           {
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "IA Générative",
-            "description": "Découvrez comment l'IA Générative peut transformer vos processus de création en générant automatiquement des contenus adaptés à vos besoins.",
+            "name": "Audit IA",
+            "description": "Découvrez nos services d'audit en IA pour évaluer et optimiser vos stratégies technologiques. Identifiez vos forces et vos axes d'amélioration.",
             "provider": {
               "@type": "Organization",
               "name": "Cresson Tech",
@@ -81,34 +81,23 @@ export default function IAGenerative() {
                 "availableLanguage": ["French", "English"]
               }
             },
-            "category": "Création de contenu avec Intelligence Artificielle",
+            "category": "Audit et Stratégie IA",
             "areaServed": "Global",
-            "url": "https://webcresson.com/services/ia-generative"
+            "url": "https://webcresson.com/services/audit-ia"
           }
         `}
       </Script>
 
       <div className={styles.page}>
         <div className={styles.mainContent}>
-          <h1 className={styles.mainTitle}>IA Générative</h1>
+          <h1 className={styles.mainTitle}>Audit IA</h1>
 
           {/* Contexte */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Contexte</h2>
             <p className={styles.sectionText}>
-              L’IA Générative révolutionne la création de contenus en permettant aux entreprises de générer automatiquement des textes, des images, des vidéos et bien plus encore. Ces solutions basées sur des modèles d’apprentissage profond sont idéales pour répondre aux besoins créatifs à grande échelle tout en maintenant une qualité exceptionnelle.
+              Les entreprises investissent de plus en plus dans l’intelligence artificielle. Cependant, de nombreuses initiatives échouent à atteindre leurs objectifs en raison d'une planification inadéquate ou d'un manque d'expertise technique. Notre service d'audit en IA vise à évaluer vos stratégies actuelles et à identifier les opportunités d'amélioration.
             </p>
-            <ul className={styles.sectionList}>
-              <li>
-                <strong>Qualité et cohérence :</strong> Assurer une production homogène répondant aux standards de l’entreprise.
-              </li>
-              <li>
-                <strong>Personnalisation :</strong> Adapter les contenus générés aux besoins spécifiques des utilisateurs ou des marchés cibles.
-              </li>
-              <li>
-                <strong>Contrôle et éthique :</strong> Gérer les biais algorithmiques pour garantir des résultats fiables et inclusifs.
-              </li>
-            </ul>
           </section>
 
           {/* Défis */}
@@ -116,13 +105,16 @@ export default function IAGenerative() {
             <h2 className={styles.sectionTitle}>Défis</h2>
             <ul className={styles.sectionList}>
               <li>
-                <strong>Volume élevé de contenus :</strong> Générer rapidement un grand nombre de créations uniques.
+                <strong>Alignement stratégique :</strong> Assurer que l'IA soutient vos objectifs d'affaires.
               </li>
               <li>
-                <strong>Optimisation des ressources :</strong> Réduire les coûts tout en augmentant la production.
+                <strong>Évaluation des données :</strong> Garantir que vos données sont prêtes pour des solutions IA efficaces.
               </li>
               <li>
-                <strong>Conformité réglementaire :</strong> Respecter les règles de copyright et d’utilisation des données.
+                <strong>Optimisation des algorithmes :</strong> Identifier les inefficacités dans vos modèles IA existants.
+              </li>
+              <li>
+                <strong>Conformité réglementaire :</strong> Veiller à ce que vos projets respectent les normes en vigueur.
               </li>
             </ul>
           </section>
@@ -131,13 +123,13 @@ export default function IAGenerative() {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Solutions apportées</h2>
             <p className={styles.sectionText}>
-              Nos solutions d’IA Générative sont conçues pour répondre aux besoins des entreprises avec efficacité et créativité :
+              Grâce à notre expertise, nous vous aidons à maximiser la valeur de vos initiatives en IA :
             </p>
             <ul className={styles.sectionList}>
-              <li>Création automatisée de contenus textuels (rapports, articles, e-mails).</li>
-              <li>Génération d’images et de visuels adaptés à votre identité de marque.</li>
-              <li>Personnalisation des contenus pour des campagnes marketing ciblées.</li>
-              <li>Automatisation des tâches chronophages comme la rédaction et l’édition.</li>
+              <li>Analyse complète de vos processus et de vos données.</li>
+              <li>Identification des opportunités de gains d’efficacité.</li>
+              <li>Recommandations stratégiques adaptées à votre secteur.</li>
+              <li>Optimisation des modèles IA pour des performances accrues.</li>
             </ul>
           </section>
 
@@ -146,36 +138,33 @@ export default function IAGenerative() {
             <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
             <ul className={styles.sectionList}>
               <li>
-                <strong>Augmentation de la productivité :</strong> Création rapide et efficace de contenus divers.
+                <strong>Performance accrue :</strong> Maximisation de l’impact de vos solutions IA.
               </li>
               <li>
-                <strong>Réduction des coûts :</strong> Moins de ressources nécessaires pour des résultats équivalents ou supérieurs.
+                <strong>Réduction des risques :</strong> Alignement stratégique et conformité renforcée.
               </li>
               <li>
-                <strong>Qualité constante :</strong> Résultats toujours alignés avec les attentes de l’entreprise.
-              </li>
-              <li>
-                <strong>Innovation renforcée :</strong> Accès à des possibilités créatives inédites.
+                <strong>Décisions éclairées :</strong> Données et modèles optimisés pour soutenir vos objectifs d'affaires.
               </li>
             </ul>
           </section>
 
-          {/* Conclusion */}
+          {/* CTA */}
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Conclusion</h2>
+            <h2 className={styles.sectionTitle}>Améliorez vos projets IA dès aujourd'hui</h2>
             <p className={styles.sectionText}>
-              L’IA Générative ouvre la voie à une nouvelle ère de création automatisée, offrant aux entreprises des outils puissants pour transformer leurs processus et dépasser leurs objectifs. Découvrez comment intégrer ces technologies dans votre organisation.
+              Faites appel à nos experts pour un audit complet de vos initiatives en intelligence artificielle.
             </p>
             <a
               href="/contact"
               className={styles.contextCTA}
-              onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui pour IA Générative")}
+              onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui")}
             >
               Contactez-nous dès aujourd'hui !
             </a>
           </section>
 
-          {/* Boutons supplémentaires */}
+          {/* Actions supplémentaires */}
           <div className={styles.extraActions}>
             <button className={styles.scrollToTop} onClick={scrollToTop}>
               Remonter en haut

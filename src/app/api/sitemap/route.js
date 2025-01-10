@@ -6,6 +6,7 @@ export async function GET() {
     { path: "/contact", changefreq: "daily", priority: "0.8" },
     { path: "/about", changefreq: "daily", priority: "0.8" },
     { path: "/services", changefreq: "daily", priority: "0.8" },
+    { path: "/services/audit-ia", changefreq: "daily", priority: "0.8" },
     { path: "/services/ia-generative", changefreq: "daily", priority: "0.8" },
     { path: "/services/maintenance-predictive", changefreq: "daily", priority: "0.8" },
     { path: "/services/rpa-ia", changefreq: "daily", priority: "0.8" },

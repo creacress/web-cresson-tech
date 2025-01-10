@@ -1,6 +1,8 @@
 // components/TermsOfSale.jsx
 import React from 'react';
-import styles from '../TermsOfSale.module.css';
+import styles from '../styles/TermsOfSale.module.css';
+import React from 'react';
+import Footer from '../component/Footer/Footer';
 
 const TermsOfSale = () => {
   return (
@@ -78,6 +80,7 @@ const TermsOfSale = () => {
           Le Prestataire s’engage à respecter les obligations du RGPD, notamment en matière de collecte, traitement et sécurisation des données personnelles. Pour plus d’informations, contactez <a href="mailto:contact@webcresson.com">contact@webcresson.com</a>.
         </p>
       </section>
+      < Footer />
     </div>
   );
 };

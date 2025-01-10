@@ -1,6 +1,6 @@
 // components/LegalMentions.jsx
 import React from 'react';
-import styles from '../LegalMentions.module.css';
+import styles from '../styles/LegalMentions.module.css';
 import Footer from '../component/Footer/Footer';
 
 const LegalMentions = () => {
@@ -14,7 +14,7 @@ const LegalMentions = () => {
           Notre adresse web : <a href="https://webcresson.com/">https://webcresson.com/</a>
         </p>
         <p className={styles.paragraph}>
-          Le présent site web, accessible à l’adresse <a href="https://webcresson.com/">https://webcresson.com/</a>, est édité par CRESSON Alexis, AUTO ENTREPRENNEUR  au numéro SIREN 910 637 966, au capital de 5 000 euros, dont le siège social est situé au 14 rue Roger Salengro..
+          Le présent site web, accessible à l’adresse <a href="https://webcresson.com/">https://webcresson.com/</a>, est édité par CRESSON Alexis, AUTO ENTREPRENNEUR  au numéro SIREN 910 637 966, au capital de 5 000 euros, dont le siège social est situé au 14 rue Roger Salengro.
         </p>
         <p className={styles.paragraph}>
           Tél : 07 66 02 96 32 – Adresse électronique : alexis@webcresson.com

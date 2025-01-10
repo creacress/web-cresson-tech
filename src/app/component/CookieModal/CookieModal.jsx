@@ -1,7 +1,7 @@
 "use client"; // Activer l'interactivité côté client
 
 import { useState, useEffect } from "react";
-import styles from "../../CookieModal.module.css";
+import styles from "../../styles/CookieModal.module.css";
 
 export default function CookieModal() {
   const [isVisible, setIsVisible] = useState(true);

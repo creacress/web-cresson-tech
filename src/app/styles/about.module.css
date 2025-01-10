@@ -11,6 +11,7 @@
   color: #ffffff;
   position: relative;
 }
+
 .page::before {
   content: "";
   position: absolute;
@@ -21,6 +22,7 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%);
   z-index: 0;
 }
+
 .mainContent {
   z-index: 1;
   width: 100%;
@@ -38,7 +40,8 @@
 }
 
 .hero h1 {
-  font-size: 2rem; /* Uniformisé pour mobile */
+  font-size: 2rem;
+  /* Uniformisé pour mobile */
   color: #00e0ff;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -47,7 +50,8 @@
 }
 
 .heroText {
-  font-size: 1rem; /* Harmonisé avec le reste des paragraphes */
+  font-size: 1rem;
+  /* Harmonisé avec le reste des paragraphes */
   line-height: 1.8;
   color: #dcdcdc;
   max-width: 800px;
@@ -62,7 +66,8 @@
 }
 
 .values h2 {
-  font-size: 2.4rem; /* Cohérence avec les autres titres */
+  font-size: 2.4rem;
+  /* Cohérence avec les autres titres */
   color: #00e0ff;
   margin-bottom: 30px;
 }
@@ -133,7 +138,8 @@
 }
 
 .teamMember img {
-  width: 100px; /* Réduit légèrement pour cohérence mobile */
+  width: 100px;
+  /* Réduit légèrement pour cohérence mobile */
   height: 100px;
   border-radius: 50%;
   margin-bottom: 10px;
@@ -141,20 +147,23 @@
 }
 
 .teamMember h3 {
-  font-size: 1.2rem; /* Harmonisé avec les sous-titres */
+  font-size: 1.2rem;
+  /* Harmonisé avec les sous-titres */
   margin: 10px 0 5px;
   color: #ffab40;
 }
 
 .teamMember p {
-  font-size: 0.9rem; /* Cohérence avec les paragraphes */
+  font-size: 0.9rem;
+  /* Cohérence avec les paragraphes */
   color: #b3b3b3;
 }
 
 /* Section CTA */
 .ctas {
   display: flex;
-  flex-direction: column; /* Empile pour mobile */
+  flex-direction: column;
+  /* Empile pour mobile */
   align-items: center;
   gap: 15px;
   margin-top: 40px;
@@ -163,7 +172,8 @@
 .primaryCta {
   background: linear-gradient(90deg, #00e0ff, #008bb3);
   color: #ffffff;
-  padding: 12px 25px; /* Taille adaptée pour mobile */
+  padding: 12px 25px;
+  /* Taille adaptée pour mobile */
   border-radius: 25px;
   text-decoration: none;
   font-size: 1rem;
@@ -211,7 +221,12 @@
   }
 
   .ctas {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    /* Empile pour mobile */
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
   }
 
   .primaryCta,
@@ -227,6 +242,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

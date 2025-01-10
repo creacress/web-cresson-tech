@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "../contact.module.css";
+import styles from "../styles/contact.module.css";
 import Head from "next/head"; // Import de Head pour les métadonnées dynamiques
 import Script from "next/script"; // Pour les données structurées JSON-LD
 

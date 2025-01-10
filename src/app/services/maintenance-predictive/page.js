@@ -1,7 +1,7 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "@/app/component/Footer/Footer";
-import styles from "../../maitenance-pre.module.css"; // Import des styles centralisés
+import styles from "../../styles/maitenance-pre.module.css"; // Import des styles centralisés
 import Head from "next/head"; // Gestion des métadonnées
 import Script from "next/script"; // Gestion des données structurées JSON-LD
 

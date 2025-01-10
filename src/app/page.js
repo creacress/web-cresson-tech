@@ -1,6 +1,7 @@
-"use client"; // Indique que ce composant est rendu côté client
+"use client";
 
-import styles from "./home.module.css";
+import Head from "next/head";
+import styles from "./styles/home.module.css";
 import Footer from "./component/Footer/Footer";
 import CookieModal from "./component/CookieModal/CookieModal";
 import { useEffect } from "react";
@@ -22,25 +23,53 @@ export default function Home() {
     }
   }, []);
 
-  const handleClickEvent = (label) => {
+  const handleClickEvent = (label, path) => {
     if (typeof window !== "undefined") {
       window.gtag("event", "button_click", {
         event_category: "User Interaction",
         event_label: label,
       });
     }
-    router.push("/services");
+    router.push(path);
   };
 
   return (
-    <div className={styles.page}>
+    <>
+      {/* Meta SEO */}
+      <Head>
+        <title>WebCressonTech - Expert en IA et solutions technologiques</title>
+        <meta
+          name="description"
+          content="WebCressonTech accompagne les entreprises dans leurs projets IA avec des solutions sur mesure : gestion des données, machine learning, et infrastructures modernes."
+        />
+        <meta
+          name="keywords"
+          content="intelligence artificielle, machine learning, deep learning, solutions IA, WebCressonTech"
+        />
+        <meta name="author" content="WebCressonTech" />
+        <meta property="og:title" content="WebCressonTech - Expert en IA" />
+        <meta
+          property="og:description"
+          content="Découvrez nos services IA : Machine Learning, Deep Learning, Intégration SAAS et maintenance."
+        />
+        <meta property="og:image" content="https://www.webcresson.com/Logo_webcressontech.webp" />
+        <meta property="og:url" content="https://www.webcresson.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="WebCressonTech - Expert en IA" />
+        <meta name="twitter:description" content="Découvrez nos solutions IA : Machine Learning, Deep Learning, Intégration SAAS et maintenance." />
+        <meta name="twitter:image" content="https://www.webcresson.com/Logo_webcressontech.webp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      {/* Données structurées JSON-LD */}
       <Script type="application/ld+json" strategy="afterInteractive">
         {`
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Accueil - WebCressonTech",
-            "description": "WebCressonTech aide les entreprises à relever les défis de l'intelligence artificielle avec des solutions sur mesure : gestion des données, infrastructures modernes et outils IA.",
+            "description": "WebCressonTech aide les entreprises à relever les défis de l'intelligence artificielle avec des solutions sur mesure.",
             "url": "https://www.webcresson.com",
             "publisher": {
               "@type": "Organization",
@@ -50,158 +79,191 @@ export default function Home() {
                 "url": "https://www.webcresson.com/Logo_webcressontech.webp"
               }
             },
-            "inLanguage": "fr"
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": [
+                {
+                  "@type": "Service",
+                  "name": "Développement IA",
+                  "description": "Optimisation et extension des solutions IA existantes pour répondre aux nouveaux défis."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Création IA sur mesure",
+                  "description": "Développement de solutions IA personnalisées adaptées à vos besoins."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Audit et Conseil en IA",
+                  "description": "Analyse approfondie et recommandations stratégiques."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Machine Learning et Deep Learning",
+                  "description": "Conception et déploiement de modèles avancés."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Intégration SAAS avec IA",
+                  "description": "Amélioration des solutions SAAS par l'intégration d'IA."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Maintenance des Solutions IA",
+                  "description": "Support continu pour garantir la performance et la pérennité."
+                }
+              ]
+            }
           }
         `}
       </Script>
 
-      <main className={styles.mainContent}>
-        {/* Section Hero */}
-        <section className={styles.hero}>
-          <h1 className={styles.heroTitle_h1}>
-            Votre expert en intelligence artificielle
-          </h1>
-          <p className={styles.heroText}>
-            WebCressonTech vous accompagne dans vos projets IA en offrant une
-            expertise complète : gestion de données, infrastructures modernes
-            et solutions sur mesure adaptées à vos besoins.
-          </p>
-        </section>
+      <div className={styles.page}>
+        <main className={styles.mainContent}>
+          {/* Section Hero */}
+          <section className={styles.hero}>
+            <h1 className={styles.heroTitle}>
+              WebCressonTech : Votre partenaire IA
+            </h1>
+            <p className={styles.heroText}>
+              Offrez à votre entreprise un avantage compétitif grâce à des solutions innovantes en intelligence artificielle.
+            </p>
+            <button
+              className={styles.ctaButton}
+              onClick={() => handleClickEvent("CTA Button - Découvrir nos services", "/services")}
+            >
+              Découvrir nos services
+            </button>
+          </section>
 
-        {/* Section Services */}
-        <section className={styles.services}>
-          <h2 className={styles.servicesTitle}>Nos services IA</h2>
-          <p className={styles.servicesText}>
-            Conception et développement de solutions IA avancées. La
-            transformation numérique est essentielle pour les entreprises
-            modernes. Notre équipe vous aide à intégrer des solutions IA qui
-            transforment vos défis en opportunités.
-          </p>
-          <ul className={styles.servicesList}>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>
-                Développement sur solutions IA existantes
-              </span>
-            </li>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>
-                Création d’intelligence artificielle sur mesure
-              </span>
-            </li>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Audit et conseil en stratégie IA</span>
-            </li>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Machine Learning et Deep Learning</span>
-            </li>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>Intégration SAAS avec IA</span>
-            </li>
-            <li className={styles.serviceItem}>
-              <span className={styles.highlight}>
-                Maintenance et évolution des solutions IA
-              </span>
-            </li>
-          </ul>
-          <button
-            className={styles.ctaButton}
-            onClick={() => handleClickEvent("CTA Button - Nos services")}
-          >
-            Découvrir nos services
-          </button>
-        </section>
+          {/* Section Services */}
+          <section className={styles.services}>
+            <h2 className={styles.sectionTitle}>Nos services IA</h2>
+            <ul className={styles.servicesList}>
+              <li className={styles.serviceItem}>
+                <Image
+                  src="/Développement_IA.webp"
+                  alt="Développement IA"
+                  width={300}
+                  height={300}
+                  className={styles.serviceImage}
+                  onClick={() => window.location.href = "/services"}
+                  />
+                <div className={styles.serviceContent}>
+                  <h3>Développement sur solutions IA existantes</h3>
+                  <p>
+                    Optimisation et extension des systèmes IA pour répondre aux nouveaux défis technologiques.
+                  </p>
+                </div>
+              </li>
+              <li className={styles.serviceItem}>
+                <Image
+                  src="/Création_IA_sur_mesure.webp"
+                  alt="Création IA sur mesure"
+                  width={300}
+                  height={300}
+                  className={styles.serviceImage}
+                  onClick={() => window.location.href = "/services/ia-sur-mesure"}
 
-        {/* Section Projet IA */}
-        <section className={styles.hero}>
-          <h2 className={styles.heroTitle}>
-            Un projet d’intelligence artificielle ?
-          </h2>
-          <p className={styles.heroText}>
-            Nous maîtrisons les outils et technologies de l’intelligence
-            artificielle : Machine Learning, Deep Learning, Vision par
-            Ordinateur, Traitement de Langage Naturel (NLP), Automatisation des
-            Processus...
-          </p>
-          <div className={styles.threeColumns}>
-            <div className={styles.column}>
-              <Image
-                src="/pexels-fauxels-3183150.webp"
-                alt="Discussion sur le projet IA"
-                className={styles.columnImage}
-                width={300}
-                height={200}
-              />
-              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
-                Analyse & Discussion
-              </h3>
-              <p className={styles.columnText}>
-                Identifions ensemble vos besoins pour concevoir une solution
-                adaptée.
-              </p>
-            </div>
-            <div className={styles.column}>
-              <Image
-                src="/pexels-kevin-ku-92347-577585.webp"
-                alt="Création d'une solution IA personnalisée"
-                className={styles.columnImage}
-                width={300}
-                height={200}
-              />
-              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
-                Création & Développement
-              </h3>
-              <p className={styles.columnText}>
-                Exploitez vos données avec des solutions IA personnalisées et
-                fiables.
-              </p>
-            </div>
-            <div className={styles.column}>
-              <Image
-                src="/google-deepmind-tikhtH3QRSQ-unsplash.webp"
-                alt="Transmission et formation sur une solution IA"
-                className={styles.columnImage}
-                width={300}
-                height={200}
-              />
-              <h3 className={`${styles.columnTitle} ${styles.gradientText}`}>
-                Formation & Transmission
-              </h3>
-              <p className={styles.columnText}>
-                Adoptez facilement la solution grâce à nos conseils et
-                formations.
-              </p>
-            </div>
-          </div>
-        </section>
+                />
+                <div className={styles.serviceContent}>
+                  <h3>Création d’intelligence artificielle sur mesure</h3>
+                  <p>
+                    Développement de solutions IA personnalisées adaptées à vos besoins spécifiques.
+                  </p>
+                </div>
+              </li>
+              <li className={styles.serviceItem}>
+                <Image
+                  src="/Audit_IA.webp"
+                  alt="Audit IA"
+                  width={300}
+                  height={300}
+                  className={styles.serviceImage}
+                  onClick={() => window.location.href = "/services/audit-ia"}
+                />
+                <div className={styles.serviceContent}>
+                  <h3>Audit et conseil en stratégie IA</h3>
+                  <p>
+                    Analyse approfondie et recommandations pour réussir votre transformation numérique.
+                  </p>
+                </div>
+              </li>
+              <li className={styles.serviceItem}>
+                <Image
+                  src="/Machine_Learning.webp"
+                  alt="Machine Learning"
+                  width={300}
+                  height={300}
+                  className={styles.serviceImage}
+                  onClick={() => window.location.href = "/services"}
+                />
+                <div className={styles.serviceContent}>
+                  <h3>Machine Learning et Deep Learning</h3>
+                  <p>
+                    Conception et déploiement de modèles d’apprentissage automatique et profond.
+                  </p>
+                </div>
+              </li>
+              <li className={styles.serviceItem}>
+                <Image
+                  src="/Intégration_SAAS.webp"
+                  alt="Intégration SAAS"
+                  width={300}
+                  height={300}
+                  className={styles.serviceImage}
+                  onClick={() => window.location.href = "/services/integration-saas-ia"}
+                />
+                <div className={styles.serviceContent}>
+                  <h3>Intégration SAAS avec IA</h3>
+                  <p>
+                    Amélioration de vos solutions SAAS grâce à l’intégration de technologies d’intelligence artificielle.
+                  </p>
+                </div>
+              </li>
+              <li className={styles.serviceItem}>
+                <Image
+                  src="/Maintenance_IA.webp"
+                  alt="Maintenance IA"
+                  width={300}
+                  height={300}
+                  className={styles.serviceImage}
+                  onClick={() => window.location.href = "/services/maintenance-predictive"}
+                />
+                <div className={styles.serviceContent}>
+                  <h3>Maintenance et évolution des solutions IA</h3>
+                  <p>
+                    Support continu pour garantir la performance et la pérennité de vos solutions IA.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </section>
 
-        {/* Section Pourquoi nous choisir */}
-        <section className={styles.whyChooseUs}>
-          <h2 className={styles.sectionTitle}>Pourquoi choisir WebCressonTech ?</h2>
-          <div className={styles.featuresGrid}>
-            <div className={styles.featureCard}>
-              <h3 className={styles.featureTitle}>Expertise certifiée</h3>
-              <p className={styles.featureText}>
-                Une équipe expérimentée en IA et nouvelles technologies.
-              </p>
+
+          {/* Section Pourquoi nous choisir */}
+          <section className={styles.whyChooseUs}>
+            <h2 className={styles.sectionTitle}>Pourquoi nous choisir ?</h2>
+            <div className={styles.featuresGrid}>
+              <div className={styles.featureCard}>
+                <h3>Expertise certifiée</h3>
+                <p>Une équipe expérimentée en IA et technologies avancées.</p>
+              </div>
+              <div className={styles.featureCard}>
+                <h3>Solutions innovantes</h3>
+                <p>Utilisation des outils les plus modernes.</p>
+              </div>
+              <div className={styles.featureCard}>
+                <h3>Accompagnement</h3>
+                <p>Support complet, de l'idée à la mise en production.</p>
+              </div>
             </div>
-            <div className={styles.featureCard}>
-              <h3 className={styles.featureTitle}>Solutions innovantes</h3>
-              <p className={styles.featureText}>
-                Utilisation des technologies les plus avancées.
-              </p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3 className={styles.featureTitle}>Résultats concrets</h3>
-              <p className={styles.featureText}>
-                Un accompagnement jusqu’à la réussite de vos projets.
-              </p>
-            </div>
-          </div>
+          </section>
+
           <CookieModal />
-        </section>
-
-        <Footer />
-      </main>
-    </div>
+          <Footer />
+        </main>
+      </div>
+    </>
   );
 }

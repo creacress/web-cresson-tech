@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../about.module.css";
+import styles from "../styles/about.module.css";
 import { FaLightbulb, FaHandshake, FaAward, FaUsers, FaLeaf } from "react-icons/fa";
 import Footer from "../component/Footer/Footer";
 import Head from "next/head"; // Import de Head pour les métadonnées dynamiques

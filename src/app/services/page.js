@@ -1,7 +1,7 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "../component/Footer/Footer";
-import styles from "../ServicePage.module.css";
+import styles from "../styles/ServicePage.module.css";
 import Head from "next/head"; // Import pour les métadonnées
 import Script from "next/script"; // Import pour les données structurées JSON-LD
 
@@ -142,4 +142,17 @@ const servicesData = [
     text: "Exploitez la puissance de l’intelligence artificielle pour analyser de vastes volumes de données et obtenir des insights stratégiques. Intégrez ces résultats directement dans vos processus et outils métiers. Nos solutions incluent l'IA d’analyse concurrentielle (pricing dynamique) et l'IA d’analyse sectorielle pour des domaines tels que les RH, les achats ou la comptabilité.",
     link: "/services/pricing-analyse-avancee",
   },
+  {
+    icon: "fa-search",
+    title: "Audit IA",
+    text: "Évaluez et optimisez vos stratégies IA avec notre expertise en audit. Nous vous aidons à identifier vos opportunités technologiques, à améliorer vos modèles existants, et à garantir la conformité réglementaire.",
+    link: "/services/audit-ia",
+  },
+  {
+    icon: "fa-plug",
+    title: "Intégration SAAS avec IA",
+    text: "Améliorez vos outils SAAS grâce à l’intégration de technologies d’intelligence artificielle pour des performances accrues et des fonctionnalités avancées adaptées à vos besoins métiers.",
+    link: "/services/integration-saas-ia",
+  },
 ];
+

@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../../home.module.css";
+import styles from "../../styles/home.module.css";
 import { useRouter } from "next/navigation";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
