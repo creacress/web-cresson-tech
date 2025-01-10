@@ -1,5 +1,4 @@
 const nextConfig = {
-  swcMinify: true,
   images: {
     formats: ['image/webp'], // Active l'optimisation pour les images WebP
   },

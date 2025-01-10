@@ -9,7 +9,18 @@ import { useRouter } from "next/navigation";
 import Script from "next/script";
 import Image from "next/image";
 
-export default function Home() {
+const defaultMeta = {
+  title: "WebCressonTech - Expert en IA et solutions technologiques",
+  description:
+    "WebCressonTech accompagne les entreprises dans leurs projets IA avec des solutions sur mesure : gestion des données, machine learning, et infrastructures modernes.",
+  keywords: "intelligence artificielle, machine learning, deep learning, solutions IA, WebCressonTech",
+  author: "WebCressonTech",
+  image: "https://www.webcresson.com/Logo_webcressontech.webp",
+  url: "https://www.webcresson.com",
+};
+
+export default function Home(meta) {
+  const pageMeta = { ...defaultMeta, ...meta };
   const router = useRouter();
 
   useEffect(() => {
@@ -35,33 +46,22 @@ export default function Home() {
 
   return (
     <>
-      {/* Meta SEO */}
       <Head>
-        <title>WebCressonTech - Expert en IA et solutions technologiques</title>
-        <meta
-          name="description"
-          content="WebCressonTech accompagne les entreprises dans leurs projets IA avec des solutions sur mesure : gestion des données, machine learning, et infrastructures modernes."
-        />
-        <meta
-          name="keywords"
-          content="intelligence artificielle, machine learning, deep learning, solutions IA, WebCressonTech"
-        />
-        <meta name="author" content="WebCressonTech" />
-        <meta property="og:title" content="WebCressonTech - Expert en IA" />
-        <meta
-          property="og:description"
-          content="Découvrez nos services IA : Machine Learning, Deep Learning, Intégration SAAS et maintenance."
-        />
-        <meta property="og:image" content="https://www.webcresson.com/Logo_webcressontech.webp" />
-        <meta property="og:url" content="https://www.webcresson.com" />
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.description} />
+        <meta name="keywords" content={pageMeta.keywords} />
+        <meta name="author" content={pageMeta.author} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:description" content={pageMeta.description} />
+        <meta property="og:image" content={pageMeta.image} />
+        <meta property="og:url" content={pageMeta.url} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="WebCressonTech - Expert en IA" />
-        <meta name="twitter:description" content="Découvrez nos solutions IA : Machine Learning, Deep Learning, Intégration SAAS et maintenance." />
-        <meta name="twitter:image" content="https://www.webcresson.com/Logo_webcressontech.webp" />
+        <meta name="twitter:title" content={pageMeta.title} />
+        <meta name="twitter:description" content={pageMeta.description} />
+        <meta name="twitter:image" content={pageMeta.image} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       {/* Données structurées JSON-LD */}
       <Script type="application/ld+json" strategy="afterInteractive">
         {`
