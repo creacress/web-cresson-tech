@@ -1,7 +1,6 @@
 // components/TermsOfSale.jsx
 import React from 'react';
 import styles from '../styles/TermsOfSale.module.css';
-import React from 'react';
 import Footer from '../component/Footer/Footer';
 
 const TermsOfSale = () => {

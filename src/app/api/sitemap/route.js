@@ -13,6 +13,7 @@ export async function GET() {
     { path: "/services/ia-traitement-images", changefreq: "daily", priority: "0.8" },
     { path: "/services/ia-sur-mesure", changefreq: "daily", priority: "0.8" },
     { path: "/services/ia-archeologie", changefreq: "daily", priority: "0.8" },
+    { path: "/services/integration-saas-ia", changefreq: "daily", priority: "0.8" },
     { path: "/services/pricing-analyse-avancee", changefreq: "daily", priority: "0.8" },
     { path: "/TermsOfSale", changefreq: "daily", priority: "0.8" },
     { path: "/LegalMentions", changefreq: "daily", priority: "0.8" },

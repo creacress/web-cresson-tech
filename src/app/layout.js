@@ -1,15 +1,10 @@
-"use client";
-
 import Header from "./component/Header/Header";
 import "./styles/globals.css";
-import { usePathname } from "next/navigation";
 import Script from "next/script";
 import Head from "next/head";
+import CanonicalLink from "../app/component/CanonicalLink/CanonicalLink";
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.webcresson.com";
-
   return (
     <html lang="fr">
       <Head>
@@ -39,8 +34,6 @@ export default function RootLayout({ children }) {
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
 
-        <link rel="canonical" href={`${baseUrl}${pathname}`} />
-
         {/* Données structurées JSON-LD */}
         <Script type="application/ld+json" strategy="afterInteractive">
           {`
@@ -57,6 +50,7 @@ export default function RootLayout({ children }) {
             }
           `}
         </Script>
+        <CanonicalLink />
       </Head>
       <body>
         {/* Google Analytics */}
