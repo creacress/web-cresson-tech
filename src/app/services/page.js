@@ -1,8 +1,8 @@
 "use client"; // Activer l'interactivité côté client
 
 import Footer from "../component/Footer/Footer";
+import Header from "../component/Header/Header";
 import styles from "../styles/ServicePage.module.css";
-import Head from "next/head"; // Import pour les métadonnées
 import Script from "next/script"; // Import pour les données structurées JSON-LD
 
 export default function Service() {
@@ -18,12 +18,11 @@ export default function Service() {
 
   return (
     <>
-      {/* SEO avec next/head */}
-      <Head>
-        <title>Services - Expertise en Intelligence Artificielle | Cresson Tech</title>
+      <head>
+        <title>Services - Expertise en Intelligence Artificielle | Web Cresson Tech</title>
         <meta
           name="description"
-          content="Découvrez les solutions innovantes de Cresson Tech en intelligence artificielle. Nos expertises couvrent le traitement des données, la création de modèles d'IA et leur intégration pour transformer vos projets."
+          content="Découvrez les solutions innovantes de Web Cresson Tech en intelligence artificielle. Nos expertises couvrent le traitement des données, la création de modèles d'IA et leur intégration pour transformer vos projets."
         />
         <meta property="og:title" content="Nos Services - Expertise en IA" />
         <meta
@@ -40,55 +39,58 @@ export default function Service() {
         />
         <meta name="twitter:image" content="/default-services-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+      </head>
 
-      {/* Données structurées JSON-LD */}
-      <Script type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          "name": "Services en Intelligence Artificielle",
-          "description":
-            "Cresson Tech propose une large gamme de services en intelligence artificielle pour optimiser vos processus métiers et développer des solutions sur mesure.",
-          "url": "https://webcresson.com/services",
-          "itemListElement": servicesData.map((service, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "name": service.title,
-            "description": service.text,
-            "url": `https://webcresson.com/services${service.link}`,
-          })),
-        })}
-      </Script>
+      <body>
 
-      <section className={styles.services}>
-        <h1 className={styles.pageTitle}>
-          Nos solutions et expertises en intelligence artificielle (IA)
-        </h1>
-        <p className={styles.pageDescription}>
-          Chez Cresson Tech, nous proposons une large gamme de solutions basées sur l'IA,
-          adaptées à vos besoins métiers et secteurs spécifiques.
-        </p>
-        <ul className={styles.servicesList}>
-          {servicesData.map((service, index) => (
-            <li className={styles.serviceCard} key={index}>
-              <div className={styles.serviceHeader}>
-                <i className={`fas ${service.icon} ${styles.serviceIcon}`}></i>
-                <h3 className={styles.serviceTitle}>{service.title}</h3>
-              </div>
-              <p className={styles.serviceText}>{service.text}</p>
-              <a
-                href={service.link}
-                className={styles.cardButton}
-                onClick={() => handleLinkClick(service.title)}
-              >
-                En savoir plus
-              </a>
-            </li>
-          ))}
-        </ul>
-        <Footer />
-      </section>
+        {/* Données structurées JSON-LD */}
+        <Script type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Services en Intelligence Artificielle",
+            "description":
+              "Cresson Tech propose une large gamme de services en intelligence artificielle pour optimiser vos processus métiers et développer des solutions sur mesure.",
+            "url": "https://webcresson.com/services",
+            "itemListElement": servicesData.map((service, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: service.title,
+              description: service.text,
+              url: `https://webcresson.com/services${service.link}`,
+            })),
+          })}
+        </Script>
+<Header />
+        <section className={styles.services}>
+          <h1 className={styles.pageTitle}>
+            Nos solutions et expertises en intelligence artificielle (IA)
+          </h1>
+          <p className={styles.pageDescription}>
+            Chez Cresson Tech, nous proposons une large gamme de solutions basées sur l'IA,
+            adaptées à vos besoins métiers et secteurs spécifiques.
+          </p>
+          <ul className={styles.servicesList}>
+            {servicesData.map((service, index) => (
+              <li className={styles.serviceCard} key={index}>
+                <div className={styles.serviceHeader}>
+                  <i className={`fas ${service.icon} ${styles.serviceIcon}`}></i>
+                  <h3 className={styles.serviceTitle}>{service.title}</h3>
+                </div>
+                <p className={styles.serviceText}>{service.text}</p>
+                <a
+                  href={service.link}
+                  className={styles.cardButton}
+                  onClick={() => handleLinkClick(service.title)}
+                >
+                  En savoir plus
+                </a>
+              </li>
+            ))}
+          </ul>
+          <Footer />
+        </section>
+      </body>
     </>
   );
 }
@@ -155,4 +157,3 @@ const servicesData = [
     link: "/services/integration-saas-ia",
   },
 ];
-

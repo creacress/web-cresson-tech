@@ -1,4 +1,3 @@
-import Header from "./component/Header/Header";
 import "./styles/globals.css";
 import Script from "next/script";
 import CanonicalLink from "../app/component/CanonicalLink/CanonicalLink";
@@ -75,8 +74,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Header */}
-        <Header />
+        
 
         {/* Contenu */}
         {children}
