@@ -1,9 +1,9 @@
 /* Conteneur principal */
 .headerNav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Hamburger à gauche, logo centré */
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px;
   background-color: #1a1a1a;
   color: #f5f5f5;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -12,7 +12,19 @@
   z-index: 1000;
 }
 
-/* Hamburger icon */
+/* Logo centré */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo img {
+  height: 80px;
+  max-width: 100%;
+}
+
+/* Menu hamburger */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -28,7 +40,6 @@
   transition: all 0.3s ease;
 }
 
-/* Animation pour le menu ouvert */
 .line.open:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
@@ -41,9 +52,31 @@
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* Menu déroulant */
+/* Icônes des réseaux sociaux */
+.socialIcons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #0077b5;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  transform: scale(1.2);
+  color: #005582;
+}
+
+/* Menu mobile */
 .menu {
-  display: none; /* Masqué par défaut */
+  display: none;
   flex-direction: column;
   position: absolute;
   top: 60px;
@@ -52,12 +85,15 @@
   background-color: #1a1a1a;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
-  z-index: 999;
+}
+
+.menuOpen {
+  display: flex;
 }
 
 .menu a {
-  padding: 15px 0;
-  font-size: 1.2rem;
+  padding: 10px 0;
+  font-size: 1rem;
   color: #f5f5f5;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -68,21 +104,90 @@
   background-color: #333;
 }
 
-/* Menu visible lorsque ouvert */
-.menuOpen {
-  display: flex; /* Passe en flex lorsqu'il est ouvert */
+/* Conteneur pour le bouton et l'icône */
+.ctaContainer {
+  display: flex; /* Met les éléments côte à côte */
+  align-items: center; /* Aligne verticalement */
+  gap: 15px; /* Espacement entre les deux éléments */
 }
+
+/* Icône des réseaux sociaux */
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: #0077b5;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  transform: scale(1.2); /* Agrandir légèrement au survol */
+  color: #005582;
+}
+
+/* Bouton primaire */
+.primaryCta {
+  display: none;
+  background-color: #0077b5;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.primaryCta:hover {
+  background-color: #005582; /* Couleur plus foncée au survol */
+  transform: scale(1.05); /* Zoom léger au survol */
+}
+
 
 /* Media query pour les écrans larges */
 @media (min-width: 768px) {
+
   .hamburger {
-    display: none; /* Cacher le hamburger sur grand écran */
+    display: none; /* Caché en mode desktop */
+  }
+
+  .headerNav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo {
+    position: static; /* Le logo reprend sa place normale */
+    transform: none;
+  }
+  .logo img {
+    height: 150px;
+    max-width: 100%;
+  }
+
+  .primaryCta {
+    display: block; /* Affiché en mode desktop */
+    background-color: #0077b5;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .primaryCta:hover {
+    background-color: #005582;
+    transform: scale(1.05);
   }
 
   .menu {
     display: flex;
     flex-direction: row;
-    position: static; /* Menu horizontal classique */
+    position: static;
     width: auto;
     box-shadow: none;
   }
