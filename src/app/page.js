@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Script from "next/script";
 import Image from "next/image";
 import Header from "./component/Header/Header";
+import ComparisonSection from "./component/ComparisonSection/ComparisonSection";
 
 const defaultMeta = {
   title: "WebCressonTech - Expert en IA et solutions technologiques",
@@ -138,6 +139,7 @@ export default function Home(meta) {
                 Découvrir nos services
               </button>
             </section>
+            <ComparisonSection />
 
             {/* Section Services */}
             <section className={styles.services}>

@@ -42,7 +42,7 @@ export default function Header() {
         {/* Logo centré */}
         <div className="logo">
           <Link href="/">
-            <img src="Logo_webcressontech.webp.webp" alt="Logo CressonTech" />
+            <img src="Logo_webcressontech.webp" alt="Logo CressonTech" />
           </Link>
         </div>
 

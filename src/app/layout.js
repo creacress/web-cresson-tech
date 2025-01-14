@@ -73,9 +73,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-H206EG4TH7');
           `}
         </Script>
-
-        
-
         {/* Contenu */}
         {children}
       </body>
