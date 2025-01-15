@@ -14,7 +14,6 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
-
 const ComparisonChart = () => {
   const [selected, setSelected] = useState('RPA');
 
@@ -30,7 +29,7 @@ const ComparisonChart = () => {
     datasets: [
       {
         label: 'RPA',
-        data: [33.6, 100, 107],
+        data: [33.6, 100, 107.13],
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
