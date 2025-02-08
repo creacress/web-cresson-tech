@@ -1,9 +1,9 @@
-"use client"; // Activer l'interactivité côté client
-
-import Footer from "@/app/component/Footer/Footer";
-import styles from "../../styles/maitenance-pre.module.css"; // Import des styles centralisés
-import Script from "next/script"; // Gestion des données structurées JSON-LD
+"use client";
+import Head from "next/head";
+import Script from "next/script";
 import Header from "@/app/component/Header/Header";
+import Footer from "@/app/component/Footer/Footer";
+import styles from "../../styles/maitenance-pre.module.css";
 
 export default function IntegrationSaasPage() {
   // Fonction pour suivre les clics sur le CTA
@@ -18,8 +18,7 @@ export default function IntegrationSaasPage() {
 
   return (
     <>
-      {/* SEO avec next/head */}
-      <head>
+      <Head>
         <title>Intégration SAAS avec IA - Améliorez vos outils digitaux</title>
         <meta
           name="description"
@@ -46,12 +45,12 @@ export default function IntegrationSaasPage() {
         />
         <meta name="twitter:image" content="/default-og-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
+        <link rel="canonical" href="https://webcresson.com/services/integration-saas" />
+      </Head>
 
-        {/* Données structurées JSON-LD */}
-        <Script type="application/ld+json" strategy="afterInteractive">
-          {`
+      {/* Données structurées JSON-LD */}
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -66,96 +65,97 @@ export default function IntegrationSaasPage() {
                 "url": "https://webcresson.com/Logo_webcressontech.webp",
                 "width": 250,
                 "height": 100
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+33-7-66-02-96-32",
-                  "contactType": "Customer Service",
-                  "email": "contact@webcresson.com",
-                  "availableLanguage": ["French", "English"]
-                  }
-                  },
-                  "category": "Intégration SAAS et IA",
-                  "areaServed": "Global",
-                  "url": "https://webcresson.com/services/integration-saas"
-                  }
-                  `}
-        </Script>
-        <Header />
-        <div className={styles.page}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.mainTitle}>Intégration SAAS avec IA</h1>
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33-7-66-02-96-32",
+                "contactType": "Customer Service",
+                "email": "contact@webcresson.com",
+                "availableLanguage": ["French", "English"]
+              }
+            },
+            "category": "Intégration SAAS et IA",
+            "areaServed": "Global",
+            "url": "https://webcresson.com/services/integration-saas"
+          }
+        `}
+      </Script>
 
-            {/* Contexte */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Contexte</h2>
-              <p className={styles.sectionText}>
-                Les solutions SAAS (Software as a Service) sont au cœur des processus métiers modernes. En intégrant des technologies d’intelligence artificielle, nous révolutionnons les performances et les capacités de ces outils. Nos solutions permettent d’optimiser la gestion des données, de personnaliser les fonctionnalités, et de renforcer l’interopérabilité avec vos systèmes existants.
-              </p>
-              <p className={styles.sectionText}>
-                Les défis typiques auxquels font face les entreprises incluent :
-              </p>
-              <ul className={styles.sectionList}>
-                <li><strong>Manque de personnalisation :</strong> Les solutions génériques ne répondent pas toujours aux besoins spécifiques des entreprises.</li>
-                <li><strong>Volume de données croissant :</strong> Les outils SAAS doivent traiter des données en constante augmentation.</li>
-                <li><strong>Interopérabilité :</strong> Intégrer efficacement des systèmes disparates peut être complexe.</li>
-              </ul>
-            </section>
+      <Header />
+      <main className={styles.page}>
+        <div className={styles.mainContent}>
+          <h1 className={styles.mainTitle}>Intégration SAAS avec IA</h1>
 
-            {/* Défis */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Défis</h2>
-              <ul className={styles.sectionList}>
-                <li><strong>Adaptation aux besoins métiers :</strong> Les outils doivent être flexibles et évolutifs.</li>
-                <li><strong>Automatisation des workflows :</strong> Améliorer l'efficacité opérationnelle grâce à l'automatisation.</li>
-                <li><strong>Sécurité des données :</strong> Garantir la protection des informations sensibles.</li>
-                <li><strong>Conformité réglementaire :</strong> Respecter les normes en vigueur dans chaque secteur.</li>
-              </ul>
-            </section>
+          {/* Contexte */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Contexte</h2>
+            <p className={styles.sectionText}>
+              Les solutions SAAS (Software as a Service) sont au cœur des processus métiers modernes. En intégrant des technologies d’intelligence artificielle, nous révolutionnons les performances et les capacités de ces outils. Nos solutions permettent d’optimiser la gestion des données, de personnaliser les fonctionnalités, et de renforcer l’interopérabilité avec vos systèmes existants.
+            </p>
+            <p className={styles.sectionText}>
+              Les défis typiques auxquels font face les entreprises incluent :
+            </p>
+            <ul className={styles.sectionList}>
+              <li><strong>Manque de personnalisation :</strong> Les solutions génériques ne répondent pas toujours aux besoins spécifiques des entreprises.</li>
+              <li><strong>Volume de données croissant :</strong> Les outils SAAS doivent traiter des données en constante augmentation.</li>
+              <li><strong>Interopérabilité :</strong> Intégrer efficacement des systèmes disparates peut être complexe.</li>
+            </ul>
+          </section>
 
-            {/* Solutions apportées */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Solutions apportées</h2>
-              <p className={styles.sectionText}>
-                Nos solutions d’intégration SAAS avec IA incluent :
-              </p>
-              <ul className={styles.sectionList}>
-                <li>Analyse des besoins pour personnaliser les fonctionnalités SAAS.</li>
-                <li>Automatisation des tâches répétitives grâce à des modèles IA avancés.</li>
-                <li>Intégration fluide entre vos outils SAAS et vos systèmes existants.</li>
-                <li>Tableaux de bord intelligents pour un suivi en temps réel des performances.</li>
-              </ul>
-            </section>
+          {/* Défis */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Défis</h2>
+            <ul className={styles.sectionList}>
+              <li><strong>Adaptation aux besoins métiers :</strong> Les outils doivent être flexibles et évolutifs.</li>
+              <li><strong>Automatisation des workflows :</strong> Améliorer l'efficacité opérationnelle grâce à l'automatisation.</li>
+              <li><strong>Sécurité des données :</strong> Garantir la protection des informations sensibles.</li>
+              <li><strong>Conformité réglementaire :</strong> Respecter les normes en vigueur dans chaque secteur.</li>
+            </ul>
+          </section>
 
-            {/* Résultats */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
-              <ul className={styles.sectionList}>
-                <li><strong>Performances améliorées :</strong> Meilleure gestion des données et des workflows.</li>
-                <li><strong>Flexibilité accrue :</strong> Solutions adaptées à vos besoins spécifiques.</li>
-                <li><strong>Interopérabilité renforcée :</strong> Systèmes connectés pour des opérations simplifiées.</li>
-                <li><strong>Productivité augmentée :</strong> Moins de temps perdu sur des tâches manuelles.</li>
-              </ul>
-            </section>
+          {/* Solutions apportées */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Solutions apportées</h2>
+            <p className={styles.sectionText}>
+              Nos solutions d’intégration SAAS avec IA incluent :
+            </p>
+            <ul className={styles.sectionList}>
+              <li>Analyse des besoins pour personnaliser les fonctionnalités SAAS.</li>
+              <li>Automatisation des tâches répétitives grâce à des modèles IA avancés.</li>
+              <li>Intégration fluide entre vos outils SAAS et vos systèmes existants.</li>
+              <li>Tableaux de bord intelligents pour un suivi en temps réel des performances.</li>
+            </ul>
+          </section>
 
-            {/* Conclusion */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Conclusion</h2>
-              <p className={styles.sectionText}>
-                L’intégration SAAS avec IA représente une opportunité clé pour moderniser vos opérations et améliorer vos performances globales. Contactez-nous pour découvrir comment nous pouvons transformer vos outils SAAS en solutions puissantes et adaptées à vos besoins.
-              </p>
-              <a
-                href="/contact"
-                className={styles.contextCTA}
-                onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui")}
-              >
-                Contactez-nous dès aujourd'hui !
-              </a>
-            </section>
-            <Footer />
-          </div>
+          {/* Résultats */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
+            <ul className={styles.sectionList}>
+              <li><strong>Performances améliorées :</strong> Meilleure gestion des données et des workflows.</li>
+              <li><strong>Flexibilité accrue :</strong> Solutions adaptées à vos besoins spécifiques.</li>
+              <li><strong>Interopérabilité renforcée :</strong> Systèmes connectés pour des opérations simplifiées.</li>
+              <li><strong>Productivité augmentée :</strong> Moins de temps perdu sur des tâches manuelles.</li>
+            </ul>
+          </section>
+
+          {/* Conclusion */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Conclusion</h2>
+            <p className={styles.sectionText}>
+              L’intégration SAAS avec IA représente une opportunité clé pour moderniser vos opérations et améliorer vos performances globales. Contactez-nous pour découvrir comment nous pouvons transformer vos outils SAAS en solutions puissantes et adaptées à vos besoins.
+            </p>
+            <a
+              href="/contact"
+              className={styles.contextCTA}
+              onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui")}
+            >
+              Contactez-nous dès aujourd'hui !
+            </a>
+          </section>
+
+          <Footer />
         </div>
-      </body>
+      </main>
     </>
   );
 }

@@ -12,7 +12,7 @@ export default function ContactForm() {
   const [company, setCompany] = useState('');
   const [comments, setComments] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(null);
-  const [status, setStatus] = useState(null); // "success", "error", or null
+  const [status, setStatus] = useState(null);
 
   // Initialisation de Google Analytics
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ContactForm() {
         window.dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-H206EG4TH7"); // Remplacez par votre ID de suivi
+      gtag("config", "G-H206EG4TH7");
     }
   }, []);
 
@@ -48,7 +48,6 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus("success");
-        // Réinitialiser les champs
         setEmail('');
         setName('');
         setPhone('');
@@ -75,7 +74,7 @@ export default function ContactForm() {
         />
         <meta
           name="keywords"
-          content="contact, intelligence artificielle, solutions IA, services technologiques, formulaire"
+          content="contact, intelligence artificielle, solutions IA, services technologiques, formulaire, Cresson Tech"
         />
         <meta name="author" content="Cresson Tech" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -93,6 +92,8 @@ export default function ContactForm() {
           content="Contactez Cresson Tech pour toute demande sur nos services technologiques et solutions IA."
         />
         <meta name="twitter:image" content="/default-og-image.jpg" />
+        <link rel="canonical" href="https://webcresson.com/contact" />
+        <meta name="robots" content="index, follow" />
       </head>
       <body>
 
@@ -122,18 +123,27 @@ export default function ContactForm() {
               "email": "contact@webcresson.com",
               "areaServed": "FR",
               "availableLanguage": ["French", "English"]
-            }
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "186 boulevard de Créteil",
+              "addressLocality": "Saint-Maur-des-Fossés",
+              "addressRegion": "Île-de-France",
+              "postalCode": "94100",
+              "addressCountry": "FR"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00"
           }
         `}
         </Script>
+
         <Header />
         <div className={styles.contactFormSection}>
           <h1 className={styles.pageTitle}>Contactez-nous</h1>
           <p className={styles.contactText}>
-            Remplissez le formulaire ci-dessous pour nous envoyer votre demande ou pour toute question.
+            Vous avez des questions ou souhaitez en savoir plus sur nos solutions d'intelligence artificielle et nos services ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
           </p>
           <form className={styles.contactForm} onSubmit={handleSubmit}>
-            {/* Champ Email */}
             <div
               className={`${styles.formGroup} ${isValidEmail === false
                 ? styles.error
@@ -151,13 +161,13 @@ export default function ContactForm() {
                 value={email}
                 onChange={handleEmailChange}
                 required
+                aria-describedby="emailHelp"
               />
               {isValidEmail === false && (
-                <small className={styles.errorText}>Email invalide</small>
+                <small id="emailHelp" className={styles.errorText}>Email invalide</small>
               )}
             </div>
 
-            {/* Champ Nom */}
             <div className={styles.formGroup}>
               <label htmlFor="name">Nom Prénom*</label>
               <input
@@ -171,7 +181,6 @@ export default function ContactForm() {
               />
             </div>
 
-            {/* Champ Téléphone */}
             <div className={styles.formGroup}>
               <label htmlFor="phone">Téléphone*</label>
               <input
@@ -185,7 +194,6 @@ export default function ContactForm() {
               />
             </div>
 
-            {/* Sélection Entreprise */}
             <div className={styles.formGroup}>
               <label htmlFor="company">Entreprise*</label>
               <select
@@ -203,7 +211,6 @@ export default function ContactForm() {
               </select>
             </div>
 
-            {/* Champ Commentaires / Sujet */}
             <div className={styles.formGroup}>
               <label htmlFor="comments">Commentaires / Sujet</label>
               <textarea
@@ -216,7 +223,6 @@ export default function ContactForm() {
               ></textarea>
             </div>
 
-            {/* Bouton d'envoi */}
             <button
               type="submit"
               className={styles.submitButton}
@@ -231,7 +237,6 @@ export default function ContactForm() {
             </button>
           </form>
 
-          {/* Messages de statut */}
           {status === "success" && (
             <div className={styles.successMessage}>
               Merci ! Votre message a été envoyé avec succès.

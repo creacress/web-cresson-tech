@@ -1,19 +1,17 @@
-"use client"; // Activer l'interactivité côté client
-
-import Footer from "@/app/component/Footer/Footer";
-import styles from "../../styles/maitenance-pre.module.css"; // Import du CSS centralisé
-import Script from "next/script"; // Pour les données structurées JSON-LD
+"use client";
+import Head from "next/head";
+import Script from "next/script";
 import Header from "@/app/component/Header/Header";
+import Footer from "@/app/component/Footer/Footer";
+import styles from "../../styles/maitenance-pre.module.css";
 
 export default function AuditIAPage() {
-  // Fonction pour remonter en haut de la page
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  // Fonction pour suivre les clics sur le CTA
   const handleCtaClick = (label) => {
     if (typeof window !== "undefined") {
       window.gtag("event", "cta_click", {
@@ -25,8 +23,7 @@ export default function AuditIAPage() {
 
   return (
     <>
-      {/* SEO avec next/head */}
-      <head>
+      <Head>
         <title>Audit IA - Optimisez vos stratégies d'intelligence artificielle</title>
         <meta
           name="description"
@@ -40,7 +37,10 @@ export default function AuditIAPage() {
           property="og:description"
           content="Avec notre service d'audit en IA, identifiez les opportunités et améliorez l'efficacité de vos initiatives d'intelligence artificielle."
         />
-        <meta property="og:url" content="https://webcresson.com/services/audit-ia" />
+        <meta
+          property="og:url"
+          content="https://webcresson.com/services/audit-ia"
+        />
         <meta property="og:image" content="/default-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -53,13 +53,11 @@ export default function AuditIAPage() {
         />
         <meta name="twitter:image" content="/default-og-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
+        <link rel="canonical" href="https://webcresson.com/services/audit-ia" />
+      </Head>
 
-
-        {/* Données structurées JSON-LD */}
-        <Script type="application/ld+json" strategy="afterInteractive">
-          {`
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -88,97 +86,97 @@ export default function AuditIAPage() {
             "url": "https://webcresson.com/services/audit-ia"
           }
         `}
-        </Script>
-        <Header />
-        <div className={styles.page}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.mainTitle}>Audit IA</h1>
+      </Script>
 
-            {/* Contexte */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Contexte</h2>
-              <p className={styles.sectionText}>
-                Les entreprises investissent de plus en plus dans l’intelligence artificielle. Cependant, de nombreuses initiatives échouent à atteindre leurs objectifs en raison d'une planification inadéquate ou d'un manque d'expertise technique. Notre service d'audit en IA vise à évaluer vos stratégies actuelles et à identifier les opportunités d'amélioration.
-              </p>
-            </section>
+      <Header />
+      <main className={styles.page}>
+        <div className={styles.mainContent}>
+          <h1 className={styles.mainTitle}>Audit IA</h1>
 
-            {/* Défis */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Défis</h2>
-              <ul className={styles.sectionList}>
-                <li>
-                  <strong>Alignement stratégique :</strong> Assurer que l'IA soutient vos objectifs d'affaires.
-                </li>
-                <li>
-                  <strong>Évaluation des données :</strong> Garantir que vos données sont prêtes pour des solutions IA efficaces.
-                </li>
-                <li>
-                  <strong>Optimisation des algorithmes :</strong> Identifier les inefficacités dans vos modèles IA existants.
-                </li>
-                <li>
-                  <strong>Conformité réglementaire :</strong> Veiller à ce que vos projets respectent les normes en vigueur.
-                </li>
-              </ul>
-            </section>
+          {/* Contexte */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Contexte</h2>
+            <p className={styles.sectionText}>
+              Les entreprises investissent de plus en plus dans l’intelligence artificielle. Cependant, de nombreuses initiatives échouent à atteindre leurs objectifs en raison d'une planification inadéquate ou d'un manque d'expertise technique. Notre service d'audit en IA vise à évaluer vos stratégies actuelles et à identifier les opportunités d'amélioration.
+            </p>
+          </section>
 
-            {/* Solutions apportées */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Solutions apportées</h2>
-              <p className={styles.sectionText}>
-                Grâce à notre expertise, nous vous aidons à maximiser la valeur de vos initiatives en IA :
-              </p>
-              <ul className={styles.sectionList}>
-                <li>Analyse complète de vos processus et de vos données.</li>
-                <li>Identification des opportunités de gains d’efficacité.</li>
-                <li>Recommandations stratégiques adaptées à votre secteur.</li>
-                <li>Optimisation des modèles IA pour des performances accrues.</li>
-              </ul>
-            </section>
+          {/* Défis */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Défis</h2>
+            <ul className={styles.sectionList}>
+              <li>
+                <strong>Alignement stratégique :</strong> Assurer que l'IA soutient vos objectifs d'affaires.
+              </li>
+              <li>
+                <strong>Évaluation des données :</strong> Garantir que vos données sont prêtes pour des solutions IA efficaces.
+              </li>
+              <li>
+                <strong>Optimisation des algorithmes :</strong> Identifier les inefficacités dans vos modèles IA existants.
+              </li>
+              <li>
+                <strong>Conformité réglementaire :</strong> Veiller à ce que vos projets respectent les normes en vigueur.
+              </li>
+            </ul>
+          </section>
 
-            {/* Résultats */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
-              <ul className={styles.sectionList}>
-                <li>
-                  <strong>Performance accrue :</strong> Maximisation de l’impact de vos solutions IA.
-                </li>
-                <li>
-                  <strong>Réduction des risques :</strong> Alignement stratégique et conformité renforcée.
-                </li>
-                <li>
-                  <strong>Décisions éclairées :</strong> Données et modèles optimisés pour soutenir vos objectifs d'affaires.
-                </li>
-              </ul>
-            </section>
+          {/* Solutions apportées */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Solutions apportées</h2>
+            <p className={styles.sectionText}>
+              Grâce à notre expertise, nous vous aidons à maximiser la valeur de vos initiatives en IA :
+            </p>
+            <ul className={styles.sectionList}>
+              <li>Analyse complète de vos processus et de vos données.</li>
+              <li>Identification des opportunités de gains d’efficacité.</li>
+              <li>Recommandations stratégiques adaptées à votre secteur.</li>
+              <li>Optimisation des modèles IA pour des performances accrues.</li>
+            </ul>
+          </section>
 
-            {/* CTA */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Améliorez vos projets IA dès aujourd'hui</h2>
-              <p className={styles.sectionText}>
-                Faites appel à nos experts pour un audit complet de vos initiatives en intelligence artificielle.
-              </p>
-              <a
-                href="/contact"
-                className={styles.contextCTA}
-                onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui")}
-              >
-                Contactez-nous dès aujourd'hui !
-              </a>
-            </section>
+          {/* Résultats */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
+            <ul className={styles.sectionList}>
+              <li>
+                <strong>Performance accrue :</strong> Maximisation de l’impact de vos solutions IA.
+              </li>
+              <li>
+                <strong>Réduction des risques :</strong> Alignement stratégique et conformité renforcée.
+              </li>
+              <li>
+                <strong>Décisions éclairées :</strong> Données et modèles optimisés pour soutenir vos objectifs d'affaires.
+              </li>
+            </ul>
+          </section>
 
-            {/* Actions supplémentaires */}
-            <div className={styles.extraActions}>
-              <button className={styles.scrollToTop} onClick={scrollToTop}>
-                Remonter en haut
-              </button>
-              <a href="/services" className={styles.otherServices}>
-                Voir d'autres services
-              </a>
-            </div>
-            <Footer />
+          {/* CTA */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Améliorez vos projets IA dès aujourd'hui</h2>
+            <p className={styles.sectionText}>
+              Faites appel à nos experts pour un audit complet de vos initiatives en intelligence artificielle.
+            </p>
+            <a
+              href="/contact"
+              className={styles.contextCTA}
+              onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui")}
+            >
+              Contactez-nous dès aujourd'hui !
+            </a>
+          </section>
+
+          {/* Actions supplémentaires */}
+          <div className={styles.extraActions}>
+            <button className={styles.scrollToTop} onClick={scrollToTop}>
+              Remonter en haut
+            </button>
+            <a href="/services" className={styles.otherServices}>
+              Voir d'autres services
+            </a>
           </div>
         </div>
-      </body>
+      </main>
+      <Footer />
     </>
   );
 }

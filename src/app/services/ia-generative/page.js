@@ -1,19 +1,17 @@
-"use client"; // Activer l'interactivité côté client
-
-import Footer from "@/app/component/Footer/Footer";
-import styles from "../../styles/maitenance-pre.module.css"; // Import du CSS centralisé
-import Script from "next/script"; // Pour les données structurées JSON-LD
+"use client";
+import Head from "next/head";
+import Script from "next/script";
 import Header from "@/app/component/Header/Header";
+import Footer from "@/app/component/Footer/Footer";
+import styles from "../../styles/maitenance-pre.module.css";
 
 export default function IAGenerative() {
-  // Fonction pour remonter en haut de la page
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  // Fonction pour suivre les clics sur le CTA
   const handleCtaClick = (label) => {
     if (typeof window !== "undefined") {
       window.gtag("event", "cta_click", {
@@ -25,8 +23,7 @@ export default function IAGenerative() {
 
   return (
     <>
-      {/* SEO avec next/head */}
-      <head>
+      <Head>
         <title>IA Générative - Boostez votre créativité et votre productivité</title>
         <meta
           name="description"
@@ -40,7 +37,10 @@ export default function IAGenerative() {
           property="og:description"
           content="L’IA Générative révolutionne la création de contenus : textes, images, vidéos, et plus. Découvrez nos solutions innovantes pour votre entreprise."
         />
-        <meta property="og:url" content="https://webcresson.com/services/ia-generative" />
+        <meta
+          property="og:url"
+          content="https://webcresson.com/services/ia-generative"
+        />
         <meta property="og:image" content="/default-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -53,12 +53,14 @@ export default function IAGenerative() {
         />
         <meta name="twitter:image" content="/default-og-image.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
+        <link
+          rel="canonical"
+          href="https://webcresson.com/services/ia-generative"
+        />
+      </Head>
 
-        {/* Données structurées JSON-LD */}
-        <Script type="application/ld+json" strategy="afterInteractive">
-          {`
+      <Script type="application/ld+json" strategy="afterInteractive">
+        {`
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -73,122 +75,121 @@ export default function IAGenerative() {
                 "url": "https://webcresson.com/Logo_webcressontech.webp",
                 "width": 250,
                 "height": 100
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+33-7-66-02-96-32",
-                  "contactType": "Customer Service",
-                  "email": "contact@webcresson.com",
-                  "availableLanguage": ["French", "English"]
-                  }
-                  },
-                  "category": "Création de contenu avec Intelligence Artificielle",
-                  "areaServed": "Global",
-                  "url": "https://webcresson.com/services/ia-generative"
-                  }
-                  `}
-        </Script>
-            <Header/>
-        <div className={styles.page}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.mainTitle}>IA Générative</h1>
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33-7-66-02-96-32",
+                "contactType": "Customer Service",
+                "email": "contact@webcresson.com",
+                "availableLanguage": ["French", "English"]
+              }
+            },
+            "category": "Création de contenu avec Intelligence Artificielle",
+            "areaServed": "Global",
+            "url": "https://webcresson.com/services/ia-generative"
+          }
+        `}
+      </Script>
 
-            {/* Contexte */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Contexte</h2>
-              <p className={styles.sectionText}>
-                L’IA Générative révolutionne la création de contenus en permettant aux entreprises de générer automatiquement des textes, des images, des vidéos et bien plus encore. Ces solutions basées sur des modèles d’apprentissage profond sont idéales pour répondre aux besoins créatifs à grande échelle tout en maintenant une qualité exceptionnelle.
-              </p>
-              <ul className={styles.sectionList}>
-                <li>
-                  <strong>Qualité et cohérence :</strong> Assurer une production homogène répondant aux standards de l’entreprise.
-                </li>
-                <li>
-                  <strong>Personnalisation :</strong> Adapter les contenus générés aux besoins spécifiques des utilisateurs ou des marchés cibles.
-                </li>
-                <li>
-                  <strong>Contrôle et éthique :</strong> Gérer les biais algorithmiques pour garantir des résultats fiables et inclusifs.
-                </li>
-              </ul>
-            </section>
+      <Header />
+      <main className={styles.page}>
+        <div className={styles.mainContent}>
+          <h1 className={styles.mainTitle}>IA Générative</h1>
 
-            {/* Défis */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Défis</h2>
-              <ul className={styles.sectionList}>
-                <li>
-                  <strong>Volume élevé de contenus :</strong> Générer rapidement un grand nombre de créations uniques.
-                </li>
-                <li>
-                  <strong>Optimisation des ressources :</strong> Réduire les coûts tout en augmentant la production.
-                </li>
-                <li>
-                  <strong>Conformité réglementaire :</strong> Respecter les règles de copyright et d’utilisation des données.
-                </li>
-              </ul>
-            </section>
+          {/* Contexte */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Contexte</h2>
+            <p className={styles.sectionText}>
+              L’IA Générative révolutionne la création de contenus en permettant aux entreprises de générer automatiquement des textes, images, vidéos...
+            </p>
+            <ul className={styles.sectionList}>
+              <li>
+                <strong>Qualité et cohérence :</strong> Production homogène répondant aux standards.
+              </li>
+              <li>
+                <strong>Personnalisation :</strong> Adaptation aux besoins spécifiques.
+              </li>
+              <li>
+                <strong>Contrôle et éthique :</strong> Gestion des biais pour des résultats fiables.
+              </li>
+            </ul>
+          </section>
 
-            {/* Solutions apportées */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Solutions apportées</h2>
-              <p className={styles.sectionText}>
-                Nos solutions d’IA Générative sont conçues pour répondre aux besoins des entreprises avec efficacité et créativité :
-              </p>
-              <ul className={styles.sectionList}>
-                <li>Création automatisée de contenus textuels (rapports, articles, e-mails).</li>
-                <li>Génération d’images et de visuels adaptés à votre identité de marque.</li>
-                <li>Personnalisation des contenus pour des campagnes marketing ciblées.</li>
-                <li>Automatisation des tâches chronophages comme la rédaction et l’édition.</li>
-              </ul>
-            </section>
+          {/* Défis */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Défis</h2>
+            <ul className={styles.sectionList}>
+              <li>
+                <strong>Volume élevé :</strong> Génération rapide de nombreux contenus uniques.
+              </li>
+              <li>
+                <strong>Optimisation :</strong> Réduire les coûts tout en augmentant la production.
+              </li>
+              <li>
+                <strong>Conformité :</strong> Respect des règles de copyright et d’utilisation des données.
+              </li>
+            </ul>
+          </section>
 
-            {/* Résultats */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
-              <ul className={styles.sectionList}>
-                <li>
-                  <strong>Augmentation de la productivité :</strong> Création rapide et efficace de contenus divers.
-                </li>
-                <li>
-                  <strong>Réduction des coûts :</strong> Moins de ressources nécessaires pour des résultats équivalents ou supérieurs.
-                </li>
-                <li>
-                  <strong>Qualité constante :</strong> Résultats toujours alignés avec les attentes de l’entreprise.
-                </li>
-                <li>
-                  <strong>Innovation renforcée :</strong> Accès à des possibilités créatives inédites.
-                </li>
-              </ul>
-            </section>
+          {/* Solutions apportées */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Solutions apportées</h2>
+            <p className={styles.sectionText}>
+              Nos solutions d’IA Générative répondent aux besoins des entreprises avec efficacité et créativité :
+            </p>
+            <ul className={styles.sectionList}>
+              <li>Création automatisée de contenus textuels (rapports, articles, e-mails).</li>
+              <li>Génération d’images et de visuels adaptés à votre identité de marque.</li>
+              <li>Personnalisation pour des campagnes marketing ciblées.</li>
+              <li>Automatisation des tâches chronophages.</li>
+            </ul>
+          </section>
 
-            {/* Conclusion */}
-            <section className={styles.section}>
-              <h2 className={styles.sectionTitle}>Conclusion</h2>
-              <p className={styles.sectionText}>
-                L’IA Générative ouvre la voie à une nouvelle ère de création automatisée, offrant aux entreprises des outils puissants pour transformer leurs processus et dépasser leurs objectifs. Découvrez comment intégrer ces technologies dans votre organisation.
-              </p>
-              <a
-                href="/contact"
-                className={styles.contextCTA}
-                onClick={() => handleCtaClick("Contactez-nous dès aujourd'hui pour IA Générative")}
-              >
-                Contactez-nous dès aujourd'hui !
-              </a>
-            </section>
+          {/* Résultats */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Résultats obtenus</h2>
+            <ul className={styles.sectionList}>
+              <li>
+                <strong>Augmentation de la productivité :</strong> Création rapide et efficace de contenus.
+              </li>
+              <li>
+                <strong>Réduction des coûts :</strong> Moins de ressources pour des résultats supérieurs.
+              </li>
+              <li>
+                <strong>Qualité constante :</strong> Des résultats toujours alignés avec vos attentes.
+              </li>
+              <li>
+                <strong>Innovation renforcée :</strong> Possibilités créatives inédites.
+              </li>
+            </ul>
+          </section>
 
-            {/* Boutons supplémentaires */}
-            <div className={styles.extraActions}>
-              <button className={styles.scrollToTop} onClick={scrollToTop}>
-                Remonter en haut
-              </button>
-              <a href="/services" className={styles.otherServices}>
-                Voir d'autres services
-              </a>
-            </div>
-            <Footer />
+          {/* Conclusion */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Conclusion</h2>
+            <p className={styles.sectionText}>
+              L’IA Générative ouvre la voie à une nouvelle ère de création automatisée. Découvrez comment intégrer ces technologies dans votre organisation.
+            </p>
+            <a
+              href="/contact"
+              className={styles.contextCTA}
+              onClick={() => handleCtaClick("Contactez-nous pour IA Générative")}
+            >
+              Contactez-nous dès aujourd'hui !
+            </a>
+          </section>
+
+          <div className={styles.extraActions}>
+            <button className={styles.scrollToTop} onClick={scrollToTop}>
+              Remonter en haut
+            </button>
+            <a href="/services" className={styles.otherServices}>
+              Voir d'autres services
+            </a>
           </div>
         </div>
-      </body>
+      </main>
+      <Footer />
     </>
   );
 }

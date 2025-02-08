@@ -62,7 +62,9 @@ export default function Home(meta) {
         <meta name="twitter:image" content={pageMeta.image} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={pageMeta.url} />
       </head>
+
       <body>
 
         {/* Données structurées JSON-LD */}
@@ -80,45 +82,45 @@ export default function Home(meta) {
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://www.webcresson.com/Logo_webcressontech.webp"
-                }
+              }
+            },
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": [
+                {
+                  "@type": "Service",
+                  "name": "Développement IA",
+                  "description": "Optimisation et extension des solutions IA existantes pour répondre aux nouveaux défis."
                 },
-                "mainEntity": {
-                  "@type": "ItemList",
-                  "itemListElement": [
-                    {
-                      "@type": "Service",
-                      "name": "Développement IA",
-                      "description": "Optimisation et extension des solutions IA existantes pour répondre aux nouveaux défis."
-                      },
-                      {
-                        "@type": "Service",
-                        "name": "Création IA sur mesure",
-                        "description": "Développement de solutions IA personnalisées adaptées à vos besoins."
-                        },
-                        {
-                          "@type": "Service",
-                          "name": "Audit et Conseil en IA",
-                          "description": "Analyse approfondie et recommandations stratégiques."
-                          },
-                          {
-                            "@type": "Service",
-                            "name": "Machine Learning et Deep Learning",
-                            "description": "Conception et déploiement de modèles avancés."
-                            },
-                            {
-                              "@type": "Service",
-                              "name": "Intégration SAAS avec IA",
-                              "description": "Amélioration des solutions SAAS par l'intégration d'IA."
-                              },
-                              {
-                                "@type": "Service",
-                                "name": "Maintenance des Solutions IA",
-                                "description": "Support continu pour garantir la performance et la pérennité."
-                                }
-                                ]
-                                }
-                                }
-                                `}
+                {
+                  "@type": "Service",
+                  "name": "Création IA sur mesure",
+                  "description": "Développement de solutions IA personnalisées adaptées à vos besoins."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Audit et Conseil en IA",
+                  "description": "Analyse approfondie et recommandations stratégiques."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Machine Learning et Deep Learning",
+                  "description": "Conception et déploiement de modèles avancés."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Intégration SAAS avec IA",
+                  "description": "Amélioration des solutions SAAS par l'intégration d'IA."
+                },
+                {
+                  "@type": "Service",
+                  "name": "Maintenance des Solutions IA",
+                  "description": "Support continu pour garantir la performance et la pérennité."
+                }
+              ]
+            }
+          }
+          `}
         </Script>
 
         <Header />
@@ -139,6 +141,7 @@ export default function Home(meta) {
                 Découvrir nos services
               </button>
             </section>
+
             <ComparisonSection />
 
             {/* Section Services */}
@@ -169,7 +172,6 @@ export default function Home(meta) {
                     height={300}
                     className={styles.serviceImage}
                     onClick={() => window.location.href = "/services/ia-sur-mesure"}
-
                   />
                   <div className={styles.serviceContent}>
                     <h3>Création d’intelligence artificielle sur mesure</h3>
@@ -244,7 +246,6 @@ export default function Home(meta) {
                 </li>
               </ul>
             </section>
-
 
             {/* Section Pourquoi nous choisir */}
             <section className={styles.whyChooseUs}>
