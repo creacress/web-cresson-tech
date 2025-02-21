@@ -9,6 +9,12 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
+const baseConfig = [...compat.extends("next/core-web-vitals")];
 
-export default eslintConfig;
+// Supprime la clé "parse" qui contient une fonction pour éviter l'erreur de sérialisation
+const cleanConfig = baseConfig.map((config) => {
+  const { parse, ...rest } = config;
+  return rest;
+});
+
+export default cleanConfig;
