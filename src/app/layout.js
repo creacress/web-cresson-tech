@@ -28,8 +28,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body>
+      <head>
+        {/* Meta Robots pour forcer l'indexation */}
+        <meta name="robots" content="index, follow" />
+        {/* Tu peux déplacer ton CanonicalLink ici si nécessaire */}
         <CanonicalLink />
+      </head>
+      <body>
         {/* JSON-LD pour les données structurées */}
         <Script type="application/ld+json" strategy="afterInteractive">
           {`
