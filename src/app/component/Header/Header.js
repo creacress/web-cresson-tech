@@ -46,7 +46,6 @@ export default function Header() {
           </Link>
         </div>
 
-
         {/* Menu de navigation */}
         <div
           id="navigationMenu"
@@ -91,7 +90,6 @@ export default function Header() {
             Contacter un expert
           </a>
         </div>
-
       </nav>
     </header>
   );
